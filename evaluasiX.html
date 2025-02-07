@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Interaktif</title>
+</head>
+<body>
+    <h2 id="question">Pertanyaan akan muncul di sini</h2>
+    <div id="answers"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <h3 id="score" style="display: none;">Skor Anda: 0</h3>
+    <h3>Riwayat Skor:</h3>
+    <ul id="scoreHistory"></ul>
+
+    <script>
+        const questions = [
+            { question: "Apa warna bendera Indonesia?", answers: ["Merah-Putih", "Biru-Kuning", "Hijau-Kuning"], correct: "Merah-Putih" },
+            { question: "Siapa Presiden pertama Indonesia?", answers: ["Soekarno", "Suharto", "Jokowi"], correct: "Soekarno" },
+            { question: "Apa lambang negara Indonesia?", answers: ["Garuda Pancasila", "Burung Merak", "Macan Asia"], correct: "Garuda Pancasila" }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = "";
+
+        function loadQuestion() {
+            document.getElementById("question").innerText = questions[currentQuestion].question;
+            let answersHTML = "";
+            questions[currentQuestion].answers.forEach(answer => {
+                answersHTML += `<button onclick="selectAnswer('${answer}')">${answer}</button> `;
+            });
+            document.getElementById("answers").innerHTML = answersHTML;
+        }
+
+        function selectAnswer(answer) {
+            selectedAnswer = answer;
+        }
+
+        function nextQuestion() {
+            if (selectedAnswer === questions[currentQuestion].correct) {
+                score += 10;
+            }
+
+            selectedAnswer = ""; 
+
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                document.getElementById("question").innerText = "Kuis Selesai!";
+                document.getElementById("answers").innerHTML = "";
+                document.getElementById("score").innerText = `Skor Anda: ${score}`;
+                document.getElementById("score").style.display = "block";
+                
+                saveScore(score);
+                showScoreHistory();
+            }
+        }
+
+        function saveScore(finalScore) {
+            let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || [];
+            scoreHistory.push(finalScore);
+            localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+        }
+
+        function showScoreHistory() {
+            let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || [];
+            let historyHTML = "";
+            scoreHistory.forEach((s, index) => {
+                historyHTML += `<li>Sesi ${index + 1}: ${s} poin</li>`;
+            });
+            document.getElementById("scoreHistory").innerHTML = historyHTML;
+        }
+
+        loadQuestion();
+        showScoreHistory(); 
+    </script>
+</body>
+</html>
