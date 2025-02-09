@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game Drag & Drop Adat</title>
+    <title>Kegiatan Pembelajaran</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -56,11 +56,6 @@
             color: white;
             border: 2px solid #28a745;
         }
-        .drop-zone.wrong {
-            background-color: #dc3545;
-            color: white;
-            border: 2px solid #dc3545;
-        }
         #message {
             display: none;
             font-size: 20px;
@@ -68,27 +63,39 @@
             color: #28a745;
             margin-top: 20px;
         }
-        #next-button {
+        .button-container {
             display: none;
             margin-top: 20px;
+        }
+        .btn-custom {
             padding: 10px 20px;
             font-size: 18px;
             font-weight: bold;
-            color: white;
-            background-color: #007bff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin: 5px;
         }
-        #next-button:hover {
+        .btn-next {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-next:hover {
             background-color: #0056b3;
+        }
+        .btn-back {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-back:hover {
+            background-color: #b52b39;
         }
     </style>
 </head>
 <body>
 
 <div class="container text-center">
-    <h2 class="mt-4">Keberagaman Budaya Indonesia</h2>
+    <h2 class="mt-4">Keberagaman Budaya Bangsa Indonesia</h2>
     <p>Seret gambar adat ke daerah yang sesuai!</p>
 
     <div class="drag-container" id="drag-container">
@@ -105,7 +112,11 @@
 
     <div id="message">🎉 Selamat... Kamu Hebat! 🎉</div>
 
-    <button id="next-button" onclick="nextStage()">Next</button>
+    <!-- Tombol Next & Back -->
+    <div class="button-container" id="button-container">
+        <button class="btn-custom btn-back" onclick="goBack()">Back</button>
+        <button class="btn-custom btn-next" onclick="nextStage()">Next</button>
+    </div>
 </div>
 
 <script>
@@ -182,15 +193,16 @@
     function checkWin() {
         if (correctCount === 5) {
             document.getElementById("message").style.display = "block";
-            document.getElementById("next-button").style.display = "inline-block";
+            document.getElementById("button-container").style.display = "block";
         }
     }
 
     function nextStage() {
-        window.location.href='level2bhinekatunggalikaX.html'
-        
-        // Bisa diarahkan ke halaman lain seperti:
-        // window.location.href = "halaman_berikutnya.html";
+        window.location.href = "level2bhinekatunggalikaX.html"; // Ganti dengan halaman tujuan
+    }
+
+    function goBack() {
+        window.history.back('bhinekaX.html'); // Kembali ke halaman sebelumnya
     }
 
     // Load gambar secara acak saat halaman dimuat
