@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Drag & Drop Adat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .drag-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .drop-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .drag-item {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: grab;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .drag-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .drop-zone {
+            width: 140px;
+            height: 50px;
+            border: 2px dashed #007bff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #007bff;
+            background-color: white;
+        }
+        .drop-zone.correct {
+            background-color: #28a745;
+            color: white;
+            border: 2px solid #28a745;
+        }
+        .drop-zone.wrong {
+            background-color: #dc3545;
+            color: white;
+            border: 2px solid #dc3545;
+        }
+        #message {
+            display: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 20px;
+        }
+        #next-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #next-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container text-center">
+    <h2 class="mt-4">Keberagaman Budaya Indonesia</h2>
+    <p>Seret gambar adat ke daerah yang sesuai!</p>
+
+    <div class="drag-container" id="drag-container">
+        <!-- Gambar akan diacak melalui JavaScript -->
+    </div>
+
+    <div class="drop-container">
+        <div class="drop-zone" id="drop-padang" ondrop="drop(event, 'Padang')" ondragover="allowDrop(event)">Padang</div>
+        <div class="drop-zone" id="drop-jawa" ondrop="drop(event, 'Jawa')" ondragover="allowDrop(event)">Jawa</div>
+        <div class="drop-zone" id="drop-papua" ondrop="drop(event, 'Papua')" ondragover="allowDrop(event)">Papua</div>
+        <div class="drop-zone" id="drop-bugis" ondrop="drop(event, 'Bugis')" ondragover="allowDrop(event)">Bugis</div>
+        <div class="drop-zone" id="drop-aceh" ondrop="drop(event, 'Aceh')" ondragover="allowDrop(event)">Aceh</div>
+    </div>
+
+    <div id="message">🎉 Selamat... Kamu Hebat! 🎉</div>
+
+    <button id="next-button" onclick="nextStage()">Next</button>
+</div>
+
+<script>
+    let correctCount = 0;
+
+    const items = [
+        { id: "minang", src: "adat minang.png", answer: "Padang" },
+        { id: "jawa", src: "adat jawa.png", answer: "Jawa" },
+        { id: "papua", src: "adat papua.png", answer: "Papua" },
+        { id: "sulawesi", src: "adat sulawesi.png", answer: "Bugis" },
+        { id: "aceh", src: "adat aceh.png", answer: "Aceh" }
+    ];
+
+    function shuffleArray(array) {
+        return array.sort(() => Math.random() - 0.5);
+    }
+
+    function loadImages() {
+        const container = document.getElementById("drag-container");
+        container.innerHTML = "";
+        let shuffledItems = shuffleArray(items);
+
+        shuffledItems.forEach(item => {
+            let div = document.createElement("div");
+            div.classList.add("drag-item");
+            div.setAttribute("draggable", "true");
+            div.setAttribute("id", item.id);
+            div.setAttribute("ondragstart", "drag(event)");
+            
+            let img = document.createElement("img");
+            img.src = item.src;
+            img.alt = item.id;
+
+            div.appendChild(img);
+            container.appendChild(div);
+        });
+    }
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.parentElement.id);
+    }
+
+    function drop(event, correctAnswer) {
+        event.preventDefault();
+        let data = event.dataTransfer.getData("text");
+        let draggedElement = document.getElementById(data);
+        let targetZone = event.target;
+
+        let correctMappings = {
+            "minang": "Padang",
+            "jawa": "Jawa",
+            "papua": "Papua",
+            "sulawesi": "Bugis",
+            "aceh": "Aceh"
+        };
+
+        if (correctMappings[data] === correctAnswer) {
+            targetZone.classList.add("correct");
+            targetZone.innerHTML = "✅ " + correctAnswer;
+            draggedElement.remove(); // Hapus gambar dari DOM
+            targetZone.ondrop = null; // Blokir drop area agar tidak bisa ditimpa
+            correctCount++;
+
+            checkWin();
+        } else {
+            alert("Jawaban Salah! Coba lagi!");
+        }
+    }
+
+    function checkWin() {
+        if (correctCount === 5) {
+            document.getElementById("message").style.display = "block";
+            document.getElementById("next-button").style.display = "inline-block";
+        }
+    }
+
+    function nextStage() {
+        window.location.href='level2bhinekatunggalikaX.html'
+        
+        // Bisa diarahkan ke halaman lain seperti:
+        // window.location.href = "halaman_berikutnya.html";
+    }
+
+    // Load gambar secara acak saat halaman dimuat
+    window.onload = loadImages;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
