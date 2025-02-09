@@ -3,78 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuis Interaktif</title>
+    <title>Drag and Drop Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #dragItem {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            color: white;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: grab;
+        }
+        #dropZone {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-    <h2 id="question">Pertanyaan akan muncul di sini</h2>
-    <div id="answers"></div>
-    <button onclick="nextQuestion()">Next</button>
-    <h3 id="score" style="display: none;">Skor Anda: 0</h3>
-    <h3>Riwayat Skor:</h3>
-    <ul id="scoreHistory"></ul>
+
+    <h2>Drag and Drop Sederhana</h2>
+    <p>Seret kotak biru ke area yang ditentukan</p>
+
+    <div id="dragItem" draggable="true">Seret Saya</div>
+    <div id="dropZone">Letakkan di sini</div>
 
     <script>
-        const questions = [
-            { question: "Apa warna bendera Indonesia?", answers: ["Merah-Putih", "Biru-Kuning", "Hijau-Kuning"], correct: "Merah-Putih" },
-            { question: "Siapa Presiden pertama Indonesia?", answers: ["Soekarno", "Suharto", "Jokowi"], correct: "Soekarno" },
-            { question: "Apa lambang negara Indonesia?", answers: ["Garuda Pancasila", "Burung Merak", "Macan Asia"], correct: "Garuda Pancasila" }
-        ];
+        const dragItem = document.getElementById("dragItem");
+        const dropZone = document.getElementById("dropZone");
 
-        let currentQuestion = 0;
-        let score = 0;
-        let selectedAnswer = "";
+        // Event saat mulai menyeret
+        dragItem.addEventListener("dragstart", (event) => {
+            event.dataTransfer.setData("text", event.target.id);
+        });
 
-        function loadQuestion() {
-            document.getElementById("question").innerText = questions[currentQuestion].question;
-            let answersHTML = "";
-            questions[currentQuestion].answers.forEach(answer => {
-                answersHTML += `<button onclick="selectAnswer('${answer}')">${answer}</button> `;
-            });
-            document.getElementById("answers").innerHTML = answersHTML;
-        }
+        // Event saat elemen berada di atas area drop
+        dropZone.addEventListener("dragover", (event) => {
+            event.preventDefault(); // Mencegah perilaku default agar bisa drop
+        });
 
-        function selectAnswer(answer) {
-            selectedAnswer = answer;
-        }
-
-        function nextQuestion() {
-            if (selectedAnswer === questions[currentQuestion].correct) {
-                score += 10;
-            }
-
-            selectedAnswer = ""; 
-
-            if (currentQuestion < questions.length - 1) {
-                currentQuestion++;
-                loadQuestion();
-            } else {
-                document.getElementById("question").innerText = "Kuis Selesai!";
-                document.getElementById("answers").innerHTML = "";
-                document.getElementById("score").innerText = `Skor Anda: ${score}`;
-                document.getElementById("score").style.display = "block";
-                
-                saveScore(score);
-                showScoreHistory();
-            }
-        }
-
-        function saveScore(finalScore) {
-            let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || [];
-            scoreHistory.push(finalScore);
-            localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
-        }
-
-        function showScoreHistory() {
-            let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || [];
-            let historyHTML = "";
-            scoreHistory.forEach((s, index) => {
-                historyHTML += `<li>Sesi ${index + 1}: ${s} poin</li>`;
-            });
-            document.getElementById("scoreHistory").innerHTML = historyHTML;
-        }
-
-        loadQuestion();
-        showScoreHistory(); 
+        // Event saat elemen dilepaskan
+        dropZone.addEventListener("drop", (event) => {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            dropZone.appendChild(draggedElement);
+            draggedElement.style.cursor = "default";
+            draggedElement.style.backgroundColor = "green";
+            draggedElement.innerText = "Berhasil!";
+        });
     </script>
+
 </body>
 </html>
