@@ -1,137 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPKn Kelas X SMK</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.css" />
+    <title>Materi Bhinneka Tunggal Ika</title>
     <style>
         body {
-            padding: 0%;
-            background-color: #8097ae;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
-
-        .swiper-slide {
-            display: flex;
-            justify-content:center;
-            align-items: center;
-            height:auto; /* Mengatur tinggi slide */
-            width: auto;
-        }
-
-        .slide-content {
+        .container {
+            width: 90%;
+            max-width: 600px;
+            height: 700px;
+            margin: auto;
+            background: white;
             padding: 20px;
-            background-color: rgb(155, 175, 84);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(132, 61, 182, 0.1);
-            width: 100%; /* Mengatur lebar konten slide */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            margin-top: 30px;
         }
-
-        h1,
-        h2,
-        h3 {
-            color: #343a40;
+        .slide {
+            display: none;
+            padding: 20px;
         }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
+        .active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
         }
-
-        .btn-secondary:hover {
-            background-color: #5a6268;
-            border-color: #545b62;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-prev { background: #007bff; color: white; }
+        .btn-next { background: #28a745; color: white; }
+        .btn-prev:disabled, .btn-next:disabled { background: #ccc; cursor: not-allowed; }
     </style>
 </head>
-
 <body>
 
     <div class="container">
-        
-            
-                <div class="swiper">
-                    <div class="swiper-wrapper">
+        <div class="slide active">
+            <h2>Bhinneka Tunggal Ika</h2>
+            <p><b>Artinya:</b> "Berbeda-beda tetapi tetap satu jua".</p>
+            <p>Konsep ini menekankan persatuan dalam keberagaman di Indonesia.</p>
+        </div>
 
-                        <div class="swiper-slide">
-                            <div class="slide-content animate__animated animate__fadeIn">
-                              <ol style="list-style-type: upper-alpha; font-size: 40px;">
-                                <li>Keberagaman dalam Bingkai Bhinneka Tunggal Ika</li>
-                              </ol>
-                                
-                                  <ol>
-                                    <li style="font-size: 20px;">Pengertian Keberagaman: Kondisi di mana terdapat perbedaan dalam suatu masyarakat, baik dari segi suku, agama, ras, budaya, maupun adat istiadat. Indonesia memiliki keberagaman tinggi.</li>
-                                    <li style="font-size: 20px;">Makna Bhinneka Tunggal Ika: Berbeda-beda tetapi tetap satu jua. Semboyan bangsa Indonesia yang menunjukkan persatuan dalam keberagaman.</p></li>
-                                    <li style="font-size: 20px;">Bentuk Keberagaman di Indonesia: Suku bangsa, agama, bahasa daerah, budaya, dan adat istiadat.</p></li>
-                                    <li style="font-size: 20px;">Pentingnya Keberagaman: Keberagaman harus dikelola dengan baik agar tidak menjadi pemicu konflik. Contoh sikap menghargai keberagaman: Tidak membeda-bedakan teman, menghormati budaya lain, menjunjung tinggi toleransi.</p></li>
-                                  </ol>
-                              </div>
-                        </div>
+        <div class="slide">
+            <h2>1. Keberagaman dalam Bhinneka Tunggal Ika</h2>
+            <p>Indonesia memiliki keberagaman suku, budaya, agama, dan bahasa.</p>
+            <p>Keberagaman ini harus dijaga dengan sikap toleransi dan saling menghormati.</p>
+        </div>
 
-                        <div class="swiper-slide">
-                            <div class="slide-content animate__animated animate__fadeIn">
-                              <ol start="2" style="list-style-type: upper-alpha; font-size: 40px;">
-                                <li>Kerja Sama dalam Kehidupan Bermasyarakat</li>
-                              </ol>
-                                <ol style="list-style-type: upper-number; font-size: 20px;">
-                                  <li>Pengertian Kerja Sama: Usaha yang dilakukan bersama untuk mencapai tujuan bersama.</li>
-                                  <li>Bentuk-Bentuk Kerja Sama: Dalam keluarga, di sekolah, dan di masyarakat.</li>
-                                  <li>Manfaat Kerja Sama: Memperkuat persatuan, mempercepat penyelesaian pekerjaan, menciptakan hubungan harmonis, membantu mengatasi perbedaan.</li>
-                                </ol>
+        <div class="slide">
+            <h2>2. Kerja Sama dalam Masyarakat</h2>
+            <p>Kerja sama sangat penting dalam kehidupan bermasyarakat.</p>
+            <p>Contoh: gotong royong, kerja bakti, dan musyawarah.</p>
+        </div>
 
-                            </div>
-                        </div>
+        <div class="slide">
+            <h2>3. Gotong Royong dalam Masyarakat</h2>
+            <p>Gotong royong adalah wujud kerja sama yang mencerminkan nilai kebersamaan.</p>
+            <p>Manfaatnya: mempererat persatuan dan meringankan pekerjaan.</p>
+        </div>
 
-                        <div class="swiper-slide">
-                            <div class="slide-content animate__animated animate__fadeIn">
-                              <ol start="3" style="list-style-type: upper-alpha; font-size: 40px;">
-                                <li>Gotong Royong dalam Kehidupan Masyarakat</li>
-                              </ol>
-                              <ol style="list-style-type: upper-number; font-size: 20px;">
-                                <li>Pengertian Gotong Royong: Kegiatan bekerja bersama-sama untuk mencapai kepentingan bersama tanpa mengharapkan imbalan.</li>
-                                <li>Bentuk-Bentuk Gotong Royong: Di lingkungan keluarga, sekolah, dan masyarakat.</li>
-                                <li>Manfaat Gotong Royong: Mempererat persaudaraan, menumbuhkan solidaritas, meringankan beban pekerjaan, memperkuat persatuan.</li>
-                              </ol>
-                                 
-                            </div>
-                        </div>
+        <div class="slide">
+            <h2>Kesimpulan</h2>
+            <p>Bhinneka Tunggal Ika mengajarkan kita untuk bersatu dalam keberagaman.</p>
+            <p>Kerja sama dan gotong royong adalah bagian dari nilai luhur bangsa.</p>
+        </div>
 
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-
-                <div class="d-flex justify-content-center mt-3">
-                    <a href="bhinekaX.html" class="btn btn-danger">Kembali</a>
-                </div>
-
-           
-       
+        <button class="btn-prev" onclick="prevSlide()" disabled>⬅ Sebelumnya</button>
+        <button class="btn-next" onclick="nextSlide()">Selanjutnya ➡</button>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper('.swiper', {
-            // Optional parameters
-            loop: false,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.btn-prev');
+        const nextButton = document.querySelector('.btn-next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            prevButton.disabled = index === 0;
+            nextButton.disabled = index === slides.length - 1;
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
     </script>
 
 </body>
-
 </html>
