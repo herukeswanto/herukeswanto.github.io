@@ -17,10 +17,10 @@
 </head>
 <body>
 
-    <h2>Silahkan Amati Video Berikut</h2>
+    <h2>Analisis Kasus PPKn</h2>
 
     <!-- Video YouTube -->
-    <iframe id="video" src="https://www.youtube.com/embed/o6GJmKD2JOU" frameborder="0" allowfullscreen></iframe>
+    <iframe id="video" src="https://www.youtube.com/embed/nVRaPzFLVHg" frameborder="0" allowfullscreen></iframe>
 
     <!-- Formulir Analisis -->
     <form id="analysisForm">
@@ -39,7 +39,7 @@
         <p class="question">4. Apa solusi yang dapat diberikan untuk menyelesaikan kasus ini?</p>
         <textarea name="q4" placeholder="Masukkan jawaban..." required></textarea>
 
-        <p class="question">5. Bagaimana hubungan kasus ini dengan nilai-nilai Kebhinekaan?</p>
+        <p class="question">5. Bagaimana hubungan kasus ini dengan nilai-nilai Pancasila?</p>
         <textarea name="q5" placeholder="Masukkan jawaban..." required></textarea>
 
         <button type="submit">Kirim Jawaban</button>
@@ -53,7 +53,7 @@
             let data = {};
             formData.forEach((value, key) => { data[key] = value; });
 
-            fetch("https://script.google.com/macros/s/AKfycbyyr2ujHhiLVvKLyO1hvuKFwRaxoGsmuAerhIPiRXBXMjdmAjZ15Msb2o4upknn_88SSQ/exec", {
+            fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: { "Content-Type": "application/json" }
