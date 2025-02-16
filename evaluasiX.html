@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .options button:hover {
+            background: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        .timer {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Kuis Kebhinekaan</h2>
+        <p id="timer" class="timer">Waktu tersisa: 30 detik</p>
+        <div id="quiz">
+            <p id="question" class="question"></p>
+            <div id="options" class="options"></div>
+            <button id="next" class="hidden">Soal Berikutnya</button>
+        </div>
+        <p id="score" class="hidden"></p>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Apa arti dari semboyan Bhinneka Tunggal Ika?",
+                options: ["Bersatu Kita Teguh", "Berbeda-beda tetapi tetap satu", "Semua Sama di Mata Hukum", "Keanekaragaman Budaya Indonesia"],
+                answer: "Berbeda-beda tetapi tetap satu"
+            },
+            {
+                question: "Siapa yang pertama kali mencetuskan semboyan Bhinneka Tunggal Ika?",
+                options: ["Gajah Mada", "Ken Arok", "Ki Hajar Dewantara", "Sultan Agung"],
+                answer: "Gajah Mada"
+            },
+            {
+                question: "Dimana semboyan Bhinneka Tunggal Ika tertulis pertama kali?",
+                options: ["Kitab Sutasoma", "Prasasti Yupa", "Undang-Undang Dasar 1945", "Kitab Negarakertagama"],
+                answer: "Kitab Sutasoma"
+            },
+            {
+                question: "Semboyan Bhinneka Tunggal Ika digunakan untuk menggambarkan apa?",
+                options: ["Kesatuan ekonomi di Indonesia", "Keberagaman suku, agama, ras, dan budaya di Indonesia", "Kemajuan teknologi di Indonesia", "Keunggulan militer Indonesia"],
+                answer: "Keberagaman suku, agama, ras, dan budaya di Indonesia"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timeLeft = 30;
+        let timer;
+
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const nextButton = document.getElementById("next");
+        const scoreElement = document.getElementById("score");
+        const timerElement = document.getElementById("timer");
+
+        function startTimer() {
+            timeLeft = 30;
+            timerElement.textContent = `Waktu tersisa: ${timeLeft} detik`;
+            timer = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = `Waktu tersisa: ${timeLeft} detik`;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    alert("Waktu habis!");
+                    nextButton.classList.remove("hidden");
+                }
+            }, 1000);
+        }
+
+        function loadQuestion() {
+            clearInterval(timer);
+            startTimer();
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = "";
+            
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => selectAnswer(option);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        function selectAnswer(selectedOption) {
+            clearInterval(timer);
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (selectedOption === correctAnswer) {
+                score++;
+                alert("Jawaban benar!");
+            } else {
+                alert("Jawaban salah!");
+            }
+            nextButton.classList.remove("hidden");
+        }
+
+        nextButton.addEventListener("click", () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+                nextButton.classList.add("hidden");
+            } else {
+                showScore();
+            }
+        });
+
+        function showScore() {
+            document.getElementById("quiz").innerHTML = "";
+            scoreElement.textContent = `Skor Anda: ${score}/${questions.length}`;
+            scoreElement.classList.remove("hidden");
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
