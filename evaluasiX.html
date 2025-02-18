@@ -3,155 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizz</title>
+    <title>Kuis Kebhinekaan</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 20px;
         }
-        .quiz-container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-        }
         .question {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .options button {
-            display: block;
-            width: 100%;
-            margin: 5px 0;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background: #007BFF;
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .options button:hover {
-            background: #0056b3;
+            margin-bottom: 15px;
         }
         .hidden {
             display: none;
-        }
-        .timer {
-            font-size: 16px;
+            color: green;
             font-weight: bold;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <h2>Kuis Kebhinekaan</h2>
-        <p id="timer" class="timer">Waktu tersisa: 30 detik</p>
-        <div id="quiz">
-            <p id="question" class="question"></p>
-            <div id="options" class="options"></div>
-            <button id="next" class="hidden">Soal Berikutnya</button>
+    <h2>Kuis Kebhinekaan</h2>
+    
+    <form id="quizForm">
+        <label>Nama Siswa:</label>
+        <input type="text" id="nama_Siswa" required><br><br>
+
+        <label>Kelas:</label>
+        <input type="text" id="kelas_Siswa" required><br><br>
+
+        <div class="question">
+            <p>1. Apa yang dimaksud dengan keberagaman?</p>
+            <label><input type="radio" name="q1" value="benar"> A. Perbedaan individu dalam satu kelompok</label><br>
+            <label><input type="radio" name="q1" value="salah"> B. Keseragaman dalam masyarakat</label><br>
+            <label><input type="radio" name="q1" value="salah"> C. Kehidupan masyarakat dengan satu budaya</label><br>
+            <label><input type="radio" name="q1" value="salah"> D. Persaingan antarindividu</label><br>
         </div>
-        <p id="score" class="hidden"></p>
-    </div>
+
+        <div class="question">
+            <p>2. Faktor utama yang menyebabkan potensi konflik dalam keberagaman adalah …?</p>
+            <label><input type="radio" name="q2" value="salah"> A. Kesadaran akan pentingnya persatuan</label><br>
+            <label><input type="radio" name="q2" value="benar"> B. Perbedaan dalam suku, agama, dan budaya</label><br>
+            <label><input type="radio" name="q2" value="salah"> C. Sikap toleransi antarwarga</label><br>
+            <label><input type="radio" name="q2" value="salah"> D. Kerja sama antar kelompok</label><br>
+        </div>
+
+        <div class="question">
+            <p>3. Salah satu contoh konflik yang dapat terjadi akibat keberagaman adalah …</p>
+            <label><input type="radio" name="q3" value="salah"> A. Gotong royong antarwarga</label><br>
+            <label><input type="radio" name="q3" value="benar"> B. Tawuran antar pelajar dari sekolah berbeda</label><br>
+            <label><input type="radio" name="q3" value="salah"> C. Pawai budaya yang melibatkan berbagai suku</label><br>
+            <label><input type="radio" name="q3" value="salah"> D. Diskusi terbuka tentang budaya lokal</label><br>
+        </div>
+
+        <div class="question">
+            <p>4. Stereotip dalam masyarakat dapat menyebabkan konflik karena …</p>
+            <label><input type="radio" name="q4" value="salah"> A. Mempererat hubungan antarbudaya</label><br>
+            <label><input type="radio" name="q4" value="salah"> B. Menghargai perbedaan antar kelompok</label><br>
+            <label><input type="radio" name="q4" value="benar"> C. Menyebabkan prasangka negatif terhadap kelompok lain</label><br>
+            <label><input type="radio" name="q4" value="salah"> D. Meningkatkan rasa nasionalisme</label><br>
+        </div>
+
+        <div class="question">
+            <p>5. Perbedaan bahasa dalam masyarakat dapat menimbulkan konflik jika …</p>
+            <label><input type="radio" name="q5" value="benar"> A. Tidak ada upaya saling memahami dan komunikasi yang baik</label><br>
+            <label><input type="radio" name="q5" value="salah"> B. Masyarakat belajar banyak bahasa</label><br>
+            <label><input type="radio" name="q5" value="salah"> C. Bahasa daerah dijadikan bahasa nasional</label><br>
+            <label><input type="radio" name="q5" value="salah"> D. Semua orang menggunakan bahasa yang sama</label><br>
+        </div>
+
+        <div class="question">
+            <p>Salah satu bentuk ketidakadilan sosial yang dapat menimbulkan konflik adalah …</p>
+            <label><input type="radio" name="q6" value="salah"> A. Kesetaraan hak dalam pendidikan</label><br>
+            <label><input type="radio" name="q6" value="benar"> B. Kesenjangan ekonomi antara kelompok masyarakat</label><br>
+            <label><input type="radio" name="q6" value="salah"> C. Toleransi antar umat beragama</label><br>
+            <label><input type="radio" name="q6" value="salah"> D. Kebebasan berpendapat dalam musyawarah</label><br>
+        </div>
+
+        <div class="question">
+            <p>7. Konflik dalam keberagaman dapat dihindari dengan cara …</p>
+            <label><input type="radio" name="q7" value="salah"> A. Memaksakan budaya sendiri pada kelompok lain</label><br>
+            <label><input type="radio" name="q7" value="salah"> B. Menghindari interaksi dengan kelompok lain</label><br>
+            <label><input type="radio" name="q7" value="salah"> C. Memisahkan kelompok masyarakat berdasarkan suku</label><br>
+            <label><input type="radio" name="q7" value="benar"> D. Meningkatkan sikap toleransi dan saling menghormati</label><br>
+        </div>
+
+        <div class="question">
+            <p>8. Salah satu dampak negatif dari konflik akibat keberagaman adalah …</p>
+            <label><input type="radio" name="q8" value="salah"> A. Meningkatnya rasa nasionalisme</label><br>
+            <label><input type="radio" name="q8" value="benar"> B. Perpecahan dalam masyarakat</label><br>
+            <label><input type="radio" name="q8" value="salah"> C. Terjalinnya hubungan yang harmonis</label><br>
+            <label><input type="radio" name="q8" value="salah"> D. Semakin eratnya persatuan antar kelompok</label><br>
+        </div>
+
+        <div class="question">
+            <p>9. Contoh konflik yang timbul akibat fanatisme dalam beragama adalah …</p>
+            <label><input type="radio" name="q9" value="salah"> A. Kerja sama antarumat beragama dalam pembangunan masjid dan gereja</label><br>
+            <label><input type="radio" name="q9" value="benar"> B. Penyebaran hoaks yang menyerang kelompok agama tertentu </label><br>
+            <label><input type="radio" name="q9" value="salah"> C. Pawai budaya dengan melibatkan berbagai keyakinan</label><br>
+            <label><input type="radio" name="q9" value="salah"> D. Musyawarah antarumat beragama</label><br>
+        </div>
+
+        <div class="question">
+            <p>10. Mengapa berita hoaks berpotensi menimbulkan konflik dalam keberagaman?</p>
+            <label><input type="radio" name="q10" value="salah"> A. Karena berita hoaks selalu memberikan informasi yang benar</label><br>
+            <label><input type="radio" name="q10" value="benar"> B. Karena berita hoaks dapat menyebarkan kebencian dan perpecahan</label><br>
+            <label><input type="radio" name="q10" value="salah"> C. Karena berita hoaks mempererat hubungan sosial</label><br>
+            <label><input type="radio" name="q10" value="salah"> D. Karena berita hoaks tidak mempengaruhi masyarakat</label><br>
+        </div>
+
+        <div class="question">
+            <p>11. Upaya untuk mencegah konflik akibat keberagaman dalam kehidupan sehari-hari adalah …</p>
+            <label><input type="radio" name="q11" value="salah"> A.  Mengutamakan kepentingan kelompok sendiri</label><br>
+            <label><input type="radio" name="q11" value="salah"> B. Menghindari interaksi dengan kelompok lain</label><br>
+            <label><input type="radio" name="q11" value="benar"> C. Menanamkan sikap toleransi dalam pergaulan</label><br>
+            <label><input type="radio" name="q11" value="salah"> D. Menyebarkan berita yang belum jelas kebenarannya</label><br>
+        </div>
+
+        <div class="question">
+            <p>12. Salah satu contoh sikap toleransi dalam keberagaman adalah …</p>
+            <label><input type="radio" name="q12" value="salah"> A. Menyebarkan ujaran kebencian terhadap kelompok lain</label><br>
+            <label><input type="radio" name="q12" value="salah"> B. Menyerang kelompok yang memiliki budaya berbeda</label><br>
+            <label><input type="radio" name="q12" value="salah"> C. Memusuhi kelompok yang berbeda pendapat</label><br>
+            <label><input type="radio" name="q12" value="benar"> D. Menghargai perbedaan dan tidak memaksakan kehendak</label><br>
+        </div>
+
+        <div class="question">
+            <p>13. Konflik akibat keberagaman yang tidak terselesaikan dapat berdampak pada …</p>
+            <label><input type="radio" name="q13" value="salah"> A. Meningkatnya kesejahteraan masyarakat</label><br>
+            <label><input type="radio" name="q13" value="benar"> B. Munculnya perpecahan dan ketidakstabilan sosial</label><br>
+            <label><input type="radio" name="q13" value="salah"> C. Meningkatnya persatuan dan kesatuan bangsa</label><br>
+            <label><input type="radio" name="q13" value="salah"> D. Bertambahnya semangat gotong royong</label><br>
+        </div>
+
+        <div class="question">
+            <p>14. Salah satu contoh konflik akibat kesenjangan ekonomi adalah …</p>
+            <label><input type="radio" name="q14" value="salah"> A. Kerja sama antar pengusaha dan buruh</label><br>
+            <label><input type="radio" name="q14" value="salah"> B.  Diskusi tentang peluang usaha di daerah terpencil</label><br>
+            <label><input type="radio" name="q14" value="benar"> C. Bentrokan antara kelompok masyarakat kaya dan miskin</label><br>
+            <label><input type="radio" name="q14" value="salah"> D. Tawuran antar pelajar dari daerah yang berbeda</label><br>
+        </div>
+
+        <div class="question">
+            <p>15. Cara terbaik untuk mengatasi konflik dalam masyarakat adalah …</p>
+            <label><input type="radio" name="q15" value="salah"> A. Memilih kelompok yang paling kuat sebagai pemimpin</label><br>
+            <label><input type="radio" name="q15" value="salah"> B. Memecah masyarakat ke dalam kelompok-kelompok kecil </label><br>
+            <label><input type="radio" name="q15" value="benar"> C. Melakukan dialog dan musyawarah untuk mencapai kesepakatan</label><br>
+            <label><input type="radio" name="q15" value="salah"> D. Menghindari interaksi dengan kelompok lain</label><br>
+        </div>
+
+        <div class="question">
+            <p>16. Konflik dalam keberagaman dapat mengganggu stabilitas ekonomi karena …</p>
+            <label><input type="radio" name="q16" value="salah"> A. Masyarakat lebih produktif saat ada konflik</label><br>
+            <label><input type="radio" name="q16" value="benar"> B. Ketidakstabilan sosial dapat menurunkan investasi dan produktivitas</label><br>
+            <label><input type="radio" name="q16" value="salah"> C. Konflik meningkatkan daya beli masyarakat</label><br>
+            <label><input type="radio" name="q16" value="salah"> D. Banyak investor yang tertarik untuk berinvestasi dalam kondisi konflik</label><br>
+        </div>
+
+        <div class="question">
+            <p>17. Mengapa hukum yang adil penting dalam mengelola konflik akibat keberagaman?</p>
+            <label><input type="radio" name="q17" value="salah"> A. Agar kelompok mayoritas selalu menang</label><br>
+            <label><input type="radio" name="q17" value="benar"> B. Untuk memastikan bahwa semua kelompok mendapatkan perlakuan yang sama</label><br>
+            <label><input type="radio" name="q17" value="salah"> C. Agar konflik terus terjadi tanpa penyelesaian</label><br>
+            <label><input type="radio" name="q17" value="salah"> D. Supaya masyarakat bisa bertindak sendiri tanpa hukum</label><br>
+        </div>
+
+        <div class="question">
+            <p>18. Apa dampak positif dari keberagaman jika dikelola dengan baik?</p>
+            <label><input type="radio" name="q18" value="salah"> A. Memisahkan masyarakat berdasarkan suku</label><br>
+            <label><input type="radio" name="q18" value="salah"> B. Mengurangi interaksi antar kelompok</label><br>
+            <label><input type="radio" name="q18" value="salah"> C. Meningkatkan potensi konflik dalam masyarakat</label><br>
+            <label><input type="radio" name="q18" value="benar"> D. Membantu menciptakan inovasi dan kreativitas</label><br>
+        </div>
+
+        <div class="question">
+            <p>19. Bagaimana cara meningkatkan sikap toleransi di sekolah?</p>
+            <label><input type="radio" name="q19" value="benar"> A. Menghormati teman yang berbeda suku dan agama</label><br>
+            <label><input type="radio" name="q19" value="salah"> B. Memilih teman hanya dari kelompok yang sama</label><br>
+            <label><input type="radio" name="q19" value="salah"> C. Menghindari berinteraksi dengan teman yang berbeda budaya</label><br>
+            <label><input type="radio" name="q19" value="salah"> D. Menyebarkan kebencian terhadap teman yang berbeda pendapat</label><br>
+        </div>
+
+        <div class="question">
+            <p>20. Semboyan "Bhinneka Tunggal Ika" mengajarkan kita untuk …</p>
+            <label><input type="radio" name="q20" value="salah"> A. Memaksakan budaya sendiri kepada orang lain</label><br>
+            <label><input type="radio" name="q20" value="benar"> B. Menghormati perbedaan dan menjaga persatuan</label><br>
+            <label><input type="radio" name="q20" value="salah"> C. Meningkatkan persaingan antar suku dan agama</label><br>
+            <label><input type="radio" name="q20" value="salah"> D. Memisahkan kelompok masyarakat berdasarkan etnis</label><br>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Kirim Jawaban</button>
+    </form>
+
+    <p id="notification" class="hidden">Jawaban Anda telah terkirim!</p>
 
     <script>
-        const questions = [
-            {
-                question: "Apa arti dari semboyan Bhinneka Tunggal Ika?",
-                options: ["Bersatu Kita Teguh", "Berbeda-beda tetapi tetap satu", "Semua Sama di Mata Hukum", "Keanekaragaman Budaya Indonesia"],
-                answer: "Berbeda-beda tetapi tetap satu"
-            },
-            {
-                question: "Siapa yang pertama kali mencetuskan semboyan Bhinneka Tunggal Ika?",
-                options: ["Gajah Mada", "Ken Arok", "Ki Hajar Dewantara", "Sultan Agung"],
-                answer: "Gajah Mada"
-            },
-            {
-                question: "Dimana semboyan Bhinneka Tunggal Ika tertulis pertama kali?",
-                options: ["Kitab Sutasoma", "Prasasti Yupa", "Undang-Undang Dasar 1945", "Kitab Negarakertagama"],
-                answer: "Kitab Sutasoma"
-            },
-            {
-                question: "Semboyan Bhinneka Tunggal Ika digunakan untuk menggambarkan apa?",
-                options: ["Kesatuan ekonomi di Indonesia", "Keberagaman suku, agama, ras, dan budaya di Indonesia", "Kemajuan teknologi di Indonesia", "Keunggulan militer Indonesia"],
-                answer: "Keberagaman suku, agama, ras, dan budaya di Indonesia"
+        function submitQuiz() {
+            let nama_Siswa = document.getElementById("nama_Siswa").value.trim();
+            let kelas_Siswa = document.getElementById("kelas_Siswa").value.trim();
+
+            if (!nama_Siswa || !kelas_Siswa) {
+                alert("Silakan isi nama dan kelas!");
+                return;
             }
-        ];
 
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let timeLeft = 30;
-        let timer;
-
-        const questionElement = document.getElementById("question");
-        const optionsElement = document.getElementById("options");
-        const nextButton = document.getElementById("next");
-        const scoreElement = document.getElementById("score");
-        const timerElement = document.getElementById("timer");
-
-        function startTimer() {
-            timeLeft = 30;
-            timerElement.textContent = `Waktu tersisa: ${timeLeft} detik`;
-            timer = setInterval(() => {
-                timeLeft--;
-                timerElement.textContent = `Waktu tersisa: ${timeLeft} detik`;
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    alert("Waktu habis!");
-                    nextButton.classList.remove("hidden");
+            let answers = {};
+            let score = 0;
+    
+            const questions = document.querySelectorAll('.question');
+            questions.forEach((question, index) => {
+                const selected = question.querySelector('input[type=radio]:checked');
+                if (selected) {
+                    let answer = selected.value;
+                    answers[`Q${index + 1}`] = answer;
+                    if (answer === "benar") {
+                        score += 5;
+                    }
                 }
-            }, 1000);
-        }
-
-        function loadQuestion() {
-            clearInterval(timer);
-            startTimer();
-            const currentQuestion = questions[currentQuestionIndex];
-            questionElement.textContent = currentQuestion.question;
-            optionsElement.innerHTML = "";
-            
-            currentQuestion.options.forEach(option => {
-                const button = document.createElement("button");
-                button.textContent = option;
-                button.onclick = () => selectAnswer(option);
-                optionsElement.appendChild(button);
             });
+
+            let dataToSend = {
+                nama_Siswa: nama_Siswa,
+                kelas_Siswa: kelas_Siswa,
+                answers: answers,
+                score: score
+            };
+
+            console.log("Data yang dikirim:", dataToSend);
+
+                        fetch('https://script.google.com/macros/s/AKfycbx9-0Iqiwh24CfG6gKVONasvs8exWQrSv-5PIYbaQi8hY14BgwTRlr-KDWShPwU_MN5Wg/exec', { 
+                method: 'POST',
+                mode: 'no-cors', // Tambahkan ini untuk menghindari CORS error
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text()) // Gunakan `.text()` karena mode "no-cors" tidak bisa membaca JSON
+            .then(responseData => {
+                console.log('Success:', responseData);
+                document.getElementById("notification").classList.remove("hidden");
+            })
+            .catch(error => console.error('Error:', error));
+
         }
-
-        function selectAnswer(selectedOption) {
-            clearInterval(timer);
-            const correctAnswer = questions[currentQuestionIndex].answer;
-            if (selectedOption === correctAnswer) {
-                score++;
-                alert("Jawaban benar!");
-            } else {
-                alert("Jawaban salah!");
-            }
-            nextButton.classList.remove("hidden");
-        }
-
-        nextButton.addEventListener("click", () => {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                loadQuestion();
-                nextButton.classList.add("hidden");
-            } else {
-                showScore();
-            }
-        });
-
-        function showScore() {
-            document.getElementById("quiz").innerHTML = "";
-            scoreElement.textContent = `Skor Anda: ${score}/${questions.length}`;
-            scoreElement.classList.remove("hidden");
-        }
-
-        loadQuestion();
     </script>
 </body>
 </html>
