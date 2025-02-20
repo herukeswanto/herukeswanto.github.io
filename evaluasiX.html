@@ -17,6 +17,10 @@
             color: green;
             font-weight: bold;
         }
+        .nomor {
+            flex-direction: row;
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +42,10 @@
         </div>
 
         <div class="question">
-            <p>2. Faktor utama yang menyebabkan potensi konflik dalam keberagaman adalah …?</p>
+            <div class="nomor">
+                <p>2.</p>
+                <p>Faktor utama yang menyebabkan potensi konflik dalam keberagaman adalah …?</p>
+            </div>
             <label><input type="radio" name="q2" value="salah"> A. Kesadaran akan pentingnya persatuan</label><br>
             <label><input type="radio" name="q2" value="benar"> B. Perbedaan dalam suku, agama, dan budaya</label><br>
             <label><input type="radio" name="q2" value="salah"> C. Sikap toleransi antarwarga</label><br>
@@ -46,10 +53,17 @@
         </div>
 
         <div class="question">
-            <p>3. Salah satu contoh konflik yang dapat terjadi akibat keberagaman adalah …</p>
+            <div class="nomor">
+                <p>3. </p>
+                <p>Salah satu contoh konflik yang dapat terjadi akibat keberagaman adalah …</p>
+            </div>
             <label><input type="radio" name="q3" value="salah"> A. Gotong royong antarwarga</label><br>
             <label><input type="radio" name="q3" value="benar"> B. Tawuran antar pelajar dari sekolah berbeda</label><br>
-            <label><input type="radio" name="q3" value="salah"> C. Pawai budaya yang melibatkan berbagai suku</label><br>
+            <label style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" name="q3" value="salah"> 
+                <span>C. </span>
+                <span>Pawai budaya yang melibatkan berbagai suku</span>
+            </label>
             <label><input type="radio" name="q3" value="salah"> D. Diskusi terbuka tentang budaya lokal</label><br>
         </div>
 
