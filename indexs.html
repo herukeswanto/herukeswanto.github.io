@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materi Kebhinekaan Bangsa Indonesia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #d4edc9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #e8f8e5;
+      border: 1px solid #bbb;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+    h1 {
+      font-size: 18px;
+      color: #333;
+    }
+    h2 {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background-color: #e68900;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pembelajaran Interaktif</h1>
+    <h3>Mata Pelajaran Pendidikan Pancasila</h3>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Nama" required>
+      <input type="password" id="password" placeholder="Kata Sandi" required>
+      <button type="submit">Log in</button>
+      <p id="errorMessage" class="error"></p>
+    </form>
+  </div>
+
+  <script>
+    // Username dan password yang valid
+    const validUsername = "pancasila";
+    const validPassword = "12345";
+
+    // Menangkap elemen
+    const form = document.getElementById("loginForm");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const errorMessage = document.getElementById("errorMessage");
+
+    // Event listener untuk form
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Mencegah reload halaman
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      if (username === validUsername && password === validPassword) {
+        // Redirect ke halaman lain
+        window.location.href = "halaman1.html"; // Ganti "dashboard.html" dengan nama file tujuan
+      } else {
+        errorMessage.textContent = "Nama atau Kata Sandi salah. Silakan coba lagi.";
+      }
+    });
+  </script>
+</body>
+</html>

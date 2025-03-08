@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KONFLIK POSO - ISLAM DAN KRISTEN</title>
+</head>
+<body>
+
+<h1>KONFLIK POSO<br>ISLAM DAN KRISTEN</h1>
+
+<a href="https://www.youtube.com/watch?v=your_youtube_video_id" target="_blank">Tonton di YouTube</a>
+
+<form id="myForm">
+  <label for="nama_kelompok">Nama Kelompok:</label><br>
+  <input type="text" id="nama_kelompok" name="nama_kelompok"><br><br>
+
+  <label for="inti_permasalahan">1. Apa inti permasalahan dalam video tersebut?</label><br>
+  <textarea id="inti_permasalahan" name="inti_permasalahan"></textarea><br><br>
+
+  <label for="pihak_terlibat">2. Siapa saja pihak yang terlibat dalam kasus tersebut?</label><br>
+  <textarea id="pihak_terlibat" name="pihak_terlibat"></textarea><br><br>
+
+  <label for="pandangan_hukum">3. Bagaimana pandangan hukum terhadap kasus ini?</label><br>
+  <textarea id="pandangan_hukum" name="pandangan_hukum"></textarea><br><br>
+
+  <button type="button" onclick="submitForm()">Kirim</button>
+</form>
+
+<script>
+function submitForm() {
+  // Ambil nilai dari setiap input
+  var nama_kelompok = document.getElementById("nama_kelompok").value;
+  var inti_permasalahan = document.getElementById("inti_permasalahan").value;
+  var pihak_terlibat = document.getElementById("pihak_terlibat").value;
+  var pandangan_hukum = document.getElementById("pandangan_hukum").value;
+
+  // Buat objek JSON untuk data
+  var data = {
+    nama_kelompok: nama_kelompok,
+    inti_permasalahan: inti_permasalahan,
+    pihak_terlibat: pihak_terlibat,
+    pandangan_hukum: pandangan_hukum
+  };
+
+  // Kirim data ke Google Apps Script
+  google.script.run.withSuccessHandler(onSuccess).submitData(data);
+}
+
+function onSuccess() {
+  // Tampilkan pesan sukses
+  alert("Jawaban Anda telah terkirim!");
+
+  // Reset formulir
+  document.getElementById("myForm").reset();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Interaktif</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #9a393b;
+            color: #74c340;
+        }
+        .container {
+            background: rgb(177, 28, 130);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2, h4 {
+            color: #d6dce3;
+        }
+        .btn-primary {
+            background: #490fcf;
+            border: none;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1e539a;
+        }
+        .btn-danger {
+            background: #dc3545;
+            border: none;
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #a71d2a;
+        }
+        .btn-success {
+            background: #1e539a;
+            border: none;
+            color: white;
+        }
+        .btn-success:hover {
+            background: #2fbbe5;
+        }
+    </style>
+</head>
+<body class="container mt-4">
+    <h2 class="text-center">Keberagaman Masyarakat Indonesia</h2>
+    
+    <div id="kuis" class="mt-4 text-center">
+        <h4>Dengarkan dan tuliskan bahasa suku apa yang Anda dengar</h4>
+        
+        <div class="mb-3">
+            <button class="btn btn-primary" onclick="playAudio('bahasa1')">Putar Suara 1</button>
+            <button class="btn btn-danger" onclick="stopAudio('bahasa1')">Stop</button>
+            <audio id="bahasa1" src="XIsunda.mp3"></audio>
+            <input type="text" id="answer1" class="form-control w-50 mx-auto mt-2" placeholder="Tulis jawaban di sini...">
+            <button class="btn btn-success mt-2" onclick="checkAnswer('answer1', 'Sunda')">Cek Jawaban</button>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary" onclick="playAudio('bahasa2')">Putar Suara 2</button>
+            <button class="btn btn-danger" onclick="stopAudio('bahasa2')">Stop</button>
+            <audio id="bahasa2" src="XIpapua.mp3"></audio>
+            <input type="text" id="answer2" class="form-control w-50 mx-auto mt-2" placeholder="Tulis jawaban di sini...">
+            <button class="btn btn-success mt-2" onclick="checkAnswer('answer2', 'Papua')">Cek Jawaban</button>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary" onclick="playAudio('bahasa3')">Putar Suara 3</button>
+            <button class="btn btn-danger" onclick="stopAudio('bahasa3')">Stop</button>
+            <audio id="bahasa3" src="XIpadang.mp3"></audio>
+            <input type="text" id="answer3" class="form-control w-50 mx-auto mt-2" placeholder="Tulis jawaban di sini...">
+            <button class="btn btn-success mt-2" onclick="checkAnswer('answer3', 'Padang')">Cek Jawaban</button>
+        </div>
+    </div>
+    
+    <div class="container mt-2">
+        <h4>Silahkan Tuliskan Komentar </h4>
+        <form id="commentForm">
+            <div class="mb-2">
+                <label for="nama" class="form-label">Nama:</label>
+                <input type="text" id="nama" class="form-control" required>
+            </div>
+            <div class="mb-1">
+                <label for="komentar" class="form-label">Komentar:</label>
+                <textarea id="komentar" class="form-control" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+        <p id="status" class="mt-3"></p>
+    </div>
+
+    <div class="text-center mt-4 d-flex justify-content-between">
+        <a href="XIhalaman2.html" class="btn btn-danger">Kembali</a>
+        <a href="XIpage1pertemuan1.html" class="btn btn-success">Lanjut</a>
+    </div>
+
+    <script>
+        function playAudio(id) {
+            let audio = document.getElementById(id);
+            audio.play();
+        }
+
+        function stopAudio(id) {
+            let audio = document.getElementById(id);
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        function checkAnswer(inputId, correctAnswer) {
+            let userAnswer = document.getElementById(inputId).value.trim();
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                alert("Jawaban Benar! Anda memilih " + correctAnswer);
+            } else {
+                alert("Jawaban Salah! Coba lagi.");
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById("commentForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                let nama = document.getElementById("nama").value;
+                let komentar = document.getElementById("komentar").value;
+
+                let data = { nama: nama, komentar: komentar };
+
+                fetch("https://script.google.com/macros/s/AKfycbwkpjofjODW6sh115S_H-6M3Wn-yuFlRzEIK6e8k4EpvRVD3tedRtNHCGtOxN3DaQo4MA/exec", {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                }).then(() => {
+                    document.getElementById("status").innerHTML = "Komentar berhasil dikirim!";
+                    document.getElementById("commentForm").reset();
+                }).catch(error => {
+                    document.getElementById("status").innerHTML = "Terjadi kesalahan, coba lagi.";
+                });
+            });
+        }
+    </script>
+</body>
+</html>

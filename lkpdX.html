@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Kuis PPKn Interaktif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .quiz-container {
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            background: rgb(227, 185, 185);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            text-align: left;
+        }
+        .option {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        /* Responsif untuk layar lebih kecil */
+        @media (max-width: 600px) {
+            .quiz-container {
+                width: 95%;
+                padding: 10px;
+            }
+            .question {
+                font-size: 16px;
+            }
+            .option {
+                font-size: 14px;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2>Kuis Bhineka tunggal ika</h2>
+        <div class="question" id="question">Loading...</div>
+        <div class="options" id="options"></div>
+        <button onclick="checkAnswer()">Submit Jawaban</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "Dalam suatu sekolah, terdapat siswa dari berbagai daerah dengan budaya yang berbeda. Namun, beberapa siswa hanya mau bergaul dengan teman yang berasal dari daerahnya sendiri. Berdasarkan konsep Bhinneka Tunggal Ika, bagaimana sikap yang seharusnya diterapkan untuk mengatasi permasalahan tersebut?",
+                options: ["Mengadakan kegiatan yang memperkenalkan budaya masing-masing agar saling memahami", "Membiarkan kelompok-kelompok terbentuk secara alami tanpa perlu ada intervensi", "Meminta siswa untuk berinteraksi hanya dengan teman yang memiliki budaya sama"],
+                answer: "Mengadakan kegiatan yang memperkenalkan budaya masing-masing agar saling memahami"
+            },
+            {
+                question: "Di sebuah daerah, masyarakatnya terdiri dari berbagai suku dan agama. Namun, sering terjadi konflik akibat perbedaan pandangan. Berdasarkan prinsip Bhinneka Tunggal Ika, langkah yang paling tepat untuk menciptakan keharmonisan adalah…",
+                options: ["Meningkatkan dialog dan kerja sama antar kelompok masyarakat yang berbeda", "Memisahkan komunitas berdasarkan suku dan agama agar tidak terjadi konflik", "Menyeragamkan budaya agar tidak ada perbedaan yang memicu perselisihan"],
+                answer: "Meningkatkan dialog dan kerja sama antar kelompok masyarakat yang berbeda"
+            },
+            {
+                question: "Dalam rapat desa, terjadi perbedaan pendapat mengenai perayaan hari besar keagamaan di lingkungan yang penduduknya memiliki keyakinan berbeda. Sebagai seorang pemimpin yang memahami nilai Bhinneka Tunggal Ika, apa keputusan terbaik yang dapat diambil?",
+                options: ["Menyusun kebijakan yang adil dengan memberikan kesempatan bagi semua agama merayakan hari besarnya", "Melarang semua bentuk perayaan agar tidak ada perbedaan yang mencolok", "Memilih salah satu perayaan agama yang dominan untuk menghindari konflik"],
+                answer: "Menyusun kebijakan yang adil dengan memberikan kesempatan bagi semua agama merayakan hari besarnya"
+            },
+            {
+                question: "Di media sosial, sering terjadi ujaran kebencian terhadap kelompok dengan latar belakang berbeda. Jika Anda ingin menanamkan nilai Bhinneka Tunggal Ika dalam dunia digital, langkah apa yang sebaiknya dilakukan?",
+                options: ["Menanggapi ujaran kebencian dengan emosi agar tidak dianggap lemah", "Menghindari pembahasan tentang keberagaman untuk mengurangi perdebatan", "Menyebarkan konten positif tentang keberagaman dan toleransi"],
+                answer: "Menyebarkan konten positif tentang keberagaman dan toleransi"
+            },
+            {
+                question: "Sebuah perusahaan multikultural mengalami perbedaan dalam cara kerja karena karyawan berasal dari berbagai daerah dengan kebiasaan yang berbeda. Untuk menerapkan nilai Bhinneka Tunggal Ika, apa strategi terbaik yang dapat dilakukan manajemen?",
+                options: ["Membiarkan perbedaan tanpa aturan yang jelas karena setiap orang berhak dengan caranya sendiri", "Menciptakan budaya kerja yang inklusif dengan mengakomodasi perbedaan budaya", "Mewajibkan semua karyawan mengikuti budaya kerja dari daerah tertentu agar seragam"],
+                answer: "Menciptakan budaya kerja yang inklusif dengan mengakomodasi perbedaan budaya"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let selectedAnswer = "";
+
+        function loadQuestion() {
+            const questionElement = document.getElementById("question");
+            const optionsElement = document.getElementById("options");
+            const resultElement = document.getElementById("result");
+
+            resultElement.innerHTML = "";
+            selectedAnswer = "";
+
+            const currentQuiz = quizData[currentQuestion];
+            questionElement.innerHTML = currentQuiz.question;
+
+            optionsElement.innerHTML = "";
+            currentQuiz.options.forEach(option => {
+                optionsElement.innerHTML += `
+                    <div class="option">
+                        <input type="radio" name="quiz" value="${option}" onclick="selectAnswer('${option}')"> ${option}
+                    </div>
+                `;
+            });
+        }
+
+        function selectAnswer(answer) {
+            selectedAnswer = answer;
+        }
+
+        function checkAnswer() {
+            if (!selectedAnswer) {
+                alert("Pilih jawaban terlebih dahulu!");
+                return;
+            }
+
+            const resultElement = document.getElementById("result");
+            if (selectedAnswer === quizData[currentQuestion].answer) {
+                resultElement.innerHTML = "✅ Jawaban Benar!";
+                resultElement.style.color = "green";
+            } else {
+                resultElement.innerHTML = "❌ Jawaban Salah! Jawaban benar: " + quizData[currentQuestion].answer;
+                resultElement.style.color = "red";
+            }
+
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < quizData.length) {
+                    loadQuestion();
+                } else {
+                    resultElement.innerHTML = "🎉 Kuis Selesai! Terima kasih telah bermain!";
+                    document.getElementById("options").innerHTML = "";
+                }
+            }, 2000);
+        }
+
+        window.onload = loadQuestion;
+    </script>
+
+</body>
+</html>

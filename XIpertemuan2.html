@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kegiatan Pembelajaran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .drag-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .drop-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .drag-item {
+            width: 120px;
+            height: 120px;
+            cursor: grab;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            touch-action: none; /* Perbaikan untuk mobile */
+            position: relative;
+        }
+        .drag-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .drop-zone {
+            width: 140px;
+            height: 50px;
+            border: 2px dashed #007bff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #007bff;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .drop-zone:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .drop-zone.correct {
+            background-color: #28a745;
+            color: white;
+            border: 2px solid #28a745;
+        }
+        #message {
+            display: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: #e723c3;
+            margin-top: 20px;
+        }
+        .button-container {
+            display: none;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+    .home-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.home-button .icon {
+    margin-right: 8px;
+}
+
+.home-button:hover {
+    background-color: darkblue;
+}
+    </style>
+</head>
+
+<body class="bg-info">
+
+    <a href="XIhalaman2.html" class="home-button">
+        <span class="icon">🏠</span> Home
+    </a>   
+    <div class="container text-center">
+    <h2 class="mt-4">Keberagaman Budaya Bangsa Indonesia</h2>
+    <p>Seret gambar adat ke daerah yang sesuai!</p>
+
+    <div class="drag-container" id="drag-container"></div>
+
+    <div class="drop-container">
+        <div class="drop-zone" data-answer="Padang">Padang</div>
+        <div class="drop-zone" data-answer="Jawa">Jawa</div>
+        <div class="drop-zone" data-answer="Papua">Papua</div>
+        <div class="drop-zone" data-answer="Bugis">Bugis</div>
+        <div class="drop-zone" data-answer="Aceh">Aceh</div>
+    </div>
+
+    <div id="message">🎉 Selamat... Kamu Hebat! 🎉</div>
+    
+
+    <div class="container mt-4" id="container-mt-4" style="display: none;">
+        <h3>Silahkan Tuliskan Komentar Anda tentang Keberagaman Bangsa Indonesia</h3>
+        <form id="commentForm">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama:</label>
+                <input type="text" id="nama" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="komentar" class="form-label">Komentar:</label>
+                <textarea id="komentar" class="form-control" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+        <p id="status" class="mt-3"></p>
+    </div>
+    
+    <div class="button-container" id="button-container">
+        <button class="btn btn-danger" onclick="goBack()">Kembali</button>
+        <button class="btn btn-primary" onclick="nextStage()">Lanjut</button>
+    </div>
+</div>
+
+<script>
+    let correctCount = 0;
+    let draggedElement = null;
+
+    const items = [
+        { id: "minang", src: "adat minang.png", answer: "Padang" },
+        { id: "jawa", src: "adat jawa.png", answer: "Jawa" },
+        { id: "papua", src: "adat papua.png", answer: "Papua" },
+        { id: "sulawesi", src: "adat sulawesi.png", answer: "Bugis" },
+        { id: "aceh", src: "adat aceh.png", answer: "Aceh" }
+    ];
+
+    function shuffleArray(array) {
+        return array.sort(() => Math.random() - 0.5);
+    }
+
+    function loadImages() {
+        const container = document.getElementById("drag-container");
+        container.innerHTML = "";
+        let shuffledItems = shuffleArray(items);
+
+        shuffledItems.forEach(item => {
+            let div = document.createElement("div");
+            div.classList.add("drag-item");
+            div.setAttribute("draggable", "true");
+            div.setAttribute("id", item.id);
+            div.setAttribute("data-answer", item.answer);
+
+            let img = document.createElement("img");
+            img.src = item.src;
+            img.alt = item.id;
+
+            div.appendChild(img);
+            container.appendChild(div);
+            console.log("Gambar dimuat:", item.src);
+
+            // Event untuk Desktop
+            div.addEventListener("dragstart", (event) => {
+               let draggedElement = event.target.closest (".drag-item");
+                event.dataTransfer.setData("id", draggedElement.id);
+                console.log("Dragging:", draggedElement.id, "Answer:", draggedElement.dataset.answer);
+            });
+
+            // Event untuk Mobile
+            div.addEventListener("touchstart", (event) => {
+                draggedElement = event.target.closest(".drag-item");
+            });
+
+            div.addEventListener("touchmove", (event) => {
+                event.preventDefault();
+                let touch = event.touches[0];
+                draggedElement.style.position = "absolute";
+                draggedElement.style.left = touch.pageX - 50 + "px";
+                draggedElement.style.top = touch.pageY - 50 + "px";
+            });
+
+            div.addEventListener("touchend", (event) => {
+                let dropZones = document.querySelectorAll(".drop-zone");
+                dropZones.forEach(zone => {
+                    let rect = zone.getBoundingClientRect();
+                    let touch = event.changedTouches[0];
+
+                    if (
+                        touch.pageX >= rect.left &&
+                        touch.pageX <= rect.right &&
+                        touch.pageY >= rect.top &&
+                        touch.pageY <= rect.bottom
+                    ) {
+                        if (draggedElement.dataset.answer === zone.dataset.answer) {
+                            zone.classList.add("correct");
+                            zone.innerHTML = "✅ " + zone.dataset.answer;
+                            draggedElement.parentNode.removeChild(draggedElement);
+                            correctCount++;
+                            checkWin();
+                        } else {
+                            alert("Jawaban Salah! Coba lagi!");
+                        }
+                    }
+                });
+
+                // Reset posisi setelah touch end
+                draggedElement.style.position = "static";
+            });
+        });
+    }
+
+    document.querySelectorAll(".drop-zone").forEach(zone => {
+        zone.addEventListener("dragover", (event) => {
+            event.preventDefault();
+        });
+
+        zone.addEventListener("drop", (event) => {
+            event.preventDefault();
+            let draggedId = event.dataTransfer.getData("id");
+            let dragged = document.getElementById(draggedId);
+
+            if (dragged && dragged.dataset.answer === zone.dataset.answer) {
+                zone.classList.add("correct");
+                zone.innerHTML = "✅ " + zone.dataset.answer;
+                dragged.parentNode.removeChild(dragged);
+                correctCount++;
+                checkWin();
+            } else {
+                alert("Jawaban Salah! Coba lagi!");
+            }
+        });
+    });
+
+    function checkWin() {
+        if (correctCount === 5) {
+            document.getElementById("message").style.display = "block";
+            document.getElementById("button-container").style.display = "block";
+            document.getElementById("container-mt-4").style.display = "block";
+        }
+    }
+
+    function nextStage() {
+        window.location.href = "XIanalisiskasus.html";
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+
+    document.getElementById("commentForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let nama = document.getElementById("nama").value;
+        let komentar = document.getElementById("komentar").value;
+
+        let data = { nama: nama, komentar: komentar };
+
+        fetch("https://script.google.com/macros/s/AKfycbz5rnXfWgqBUDdQhaqkAa8XOdTtBhyKTEdfOtEib5C4ZMOGpKrNYbhGjLK4I5bMDjLb/exec", {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        }).then(() => {
+            document.getElementById("status").innerHTML = "Komentar berhasil dikirim!";
+            document.getElementById("commentForm").reset();
+        }).catch(error => {
+            document.getElementById("status").innerHTML = "Terjadi kesalahan, coba lagi.";
+        });
+    });
+
+
+    window.onload = loadImages;
+</script>
+
+</body>
+</html>
