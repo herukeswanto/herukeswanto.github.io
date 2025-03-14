@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Benar/Salah - ATHG</title>
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        .btn-true {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-false {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-next, .btn-restart {
+            display: none;
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: #ff9800;
+            color: white;
+        }
+        .btn-restart {
+            background-color: #007bff;
+        }
+        #feedback {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        #score {
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kuis Benar/Salah - ATHG</h2>
+        <p class="question" id="question"></p>
+        <div class="buttons">
+            <button class="btn-true" onclick="checkAnswer(true)">Benar</button>
+            <button class="btn-false" onclick="checkAnswer(false)">Salah</button>
+        </div>
+        <p id="feedback"></p>
+        <p id="score"></p>
+        <button class="btn-next" id="nextBtn" onclick="nextStep()">Lanjut</button>
+        <button class="btn-restart" id="restartBtn" onclick="restartQuiz()">Kembali ke Awal</button>
+    </div>
+    
+    <script>
+        const questions = [
+            { text: "Ancaman militer adalah salah satu bentuk ATHG.", answer: true },
+            { text: "Ketimpangan ekonomi bukan termasuk ATHG.", answer: false },
+            { text: "Serangan siber dapat dikategorikan sebagai ancaman.", answer: true },
+            { text: "Radikalisme tidak termasuk dalam tantangan bagi Indonesia.", answer: false },
+            { text: "Pemanasan global dapat menjadi hambatan dalam pembangunan nasional.", answer: true }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        
+        function loadQuestion() {
+            if (currentQuestion < questions.length) {
+                document.getElementById("question").textContent = questions[currentQuestion].text;
+                document.getElementById("feedback").textContent = "";
+            } else {
+                document.getElementById("question").textContent = "Kuis selesai! Skor Anda: " + score + " / " + questions.length;
+                document.querySelector(".buttons").style.display = "none";
+                document.getElementById("nextBtn").style.display = "inline-block";
+                document.getElementById("restartBtn").style.display = "inline-block";
+            }
+        }
+        
+        function checkAnswer(userAnswer) {
+            if (userAnswer === questions[currentQuestion].answer) {
+                score++;
+                document.getElementById("feedback").textContent = "✅ Jawaban benar!";
+            } else {
+                document.getElementById("feedback").textContent = "❌ Jawaban salah.";
+            }
+            currentQuestion++;
+            setTimeout(loadQuestion, 1000);
+        }
+        
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.querySelector(".buttons").style.display = "flex";
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("restartBtn").style.display = "none";
+            loadQuestion();
+        }
+
+        function nextStep() {
+            window.location.href = "XIpertemuan1NKRIsimulasigame.html";
+        }
+        
+        loadQuestion();
+    </script>
+</body>
+</html>

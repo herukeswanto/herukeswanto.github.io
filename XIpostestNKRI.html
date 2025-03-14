@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Kebhinekaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: aqua;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .hidden {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+        .nomor {
+            flex-direction: row;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h2>Kuis Kebhinekaan</h2>
+    
+    <form id="quizForm">
+        <label>Nama Siswa:</label>
+        <input type="text" id="nama_Siswa" required><br><br>
+
+        <label>Kelas:</label>
+        <input type="text" id="kelas_Siswa" required><br><br>
+
+        <div class="question">
+            <div class="nomor">
+                <p>1.</p>
+                <p>Bagaimana pengaruh ancaman, tantangan, hambatan, dan gangguan (ATHG) terhadap integrasi nasional Indonesia dalam konteks keberagaman budaya?</p>
+            </div>
+            <label for="1qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="1qa" name="q1" value="salah"> 
+                <span>A. </span>
+                <span>ATHG menyebabkan budaya daerah menghilang sepenuhnya</span>
+            </label>
+            <label for="1qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="1qb" name="q1" value="salah"> 
+                <span>B. </span>
+                <span>ATHG tidak berdampak pada integrasi nasional karena hanya faktor politik yang berpengaruh</span>
+            </label>
+            <label for="1qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="1qc" name="q1" value="salah"> 
+                <span>C. </span>
+                <span>ATHG hanya berpengaruh pada kelompokminoritas dalam masyarakat</span>     
+            </label>
+            <label for="1qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="1qd" name="q1" value="benar"> 
+                <span>D. </span>
+                <span>ATHG memperkuat persatuan bangsa tanpakonflik sosial</span>
+            </label>
+            <label for="1qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="1qd" name="q1" value="salah"> 
+                <span>E. </span>
+                <span>ATHG dapat memicu disintegrasi jika tidak dikelola dengan baik</span>                    
+            </label>      
+        <div class="question">
+            <div class="nomor">
+                <p>2.</p>
+                <p>Sebuah daerah mengalami konflik sosial akibat perbedaan suku dan agama. Berdasarkan konsep ATHG, apa solusi terbaik untuk mengatasi masalah tersebut?</p>
+                </div>
+            <label for="2qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="2qa" name="q2" value="salah"> 
+                <span>A. </span>
+                <span>Memisahkan kelompok-kelompok yang bertikai agar tidak terjadi gesekan</span>
+            </label>
+            <label for="2qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="2qb" name="q2" value="salah"> 
+                <span>B. </span>
+                <span>Memberikan sanksi tegas kepada kelompok yang berbeda pendapat</span>
+            </label>
+            <label for="2qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="2qc" name="q2" value="salah"> 
+                <span>C. </span>
+                <span>Melarang ekspresi budaya tertentu demi menghindari konflik</span>                    
+            </label>
+            <label for="2qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="2qd" name="q2" value="benar"> 
+                <span>D. </span>
+                <span>Meningkatkan dialog dan toleransi antar masyarakat yang berbeda</span>                    
+            </label>
+            <label for="2qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="2qd" name="q2" value="salah"> 
+                <span>E. </span>
+                <span>Mengutamakan budaya mayoritas agar konflik tidak semakin berkembang</span>                                       
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>3.</p>
+                <p> Dalam menghadapi tantangan globalisasi yang dapat melemahkan nilai kebangsaan, strategi yang paling tepat adalah…</p>
+            </div>
+            <label for="3qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="3qa" name="q3" value="benar"> 
+                <span>A. </span>
+                <span> Membatasi masuknya budaya asing agar tidak  mempengaruhi budaya lokal</span>
+            </label>
+            <label for="3qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="3qb" name="q3" value="salah"> 
+                <span>B. </span>
+                <span> Melarang warga negara berinteraksi dengan budaya luar negeri</span>
+            </label>
+            <label for="3qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="3qc" name="q3" value="salah"> 
+                <span>C. </span>
+                <span> Mengabaikan pengaruh globalisasi karena tidak bisa dihindari</span>
+            </label>
+            <label for="3qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="3qd" name="q3" value="benar"> 
+                <span>D. </span>
+                <span>Mengembangkan sikap kritis dalam menyaring informasi dan budaya asing</span>
+            </label>
+            <label for="3qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="3qd" name="q3" value="salah"> 
+                <span>E. </span>
+                <span>Mewajibkan penggunaan bahasa daerah di semua sektor kehidupan</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>4.</p>
+                <p> Ancaman disintegrasi nasional dapat muncul akibat ketimpangan pembangunan antar daerah. Apa solusi strategis yang dapat dilakukan untuk mengatasi hal ini?</p>
+            </div>
+            <label for="4qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="4qa" name="q4" value="salah"> 
+                <span>A. </span>
+                <span>Menghapus sistem otonomi daerah agar pembangunan lebih merata</span>
+            </label>
+            <label for="4qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="4qb" name="q4" value="benar"> 
+                <span>B. </span>
+                <span>Memberikan otonomi yang lebih luas kepada daerah tertinggal</span>
+            </label>
+            <label for="4qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="4qc" name="q4" value="benar"> 
+                <span>C. </span>
+                <span> Meningkatkan investasi asing tanpa mempertimbangkan kesejahteraan lokal</span>
+            </label>
+            <label for="4qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="4qd" name="q4" value="salah"> 
+                <span>D. </span>
+                <span>Menyeragamkan budaya lokal agar tidak terjadi perbedaan</span>
+            </label>
+            <label for="4qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="4qd" name="q4" value="salah"> 
+                <span>E. </span>
+                <span>Memusatkan pembangunan di ibu kota agar lebih maju</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>5.</p>
+                <p> Dalam menghadapi ATHG di bidang politik, strategi yang dapat dilakukan untuk memperkuat integrasi nasional adalah…</p>
+            </div>
+            <label for="5qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="5qa" name="q5" value="salah"> 
+                <span>A. </span>
+                <span>Melarang perbedaan pendapat demi menjaga stabilitas negara</span>
+            </label>
+            <label for="5qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="5qb" name="q5" value="salah"> 
+                <span>B. </span>
+                <span>Mengutamakan kepentingan kelompok mayoritas dalam kebijakan politik</span>
+            </label>
+            <label for="5qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="5qc" name="q5" value="benar"> 
+                <span>C. </span>
+                <span>Menjaga transparansi dan keadilan dalam sistem pemerintahan</span>
+            </label>
+            <label for="5qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="5qd" name="q5" value="salah"> 
+                <span>D. </span>
+                <span>Membatasi kebebasan pers agar tidak menimbulkan polemik</span>
+            </label>
+            <label for="5qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="5qd" name="q5" value="salah"> 
+                <span>E. </span>
+                <span>Menerapkan kebijakan politik yang diskriminatif terhadap kelompok tertentu</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>6. </p>
+                <p> Indonesia menghadapi berbagai ancaman dalam menjaga integrasi nasional. Salah satu contoh ancaman yang dapat menghambat persatuan bangsa adalah penyebaran hoaks yang bersifat provokatif. Bagaimana cara terbaik untuk menganalisis dampak penyebaran hoaks terhadap integrasi nasional?</p>
+            </div>
+            <label for="6qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="6qa" name="q6" value="benar"> 
+                <span>A. </span>
+                <span>Menganalisis sumber hoaks, motif penyebaran, dan dampaknya terhadap masyarakat</span>
+            </label>
+            <label for="6qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="6qb" name="q6" value="salah"> 
+                <span>B. </span>
+                <span>Mengabaikan hoaks karena tidak berdampak langsung pada persatuan</span>
+            </label>
+            <label for="6qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="6qc" name="q6" value="salah"> 
+                <span>C. </span>
+                <span> Mengandalkan satu sumber berita tanpa melakukan verifikasi</span>
+            </label>
+            <label for="6qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="6qd" name="q6" value="salah"> 
+                <span>D. </span>
+                <span>Menyebarkan hoaks tandingan untuk melawan informasi yang salah</span>
+            </label>
+            <label for="6qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="6qd" name="q6" value="salah"> 
+                <span>E. </span>
+                <span>Menghapus semua informasi di media sosial tanpa menganalisis kebenarannya</span>
+            </label>
+        </div>
+       
+        <div class="question">
+            <div class="nomor">
+                <p>7. </p>
+                <p> Dalam menghadapi tantangan globalisasi, budaya asing semakin masuk ke dalam kehidupan masyarakat Indonesia. Bagaimana cara menganalisis pengaruh budaya asing terhadap identitas nasional?</p>
+            </div>
+            <label for="7qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="7qa" name="q7" value="benar"> 
+                <span>A. </span>
+                <span>Membandingkan aspek positif dan negatif budaya asing terhadap budaya lokal</span>
+            </label>
+            <label for="7qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="7qb" name="q7" value="salah"> 
+                <span>B. </span>
+                <span>Menerima budaya asing tanpa mempertimbangkan dampaknya</span>
+            </label>
+            <label for="7qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="7qc" name="q7" value="salah"> 
+                <span>C. </span>
+                <span>Menghindari semua bentuk budaya asing agar tidak mengubah budaya lokal</span>
+            </label>
+            <label for="7qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="7qd" name="q7" value="salah"> 
+                <span>D. </span>
+                <span>Menghapus budaya lokal yang dianggap ketinggalan zaman</span>
+            </label>
+            <label for="7qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="7qd" name="q7" value="salah"> 
+                <span>E. </span>
+                <span>Menganggap budaya asing lebih unggul daripada budaya lokal</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>8. </p>
+                <p> Salah satu tantangan dalam integrasi nasional adalah ketimpangan pembangunan antar daerah. Bagaimana cara terbaik untuk mengidentifikasi dampak dari ketimpangan pembangunan terhadap persatuan bangsa?</p>
+            </div>
+            <label for="8qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="8qa" name="q8" value="salah"> 
+                <span>A. </span>
+                <span>Mengabaikan ketimpangan karena hanya terjadi di beberapa daerah tertentu</span>
+            </label>
+            <label for="8qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="8qb" name="q8" value="salah"> 
+                <span>B. </span>
+                <span>Menganggap ketimpangan sebagai hal wajar dalam perkembangan negara</span>
+            </label>
+            <label for="8qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="8q9" name="q8" value="salah"> 
+                <span>C. </span>
+                <span>Mengutamakan pembangunan di daerah perkotaan tanpa memperhatikan daerah lain</span>
+            </label>
+            <label for="8qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="8qd" name="q8" value="benar"> 
+                <span>D. </span>
+                <span>Mengukur kesejahteraan sosial, ekonomi, dan akses pendidikan di setiap daerah</span>
+            </label>
+            <label for="8qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="8qd" name="q8" value="salah"> 
+                <span>E. </span>
+                <span>Memberikan dana hanya kepada daerah yang memiliki potensi ekonomi tinggi</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>9. </p>
+                <p> Salah satu bentuk gangguan terhadap integrasi nasional adalah konflik sosial yang terjadi akibat perbedaan suku dan agama. Strategi terbaik untuk menganalisis penyebab konflik tersebut adalah…</p>
+            </div>
+            <label for="q9a" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="q9a"name="q9" value="salah"> 
+                <span>A. </span>
+                <span>Mengabaikan konflik kecil karena tidak berpengaruh pada skala nasional</span>
+            </label>
+            <label for="9qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="9qb" name="q9" value="salah"> 
+                <span>B. </span>
+                <span>Memihak salah satu kelompok agar konflik cepat diselesaikan</span>
+            </label>
+            <label for="9qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="9qb" name="q9" value="salah"> 
+                <span>C. </span>
+                <span>Menyalahkan satu pihak tanpa memahami akar masalah</span>
+            </label>
+            <label for="9qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="9qd" name="q9" value="benar"> 
+                <span>D. </span>
+                <span>Mengidentifikasi faktor ekonomi, sosial, dan politik yang melatarbelakangi konflik</span>
+            </label>
+            <label for="9qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="9qd" name="q9" value="salah"> 
+                <span>E. </span>
+                <span>Menghindari diskusi mengenai konflik agar tidak menimbulkan ketegangan</span>
+            </label>
+        </div>
+
+
+        <div class="question">
+            <div class="nomor">
+                <p>10. </p>
+                <p>Strategi yang paling efektif dalam menghadapi ancaman ideologi yang bertentangan dengan Pancasila adalah…</p>
+            </div>
+            <label for="10qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="10qa"name="q10" value="salah"> 
+                <span>A. </span>
+                <span>Melarang semua bentuk diskusi terkait ideologi lain</span>
+            </label>
+            <label for="10qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="10qb" name="q10" value="benar"> 
+                <span>B. </span>
+                <span>Menguatkan pemahaman Pancasila melalui pendidikan dan sosialisasi yang tepat</span>
+            </label>
+            <label for="10qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="10qb" name="q10" value="salah"> 
+                <span>C. </span>
+                <span>Menerapkan sanksi berat bagi mereka yang berbeda pandangan tanpa memberikan ruang diskusi</span>
+            </label>
+            <label for="10qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="10qd" name="q10" value="salah"> 
+                <span>D. </span>
+                <span>Mengabaikan ideologi tersebut agar tidak semakin berkembang</span>
+            </label>
+            <label for="10qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="10qd" name="q10" value="salah"> 
+                <span>E. </span>
+                <span>Menyeragamkan pemikiran masyarakat agar sesuai dengan kebijakan pemerintah</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>11. </p>
+                <p>Salah satu ancaman terbesar terhadap integrasi nasional adalah penyebaran informasi hoaks yang dapat memicu konflik sosial. Bagaimana cara terbaik untuk menganalisis dampak hoaks terhadap persatuan bangsa?</p>
+            </div>
+            <label for="11qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="11qa"name="q11" value="salah"> 
+                <span>A. </span>
+                <span> Memblokir akun media sosial yang menyebarkan hoaks tanpa investigasi</span>
+            </label>
+            <label for="11qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="11qb" name="q11" value="salah"> 
+                <span>B. </span>
+                <span>Menutup semua akses media sosial tanpa analisis lebih lanjut</span>
+            </label>
+            <label for="11qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="11qb" name="q11" value="benar"> 
+                <span>C. </span>
+                <span> Mengidentifikasi motif penyebaran hoaks dan pola penyebarannya di masyarakat</span>
+            </label>
+            <label for="11qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="11qd" name="q11" value="salah"> 
+                <span>D. </span>
+                <span> Membuat informasi tandingan tanpa memverifikasi kebenarannya</span>
+            </label>
+            <label for="11qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="11qd" name="q11" value="salah"> 
+                <span>E. </span>
+                <span> Mengabaikan hoaks karena tidak berdampak langsung terhadap negara</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>12. </p>
+                <p>Perbedaan suku, agama, dan budaya sering kali menjadi pemicu konflik horizontal yang dapat mengganggu stabilitas nasional. Bagaimana cara terbaik untuk menganalisis penyebab konflik tersebut?</p>
+            </div>
+            <label for="12qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="12qa"name="q12" value="salah"> 
+                <span>A. </span>
+                <span> Menghindari pembahasan konflik agar tidak menimbulkan ketegangan</span>
+            </label>
+            <label for="12qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="12qb" name="q12" value="salah"> 
+                <span>B. </span>
+                <span>Menyalahkan satu kelompok tanpa memahami akar masalah yang sebenarnya</span>
+            </label>
+            <label for="12qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="12qb" name="q12" value="salah"> 
+                <span>C. </span>
+                <span> Meningkatkan dominasi satu budaya agar konflik dapat ditekan</span>
+            </label>
+            <label for="12qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="12qd" name="q12" value="salah"> 
+                <span>D. </span>
+                <span> Membangun sekat-sekat sosial agar masing masing kelompok tidak saling berinteraksi</span>
+            </label>
+            <label for="12qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="12qd" name="q12" value="benar"> 
+                <span>E. </span>
+                <span> Mengidentifikasi faktor ekonomi, sosial, dan politik yang menjadi pemicu konflik</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>13. </p>
+                <p>Dalam menghadapi ancaman ideologi yang dapat menggoyahkan nilai-nilai Pancasila, strategi utama yang dapat dilakukan adalah...</p>
+            </div>
+            <label for="13qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="13qa"name="q13" value="salah"> 
+                <span>A. </span>
+                <span> Meningkatkan sensor terhadap semua informasi politik yang berkembang</span>
+            </label>
+            <label for="13qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="13qb" name="q13" value="benar"> 
+                <span>B. </span>
+                <span>Membentuk kebijakan dan langkah-langkah politik yang tepat dalam mencegah pengaruh ideologi lain</span>
+            </label>
+            <label for="13qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="13qb" name="q13" value="salah"> 
+                <span>C. </span>
+                <span> Menghilangkan semua ideologi asing dari Indonesia</span>
+            </label>
+            <label for="13qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="13qd" name="q13" value="salah"> 
+                <span>D. </span>
+                <span> Mengurangi kebebasan berpendapat agar tidak ada ancaman terhadap ideologi Pancasila</span>
+            </label>
+            <label for="13qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="13qd" name="q13" value="salah"> 
+                <span>E. </span>
+                <span> Melarang warga negara untuk mempelajari ideologi lain</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>14. </p>
+                <p>Salah satu bentuk ancaman ekonomi yang dapat mengganggu stabilitas nasional adalah meningkatnya angka pengangguran. Berdasarkan analisis strategi ekonomi, solusi yang dapat diterapkan adalah..</p>
+            </div>
+            <label for="14qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="14qa"name="q14" value="salah"> 
+                <span>A. </span>
+                <span> Meningkatkan ketergantungan terhadap pinjaman luar negeri</span>
+            </label>
+            <label for="14qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="14qb" name="q14" value="salah"> 
+                <span>B. </span>
+                <span>Membatasi penggunaan teknologi untuk meningkatkan jumlah pekerja manual</span>
+            </label>
+            <label for="14qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="14qb" name="q14" value="benar"> 
+                <span>C. </span>
+                <span> Menciptakan lapangan kerja padat karya, membangun infrastruktur, dan meningkatkan iklim usaha yang kondusif</span>
+            </label>
+            <label for="14qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="14qd" name="q14" value="salah"> 
+                <span>D. </span>
+                <span> Mengurangi jumlah penduduk melalui pembatasan kelahiran</span>
+            </label>
+            <label for="14qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="14qd" name="q14" value="salah"> 
+                <span>E. </span>
+                <span> Mempermudah masuknya tenaga kerja asing untuk meningkatkan persaingan</span>
+            </label>
+        </div>
+
+        <div class="question">
+            <div class="nomor">
+                <p>15. </p>
+                <p>Dalam menghadapi ancaman pertahanan dan keamanan, pemerintah menerapkan strategi berlapis yang melibatkan diplomasi, perlawanan non-militer, dan kekuatan militer. Langkah yang tepat mengenai strategi ini adalah...</p>
+            </div>
+            <label for="15qa" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="15qa"name="q15" value="salah"> 
+                <span>A. </span>
+                <span> Mengandalkan kekuatan militer sebagai satu satunya solusi menghadapi ancaman</span>
+            </label>
+            <label for="15qb" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="15qb" name="q15" value="salah"> 
+                <span>B. </span>
+                <span>Mengurangi anggaran pertahanan karena ancaman militer jarang terjadi</span>
+            </label>
+            <label for="15qc" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="15qb" name="q15" value="benar"> 
+                <span>C. </span>
+                <span> Mengutamakan diplomasi dan perlawanan non militer, dengan militer sebagai solusi terakhir</span>
+            </label>
+            <label for="15qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="15qd" name="q15" value="salah"> 
+                <span>D. </span>
+                <span> Mengabaikan diplomasi dan langsung menggunakan kekuatan militer untuk menunjukkan kekuatan negara</span>
+            </label>
+            <label for="15qd" style="display: flex;flex-direction: row; align-items: start; gap: 4px;">
+                <input type="radio" id="15qd" name="q15" value="salah"> 
+                <span>E. </span>
+                <span> Mengandalkan kekuatan negara lain dalam menjaga keamanan nasional</span>
+            </label>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Kirim Jawaban</button>
+        <button><a href="XINKRI.html" type="button">Kembali</a></button>
+    </form>
+
+    <p id="notification" class="hidden">Jawaban Anda telah terkirim!</p>
+
+    <script>
+        function submitQuiz() {
+            let nama_Siswa = document.getElementById("nama_Siswa").value.trim();
+            let kelas_Siswa = document.getElementById("kelas_Siswa").value.trim();
+
+            if (!nama_Siswa || !kelas_Siswa) {
+                alert("Silakan isi nama dan kelas!");
+                return;
+            }
+
+            let answers = {};
+            let score = 0;
+    
+            const questions = document.querySelectorAll('.question');
+            questions.forEach((question, index) => {
+                const selected = question.querySelector('input[type=radio]:checked');
+                if (selected) {
+                    let answer = selected.value;
+                    answers[`Q${index + 1}`] = answer;
+                    if (answer === "benar") {
+                        score += 5;
+                    }
+                }
+            });
+
+            let dataToSend = {
+                nama_Siswa: nama_Siswa,
+                kelas_Siswa: kelas_Siswa,
+                answers: answers,
+                score: score
+            };
+
+            console.log("Data yang dikirim:", dataToSend);
+
+                        fetch('https://script.google.com/macros/s/AKfycbx9-0Iqiwh24CfG6gKVONasvs8exWQrSv-5PIYbaQi8hY14BgwTRlr-KDWShPwU_MN5Wg/exec', { 
+                method: 'POST',
+                mode: 'no-cors', // Tambahkan ini untuk menghindari CORS error
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dataToSend)
+            })
+            .then(response => response.text()) // Gunakan `.text()` karena mode "no-cors" tidak bisa membaca JSON
+            .then(responseData => {
+                console.log('Success:', responseData);
+                document.getElementById("notification").classList.remove("hidden");
+            })
+            .catch(error => console.error('Error:', error));
+
+        }
+    </script>
+</body>
+</html>

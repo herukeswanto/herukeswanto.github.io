@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Game ATHG</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .scenario {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        .btn-option {
+            background-color: #ff9800;
+            color: white;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .btn-next {
+            display: none;
+            background-color: #007bff;
+            color: white;
+        }
+        #conclusion input, #conclusion textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Simulasi Menghadapi ATHG</h2>
+        <p class="scenario" id="scenario"></p>
+        <div class="buttons" id="options"></div>
+        <p id="result"></p>
+        <button id="nextBtn" class="btn-option" style="display: none;" onclick="nextScenario()">Lanjut</button>
+
+        <div id="conclusion" style="display: none;">
+            <h3>Tulis Kesimpulan Anda</h3>
+            <input type="text" id="name" placeholder="Nama Anda" required>
+            <textarea id="summary" placeholder="Tulis kesimpulan Anda di sini" required></textarea>
+            <button onclick="submitConclusion()">Kirim</button>
+            <a href="XIpertemuan1NKRIstudikasus.html">
+                <button>Lanjut</button>
+            </a>
+            
+        </div>
+    </div>
+    
+    <script>
+        const scenarios = [
+            { text: "Terjadi serangan siber pada sistem pemerintahan. Apa yang Anda lakukan?", options: [
+                    { text: "Segera memperkuat keamanan jaringan", correct: true },
+                    { text: "Membiarkannya karena tidak berbahaya", correct: false }
+                ]
+            },
+            { text: "Ada kelompok yang menyebarkan paham radikalisme. Bagaimana Anda bertindak?", options: [
+                    { text: "Melakukan pendekatan edukatif dan hukum", correct: true },
+                    { text: "Mengabaikan karena bukan ancaman nyata", correct: false }
+                ]
+            }
+        ];
+
+        let currentScenario = 0;
+        function loadScenario() {
+            document.getElementById("scenario").textContent = scenarios[currentScenario].text;
+            const optionsDiv = document.getElementById("options");
+            optionsDiv.innerHTML = "";
+            document.getElementById("result").textContent = "";
+            document.getElementById("nextBtn").style.display = "none";
+            
+            scenarios[currentScenario].options.forEach(option => {
+                let btn = document.createElement("button");
+                btn.textContent = option.text;
+                btn.classList.add("btn-option");
+                btn.onclick = () => checkAnswer(option.correct);
+                optionsDiv.appendChild(btn);
+            });
+        }
+        
+        function checkAnswer(isCorrect) {
+            document.getElementById("result").textContent = isCorrect ? "✅ Jawaban benar!" : "❌ Jawaban salah.";
+            document.getElementById("nextBtn").style.display = "block";
+        }
+        
+        function nextScenario() {
+            currentScenario++;
+            if (currentScenario < scenarios.length) {
+                loadScenario();
+            } else {
+                document.getElementById("scenario").textContent = "Simulasi selesai! Silakan tulis kesimpulan Anda.";
+                document.getElementById("options").innerHTML = "";
+                document.getElementById("nextBtn").style.display = "none";
+                document.getElementById("conclusion").style.display = "block";
+            }
+        }
+
+        function submitConclusion() {
+    const name = document.getElementById("name").value.trim();
+    const summary = document.getElementById("summary").value.trim();
+    if (!name || !summary) {
+        alert("Harap isi semua kolom.");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("summary", summary);
+
+    fetch('https://script.google.com/macros/s/AKfycbwOMGhX5-XJox4ky3RJLdthH3F-ko46XiaFReJvXiP7JNQJ5GV1gs9bDxzh3Q0OfHRNJA/exec', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Kesimpulan berhasil dikirim!");
+    })
+    .catch(error => {
+        alert("Gagal mengirim kesimpulan. Coba lagi.");
+    });
+}
+
+        
+        loadScenario();
+    </script>
+</body>
+</html>

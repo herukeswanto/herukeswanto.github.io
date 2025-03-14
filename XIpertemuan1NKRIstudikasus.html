@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studi Kasus NKRI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+        }
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        .case-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Studi Kasus</h2>
+        <label for="group-name">Nama Kelompok:</label>
+        <input type="text" id="group-name" class="input-field" placeholder="Masukkan Nama Kelompok">
+        
+        <div id="cases-container"></div>
+        <div class="container">
+            <button class="submit-btn" onclick="redirectToQuiz()">Lanjut ke Kuis</button>
+        </div>
+    </div>
+
+    <script>
+        let cases = [
+            { 
+                title: "Kasus 1: Pencemaran Lingkungan",
+                description: "Dampak pencemaran lingkungan terhadap kesehatan dan ekosistem semakin nyata. Bagaimana upaya yang dapat dilakukan untuk mengatasi pencemaran lingkungan di sekitar kita?"
+            },
+            {
+                title: "Kasus 2: Konflik Antar Kelompok Masyarakat",
+                description: "Dua kelompok masyarakat memiliki perbedaan pandangan yang mengarah pada konflik sosial. Apa solusi terbaik untuk meredakan ketegangan dan membangun harmoni?"
+            },
+            {
+                title: "Kasus 3: Penyebaran Hoaks di Media Sosial",
+                description: "Berita hoaks yang mengandung kebohongan tersebar luas di media sosial dan menyebabkan keresahan. Bagaimana cara mengatasi penyebaran hoaks di masyarakat?"
+            },
+            {
+                title: "Kasus 4: Konflik Agraria",
+                description: "Sejumlah warga menolak proyek pembangunan yang memanfaatkan lahan pertanian mereka. Pemerintah menawarkan kompensasi, namun beberapa warga tetap menolak. Bagaimana cara terbaik menyelesaikan konflik ini?"
+            }
+        ];
+
+        function displayCases() {
+            let container = document.getElementById("cases-container");
+            container.innerHTML = "";
+            cases.forEach((caseData, index) => {
+                let caseDiv = document.createElement("div");
+                caseDiv.className = "case-container";
+                caseDiv.innerHTML = `
+                    <h3>${caseData.title}</h3>
+                    <p>${caseData.description}</p>
+                    <textarea class="input-field" id="discussion-${index}" rows="4" placeholder="Tulis hasil diskusi Anda di sini..."></textarea>
+                    <button class="submit-btn" onclick="submitDiscussion(${index})">Kirim</button>
+                `;
+                container.appendChild(caseDiv);
+            });
+        }
+
+        function submitDiscussion(caseIndex) {
+            let groupName = document.getElementById("group-name").value;
+            let discussion = document.getElementById(`discussion-${caseIndex}`).value;
+            let caseTitle = cases[caseIndex].title;
+            
+            if (groupName.trim() === "" || discussion.trim() === "") {
+                alert("Mohon isi semua kolom sebelum mengirim.");
+                return;
+            }
+            
+            let url = "https://script.google.com/macros/s/AKfycbxqXGnYvAjn5oDhPAazcDWH4qIozkNsXU6syzzswj6iENCOqQKzDSwcX5RQSE-0S829/exec";
+            let params = `?groupName=${encodeURIComponent(groupName)}&caseTitle=${encodeURIComponent(caseTitle)}&discussion=${encodeURIComponent(discussion)}`;
+            let fullUrl = url + params;
+            
+            fetch(fullUrl, {
+    method: "GET"
+})
+.then(response => response.text()) 
+.then(data => {
+    console.log("Response dari server:", data);
+    alert("Diskusi berhasil dikirim!");
+})
+.catch(error => {
+    console.error("Error:", error);
+    alert("Terjadi kesalahan saat mengirim data.");
+});
+
+        }
+
+        window.onload = displayCases;
+    </script>
+        <script>
+            function redirectToQuiz() {
+                window.location.href = "https://docs.google.com/forms/d/1WcaFyz7uQAdvvXY3RYkXdWWJPq4HyyDGK6YJsBJehmY/preview";
+            }
+        </script>
+</body>
+</html>
