@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Interaktif ATHG</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; color: #333; }
+        .container { width: 80%; margin: 20px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+        .quiz-container, .materi-container, .diskusi-container { margin: 20px 0; padding: 20px; border-radius: 10px; }
+        .quiz-container { background-color: #ffcc80; }
+        .materi-container { background-color: #80cbc4; }
+        .diskusi-container { background-color: #ffab91; }
+        .hidden { display: none; }
+        input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { background-color: #5c6bc0; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+        button:hover { background-color: #3949ab; }
+        #message { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pembelajaran Interaktif ATHG</h1>
+
+        <div class="quiz-container">
+            <h2>Kuis: Apa Itu ATHG?</h2>
+            <p>Apa kepanjangan dari ATHG?</p>
+            <button onclick="checkAnswer('a')">A. Ancaman, Tantangan, Hambatan, Gangguan</button>
+            <button onclick="checkAnswer('b')">B. Ancaman, Teknologi, Hukum, Geopolitik</button>
+            <p id="quiz-feedback"></p>
+        </div>
+
+        <div class="diskusi-container hidden" id="diskusi">
+            <h2>Diskusi Studi Kasus</h2>
+            <p>Apa pendapatmu tentang strategi menghadapi ATHG?</p>
+            <input type="text" id="name" placeholder="Masukkan Nama"><br>
+            <textarea id="comment" rows="4" placeholder="Tulis komentar..."></textarea><br>
+            <button onclick="addComment()">Kirim</button>
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(answer) {
+            if (answer === 'a') {
+                document.getElementById("quiz-feedback").innerText = "Benar! ATHG adalah Ancaman, Tantangan, Hambatan, dan Gangguan.";
+                document.getElementById("diskusi").classList.remove("hidden");
+            } else {
+                document.getElementById("quiz-feedback").innerText = "Salah, coba lagi.";
+            }
+        }
+
+        function addComment() {
+            let name = document.getElementById("name").value.trim();
+            let comment = document.getElementById("comment").value.trim();
+            let message = document.getElementById("message");
+
+            if (name === "" || comment === "") {
+                message.style.color = "red";
+                message.innerText = "Harap isi nama dan komentar.";
+                return;
+            }
+
+            fetch('https://script.google.com/macros/s/AKfycbx8lIkdi9anrg03FGxLr9w84m5sdPcoAhW_UdoALY3Ek3AHkxGpcXMWMZ0HBqw4zRnVgw/exec', { // Ganti dengan URL Web App dari Apps Script
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, comment: comment })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    message.style.color = "green";
+                    message.innerText = "Komentar berhasil dikirim!";
+                    document.getElementById("name").value = "";
+                    document.getElementById("comment").value = "";
+                } else {
+                    message.style.color = "red";
+                    message.innerText = "Terjadi kesalahan, coba lagi.";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                message.style.color = "red";
+                message.innerText = "Gagal menghubungi server.";
+            });
+        }
+    </script>
+</body>
+</html>
