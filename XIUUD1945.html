@@ -62,7 +62,7 @@
 <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center">
     <h3 class="text-center bg-success text-white py-3 rounded w-100">ELEMEN PEMBELAJARAN</h3>
     <div class="text-center mb-4">
-       <img src="NKRI.png" class="img-fluid rounded shadow" style="max-width: 250px;">
+       <img src="UUD.png" class="img-fluid rounded shadow" style="max-width: 250px;">
     </div>
     
     <!-- Menu Tambahan -->
@@ -78,24 +78,25 @@
                 <strong style="color: white;">📚 Materi:</strong>
                 <select class="form-select mt-2" onchange="bukaMateri(this.value);">
                     <option selected disabled>Pilih Materi</option>
-                    <option value="ppt1">📂 PPT 1 - Ancaman, tantangan, hambatan dan gangguan (ATHG) yang dihadapi Indonesia</option>
-                    <option value="ppt2">📂 PPT 2 - Ancaman, tantangan, hambatan dan gangguan (ATHG) di berbagai bidang</option>
-                    <option value="ppt3">📂 PPT 3 - Solusi menghadapi ATHG terhadap integrasi nasional</option>
-                    <option value="ppt4">📂 PPT 4 - Strategi menghadapi ATHG di berbagai bidang</option>
+                    <option value="ppt1">📂 PPT 1 - Produk Peraturan Perundang-undangan</option>
+                    <option value="ppt2">📂 PPT 2 - Pembentukan Peraturan Perundang-Undangan di Indonesia</option>
+                    <option value="ppt3">📂 PPT 3 - Hubungan Antarperaturan Perundang-Undangan</option>
+                    <option value="ppt4">📂 PPT 4 - Perilaku yang Sesuai Peraturan</option>
                 </select>
             </li>
             <li class="list-group-item"><a href="XIpreetestNKRI.html">📝 Preetest</a></li>
-            <li class="list-group-item"><a href="XITPNKRI.html">🎯 Tujuan Pembelajaran</a></li>
+            <li class="list-group-item"><a href="XITPUUD1945.html">🎯 Tujuan Pembelajaran</a></li>
             <li class="list-group-item">
                 <strong style="color: white;">📚 Kegiatan Pembelajaran:</strong>
                 <select class="form-select mt-2" onchange="location = this.value;">
                     <option selected disabled>Pilih Pertemuan</option>
-                    <option value="XIpertemuan1NKRI.html">📝 Pertemuan Pertama</option>
-                    <option value="XIpertemuan2NKRI.html">📑 Pertemuan Kedua</option>
-                    <option value="XIpertemuan3NKRI.html">📖 Pertemuan Ketiga</option>
+                    <option value="XIpertemuan1UUD1945.html">📝 Pertemuan Pertama</option>
+                    <option value="XIpertemuan2UUD1945.html">📑 Pertemuan Kedua</option>
+                    <option value="XIpertemuan3UUD1945.html">📖 Pertemuan Ketiga</option>
+                    <option value="XIpertemuan4UUD1945.html">📖 Pertemuan Keempat</option>
                 </select>
             </li>
-            <li class="list-group-item"><a href="XIpostestNKRI.html" onclick="cekKataSandi(event)">✅ Evaluasi</a></li>
+            <li class="list-group-item"><a href="XIujianformatifUUD1945.html" onclick="cekKataSandi(event)">✅ Evaluasi</a></li>
         </ul>
     </div>
 </div>
@@ -106,7 +107,7 @@
         event.preventDefault(); // Mencegah tautan terbuka langsung
         let password = prompt("Masukkan kata sandi untuk mengakses evaluasi:");
         if (password === "1234") { // Ganti "1234" dengan kata sandi yang diinginkan
-            window.location.href = "XIpostestNKRI.html";
+            window.location.href = "XIujianformatifUUD1945.html";
         } else {
             alert("Kata sandi salah! Akses ditolak.");
         }
@@ -120,10 +121,10 @@
     
     function bukaMateri(value) {
         let pptLinks = {
-            "ppt1": "https://docs.google.com/presentation/d/1wURfBX6BdRCV77kHgH4IK17nzBfITDyf/preview",
-            "ppt2": "https://docs.google.com/presentation/d/1oicEhctJIEBeMMA46xnqY9BkSvaE9c2R/preview",
-            "ppt3": "https://docs.google.com/presentation/d/1Wf54lgLmGc-UegphCsKyFOg7KJ74RDqx/preview",
-            "ppt4": "https://docs.google.com/presentation/d/1OZrZZiIXK2LKP9uxPImc7Me8G_MrWORC/preview"
+            "ppt1": "https://docs.google.com/presentation/d/1_KTs-YCS4Ur5HCr2_ocHw2f6psID2IdK/preview",
+            "ppt2": "https://docs.google.com/presentation/d/1GMAvuNFTLoPzcakhtmc0OM7TJVIW8h-g/preview",
+            "ppt3": "https://docs.google.com/presentation/d/1SeRG8FtYwyY7wckGqTMxrJfZEmg7LdOQ/preview",
+            "ppt4": "https://docs.google.com/presentation/d/1YQS4N30JVXj8UuMdTGxKLSO2LbN56j5t/preview"
         };
 
         if (pptLinks[value]) {

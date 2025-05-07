@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pembelajaran Interaktif - Produk Perundang-Undangan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f6f9; }
+    header { background-color: #003366; color: #fff; padding: 20px; border-radius: 10px; text-align: center; }
+    section { background: white; margin-top: 20px; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    h2 { color: #003366; }
+    textarea, input[type="text"], button {
+      width: 100%; margin-top: 10px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px;
+    }
+    button { background-color: #003366; color: white; cursor: pointer; }
+    button:hover { background-color: #00509e; }
+    .success { color: green; font-weight: bold; }
+    .error { color: red; font-weight: bold; }
+
+    @media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  textarea, input, button {
+    font-size: 16px;
+  }
+  header h1, header h2 {
+    font-size: 20px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Pembelajaran Interaktif</h1>
+  <h2>Produk Peraturan Perundang-Undangan</h2>
+  <p>Pendidikan Pancasila Kelas XI SMK</p>
+</header>
+
+<section>
+  <h2>Materi Pokok</h2>
+  <ul>
+    <li><strong>Asas:</strong> Lex superior, lex specialis, lex posterior</li>
+    <li><strong>Hierarki:</strong> UUD 1945, Ketetapan MPR, UU/Perppu, PP, Perpres, Perda</li>
+    <li><strong>Fungsi:</strong> Kepastian hukum, pembaruan hukum, stabilisasi, kemudahan</li>
+    <li><strong>Contoh:</strong> Perda tidak boleh bertentangan dengan UUD 1945 (lex superior)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Diskusi Kelompok</h2>
+  <p><strong>Petunjuk:</strong> Diskusikan pertanyaan berikut secara kelompok dan tuliskan jawabanmu!</p>
+  
+  <form id="diskusiForm">
+    <label>Nama Kelompok:</label>
+    <input type="text" name="kelompok" required>
+
+    <label>Anggota Kelompok:</label>
+    <textarea name="anggota" rows="2" required></textarea>
+
+    <label>Pertanyaan 1: Mengapa penting memahami hierarki peraturan perundang-undangan?</label>
+    <textarea name="jawaban1" rows="3" required></textarea>
+
+    <label>Pertanyaan 2: Berikan contoh kasus pelanggaran asas lex superior!</label>
+    <textarea name="jawaban2" rows="3" required></textarea>
+
+    <label>Pertanyaan 3: Bagaimana cara siswa menunjukkan sikap patuh terhadap hukum di sekolah?</label>
+    <textarea name="jawaban3" rows="3" required></textarea>
+
+    <button type="submit">Kirim Diskusi</button>
+    <p id="statusPesan"></p>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById('diskusiForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx9DbtxuMD4u-yh9oFbCZbIvPDbsDmOGhiHlPEkYKMpfMjUtHlBrHWqPHgBNtn2yMuI/exec'; // Ganti dengan URL Web App Anda
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(response => {
+      document.getElementById('statusPesan').textContent = "✅ Diskusi berhasil dikirim!";
+      document.getElementById('statusPesan').className = "success";
+      form.reset();
+    })
+    .catch(error => {
+      document.getElementById('statusPesan').textContent = "❌ Gagal mengirim. Coba lagi.";
+      document.getElementById('statusPesan').className = "error";
+      console.error('Error!', error.message);
+    });
+  });
+</script>
+
+</body>
+</html>

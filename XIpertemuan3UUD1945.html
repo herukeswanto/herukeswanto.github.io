@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>LKPD Diskusi - Hubungan Antarperaturan Perundang-Undangan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2a4d69;
+    }
+    .intro {
+      background: #dbe9f4;
+      padding: 15px;
+      border-left: 5px solid #2a4d69;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      background: #2a4d69;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 16px;
+    }
+    #msg {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>LKPD Diskusi Kelompok</h1>
+
+  <div class="intro">
+    <h2>🧠 Penjelasan Materi</h2>
+    <p>Dalam kehidupan berbangsa, berbagai peraturan perundang-undangan diterbitkan oleh pemerintah pusat maupun daerah. Namun, sering terjadi <strong>tumpang tindih</strong> atau <strong>ketidaksesuaian</strong> antara peraturan satu dengan yang lain. Contohnya, peraturan daerah yang bertentangan dengan undang-undang nasional.</p>
+    <p>Melalui diskusi kelompok ini, kalian akan menganalisis salah satu dari empat aspek penting:</p>
+    <ul>
+      <li>Permasalahan antar peraturan</li>
+      <li>Keselarasan peraturan</li>
+      <li>Perubahan dan revisi peraturan</li>
+      <li>Ketidaksesuaian dan judicial review</li>
+    </ul>
+  </div>
+
+  <form id="lkpdForm">
+    <label>Nama Ketua Kelompok:</label>
+    <input type="text" name="ketua" required>
+
+    <label>Nomor Kelompok:</label>
+    <select name="kelompok" required>
+      <option value="">-- Pilih Kelompok --</option>
+      <option value="1">Kelompok 1 - Permasalahan Peraturan</option>
+      <option value="2">Kelompok 2 - Keselarasan</option>
+      <option value="3">Kelompok 3 - Perubahan Peraturan</option>
+      <option value="4">Kelompok 4 - Ketidaksesuaian</option>
+    </select>
+
+    <label>Nama Anggota Kelompok:</label>
+    <textarea name="anggota" placeholder="Contoh: Ani, Budi, Citra, Deni" required></textarea>
+
+    <label>Hasil Diskusi:</label>
+    <textarea name="hasil" placeholder="Tulis hasil diskusi kelompok kalian secara lengkap di sini." required></textarea>
+
+    <button type="submit">Kirim Hasil Diskusi ke Guru</button>
+    <div id="msg"></div>
+  </form>
+</div>
+
+<script>
+document.getElementById("lkpdForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const data = new FormData(this);
+
+  fetch("https://script.google.com/macros/s/AKfycbzksUUuDpAoi_aQj5E3B1jvCbDec918oan1zLfp4y9i4Mi_CAPeniYf7K7-CVGWf5H2pQ/exec", {
+    method: "POST",
+    body: data
+  })
+  .then(res => res.text())
+  .then(txt => {
+    document.getElementById("msg").textContent = "✅ Hasil diskusi berhasil dikirim!";
+    this.reset();
+  })
+  .catch(err => {
+    document.getElementById("msg").textContent = "❌ Gagal mengirim. Silakan coba lagi.";
+  });
+});
+</script>
+
+</body>
+</html>

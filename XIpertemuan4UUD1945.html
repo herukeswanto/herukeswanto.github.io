@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pembelajaran Interaktif: Perilaku Sesuai Peraturan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f9ff;
+      padding: 20px;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #2a4d69;
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 10px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background: #2a4d69;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    #msg {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Pertemuan 4: Perilaku yang Sesuai Peraturan</h1>
+
+  <div>
+    <h2>📌 Penjelasan Materi</h2>
+    <p>Sebagai warga negara, kita wajib menaati seluruh peraturan perundang-undangan, baik di lingkungan keluarga, sekolah, masyarakat, maupun negara. Ketidaktaatan terhadap peraturan dapat membuat hukum menjadi tidak efektif. Dalam video ini, kalian akan melihat contoh-contoh perilaku taat aturan dalam kehidupan sehari-hari.</p>
+  </div>
+
+  <div>
+    <h2>🎬 Video Pengamatan</h2>
+    <iframe src="https://www.youtube.com/embed/AIlv-CD2gMI" allowfullscreen></iframe>
+  </div>
+
+  <form id="refleksiForm">
+    <h2>📝 Refleksi Siswa</h2>
+    <label>Nama:</label>
+    <input type="text" name="nama" required>
+
+    <label>Kelas:</label>
+    <input type="text" name="kelas" required>
+
+    <label>Tuliskan contoh perilaku taat aturan yang kamu lihat di video:</label>
+    <textarea name="pengamatan" required></textarea>
+
+    <label>Menurutmu, apa dampaknya jika warga negara tidak mematuhi aturan?</label>
+    <textarea name="dampak" required></textarea>
+
+    <button type="submit">Kirim Refleksi</button>
+    <div id="msg"></div>
+  </form>
+</div>
+
+<script>
+document.getElementById("refleksiForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const data = new FormData(this);
+
+  fetch("https://script.google.com/macros/s/AKfycbyW67NT0tI9xIlT08iQokq7RTHsDBD6gNp3ox36rd-kApX8NVDHZdOIWPMXCLC97C78/exec", {
+    method: "POST",
+    body: data
+  })
+  .then(response => response.text())
+  .then(txt => {
+    document.getElementById("msg").textContent = "✅ Refleksi berhasil dikirim!";
+    this.reset();
+  })
+  .catch(error => {
+    document.getElementById("msg").textContent = "❌ Gagal mengirim. Silakan coba lagi.";
+  });
+});
+</script>
+
+</body>
+</html>
