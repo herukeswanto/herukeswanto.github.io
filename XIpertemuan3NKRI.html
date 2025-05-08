@@ -1,157 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Pembelajaran Interaktif: Strategi Menghadapi ATHG</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategi Menghadapi ATHG</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f0f0f0; }
-    .section { background: #a6a6a6; padding: 20px; margin-bottom: 30px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h2 { color: #2c3e50; }
-    .quiz label { display: block; margin: 5px 0; }
-    .kelompok { margin: 10px 0; }
-    textarea, select, button { width: 100%; padding: 10px; margin-top: 10px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background-color: #004d99;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .container {
+      padding: 1rem;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+    h2 {
+      color: #004d99;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #004d99;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0066cc;
+    }
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Strategi Menghadapi ATHG</h1>
+    <p>Bidang Ideologi, Politik, Ekonomi, Sosial Budaya, Pertahanan dan Keamanan</p>
+  </header>
 
-<h1>Pembelajaran Interaktif: Strategi Menghadapi ATHG (ATHG)</h1>
+  <div class="container">
+    <div class="card">
+      <h2>📌 Bidang Ideologi</h2>
+      <p>Mencegah pengaruh ideologi asing melalui kebijakan politik dan penguatan bela negara.</p>
+    </div>
 
-<!-- Kelompok 1: Ideologi -->
-<div class="section">
-  <h2>Kelompok 1: Bidang Ideologi</h2>
-  <p><strong>Strategi:</strong> Penguatan nilai-nilai Pancasila, pendidikan ideologi bangsa, dan penyaringan ideologi asing yang bertentangan dengan jati diri bangsa.</p>
+    <div class="card">
+      <h2>📌 Bidang Politik</h2>
+      <p>Memperkuat demokrasi dalam negeri dan menjalin kerja sama diplomatik luar negeri.</p>
+    </div>
 
-  <div class="quiz">
-    <p><strong>Kuis:</strong> Apa strategi utama untuk menghadapi ancaman ideologi?</p>
-    <label><input type="radio" name="kuis1" value="Pendidikan ideologi bangsa"> Pendidikan ideologi bangsa</label>
-    <label><input type="radio" name="kuis1" value="Diversifikasi ekonomi"> Diversifikasi ekonomi</label>
-    <label><input type="radio" name="kuis1" value="Keamanan siber"> Keamanan siber</label>
-    <button onclick="cekJawaban('kuis1', 'Pendidikan ideologi bangsa')">Cek Jawaban</button>
-    <p id="hasil1"></p>
+    <div class="card">
+      <h2>📌 Bidang Ekonomi</h2>
+      <p>Mengembangkan lapangan kerja, infrastruktur, dan hubungan ekonomi global yang seimbang.</p>
+    </div>
+
+    <div class="card">
+      <h2>📌 Bidang Sosial Budaya</h2>
+      <p>Pelestarian budaya lokal dan membatasi pengaruh negatif media asing.</p>
+    </div>
+
+    <div class="card">
+      <h2>📌 Pertahanan dan Keamanan</h2>
+      <p>Kombinasi diplomasi, perlawanan non-militer, dan kekuatan TNI jika diperlukan.</p>
+    </div>
+
+    <div class="card">
+      <h2>📝 Refleksi Diskusi</h2>
+      <form id="responseForm">
+        <label for="nama">Nama Siswa:</label>
+        <input type="text" id="nama" name="nama" required />
+
+        <label for="kelas">Kelas:</label>
+        <input type="text" id="kelas" name="kelas" required />
+
+        <label for="tanggapan">Tanggapan Anda tentang strategi menghadapi ATHG:</label>
+        <textarea id="tanggapan" name="tanggapan" rows="4" required></textarea>
+
+        <button type="submit">Kirim Jawaban</button>
+      </form>
+      <p id="status"></p>
+    </div>
   </div>
 
-  <h3>Studi Kasus</h3>
-  <div class="kelompok">Maraknya paham radikal di media sosial. Bagaimana strategi ideologi yang tepat untuk menghadapinya?</div>
-</div>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyovOYxzhvln5d234xFLSor71t81S9sYmwiFRgdztUf1TDcSbl4H7Ecg3yuZ7zeO8zy/exec';
+    const form = document.getElementById('responseForm');
+    const status = document.getElementById('status');
 
-<!-- Kelompok 2: Politik -->
-<div class="section">
-  <h2>Kelompok 2: Bidang Politik</h2>
-  <p><strong>Strategi:</strong> Penguatan sistem politik demokratis, pemberantasan korupsi, dan diplomasi luar negeri.</p>
-
-  <div class="quiz">
-    <p><strong>Kuis:</strong> Apa yang termasuk strategi politik menghadapi ATHG?</p>
-    <label><input type="radio" name="kuis2" value="Pemberantasan korupsi"> Pemberantasan korupsi</label>
-    <label><input type="radio" name="kuis2" value="Penguatan cadangan devisa"> Penguatan cadangan devisa</label>
-    <label><input type="radio" name="kuis2" value="Hoaks digital"> Hoaks digital</label>
-    <button onclick="cekJawaban('kuis2', 'Pemberantasan korupsi')">Cek Jawaban</button>
-    <p id="hasil2"></p>
-  </div>
-
-  <h3>Studi Kasus</h3>
-  <div class="kelompok">Tingginya praktik politik uang saat pemilu. Apa solusi politik untuk memperbaiki kondisi ini?</div>
-</div>
-
-<!-- Kelompok 3: Ekonomi -->
-<div class="section">
-  <h2>Kelompok 3: Bidang Ekonomi</h2>
-  <p><strong>Strategi:</strong> Diversifikasi ekonomi, peningkatan UMKM, dan kemandirian pangan dan energi.</p>
-
-  <div class="quiz">
-    <p><strong>Kuis:</strong> Apa yang dilakukan untuk menghadapi krisis ekonomi?</p>
-    <label><input type="radio" name="kuis3" value="Diversifikasi ekonomi"> Diversifikasi ekonomi</label>
-    <label><input type="radio" name="kuis3" value="Kampanye politik"> Kampanye politik</label>
-    <label><input type="radio" name="kuis3" value="Pendidikan budaya"> Pendidikan budaya</label>
-    <button onclick="cekJawaban('kuis3', 'Diversifikasi ekonomi')">Cek Jawaban</button>
-    <p id="hasil3"></p>
-  </div>
-
-  <h3>Studi Kasus</h3>
-  <div class="kelompok">Gangguan pasokan global menyebabkan harga bahan pokok melonjak. Apa strategi ekonomi untuk mengatasi hal ini?</div>
-</div>
-
-<!-- Kelompok 4: Sosial Budaya -->
-<div class="section">
-  <h2>Kelompok 4: Bidang Sosial Budaya</h2>
-  <p><strong>Strategi:</strong> Pendidikan multikultural, promosi budaya lokal, dan dialog antar kelompok masyarakat.</p>
-
-  <div class="quiz">
-    <p><strong>Kuis:</strong> Apa yang dapat mencegah konflik sosial?</p>
-    <label><input type="radio" name="kuis4" value="Dialog antar kelompok"> Dialog antar kelompok</label>
-    <label><input type="radio" name="kuis4" value="Serangan siber"> Serangan siber</label>
-    <label><input type="radio" name="kuis4" value="Kredit usaha"> Kredit usaha</label>
-    <button onclick="cekJawaban('kuis4', 'Dialog antar kelompok')">Cek Jawaban</button>
-    <p id="hasil4"></p>
-  </div>
-
-  <h3>Studi Kasus</h3>
-  <div class="kelompok">Konflik antar etnis muncul akibat kesenjangan sosial. Bagaimana strategi sosial budaya untuk membangun harmoni?</div>
-</div>
-
-<!-- Kelompok 5: Pertahanan dan Keamanan -->
-<div class="section">
-  <h2>Kelompok 5: Bidang Pertahanan dan Keamanan</h2>
-  <p><strong>Strategi:</strong> Penguatan TNI-Polri, sistem pertahanan negara, dan keamanan digital.</p>
-
-  <div class="quiz">
-    <p><strong>Kuis:</strong> Apa strategi utama di bidang keamanan?</p>
-    <label><input type="radio" name="kuis5" value="Penguatan TNI dan intelijen"> Penguatan TNI dan intelijen</label>
-    <label><input type="radio" name="kuis5" value="Kampanye budaya"> Kampanye budaya</label>
-    <label><input type="radio" name="kuis5" value="Koperasi petani"> Koperasi petani</label>
-    <button onclick="cekJawaban('kuis5', 'Penguatan TNI dan intelijen')">Cek Jawaban</button>
-    <p id="hasil5"></p>
-  </div>
-
-  <h3>Studi Kasus</h3>
-  <div class="kelompok">Ancaman terorisme meningkat di wilayah perbatasan. Apa langkah yang harus diambil oleh sektor pertahanan?</div>
-</div>
-
-<!-- Kolom Komentar -->
-<div class="section">
-  <h2>Kolom Komentar Diskusi</h2>
-  <form id="commentForm">
-    <label>Kelompok:</label>
-    <select name="kelompok" required>
-      <option value="Kelompok 1 - Ideologi">Kelompok 1 - Ideologi</option>
-      <option value="Kelompok 2 - Politik">Kelompok 2 - Politik</option>
-      <option value="Kelompok 3 - Ekonomi">Kelompok 3 - Ekonomi</option>
-      <option value="Kelompok 4 - Sosial Budaya">Kelompok 4 - Sosial Budaya</option>
-      <option value="Kelompok 5 - Pertahanan Keamanan">Kelompok 5 - Pertahanan Keamanan</option>
-    </select>
-    <label>Komentar Diskusi:</label>
-    <textarea name="komentar" required></textarea>
-    <button type="submit">Kirim Komentar</button>
-    <p id="status"></p>
-  </form>
-</div>
-
-<script>
-function cekJawaban(nama, kunci) {
-  const pilihan = document.querySelector(`input[name="${nama}"]:checked`);
-  const hasil = document.getElementById(`hasil${nama.slice(-1)}`);
-  if (!pilihan) {
-    hasil.textContent = "❗ Silakan pilih jawaban.";
-    return;
-  }
-  hasil.textContent = (pilihan.value === kunci) ? "✅ Jawaban benar!" : "❌ Jawaban salah.";
-}
-
-document.getElementById('commentForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const formData = new FormData(this);
-  fetch('https://script.google.com/macros/s/AKfycbwhVeslHBEl7UdL2jLoJ6s0cI_YnCW7vjb_V41CDgzP5bS-9flHO65uOGWENvX40QDWhA/exec', {
-    method: 'POST',
-    body: formData
-  })
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("status").textContent = "✅ Komentar berhasil dikirim.";
-    this.reset();
-  })
-  .catch(err => {
-    document.getElementById("status").textContent = "❌ Gagal mengirim komentar.";
-  });
-});
-</script>
-
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          status.textContent = "✅ Jawaban berhasil dikirim. Terima kasih!";
+          form.reset();
+        })
+        .catch(error => {
+          status.textContent = "❌ Terjadi kesalahan. Silakan coba lagi.";
+        });
+    });
+  </script>
 </body>
 </html>
