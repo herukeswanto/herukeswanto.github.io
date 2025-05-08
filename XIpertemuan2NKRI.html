@@ -1,89 +1,123 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembelajaran Interaktif ATHG</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; color: #333; }
-        .container { width: 80%; margin: 20px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
-        .quiz-container, .materi-container, .diskusi-container { margin: 20px 0; padding: 20px; border-radius: 10px; }
-        .quiz-container { background-color: #ffcc80; }
-        .materi-container { background-color: #80cbc4; }
-        .diskusi-container { background-color: #ffab91; }
-        .hidden { display: none; }
-        input, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 5px; }
-        button { background-color: #5c6bc0; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
-        button:hover { background-color: #3949ab; }
-        #message { margin-top: 10px; font-weight: bold; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATHG dan Solusi Integrasi Nasional</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: #fff;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      color: #ffe082;
+    }
+    form {
+      background-color: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #ff5722;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #e64a19;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Pembelajaran Interaktif ATHG</h1>
 
-        <div class="quiz-container">
-            <h2>Kuis: Apa Itu ATHG?</h2>
-            <p>Apa kepanjangan dari ATHG?</p>
-            <button onclick="checkAnswer('a')">A. Ancaman, Tantangan, Hambatan, Gangguan</button>
-            <button onclick="checkAnswer('b')">B. Ancaman, Teknologi, Hukum, Geopolitik</button>
-            <p id="quiz-feedback"></p>
-        </div>
+  <h1>ATHG & Solusi Integrasi Nasional</h1>
+  <p style="text-align:center;">Mari kenali ancaman terhadap bangsa dan solusi mempertahankannya!</p>
 
-        <div class="diskusi-container hidden" id="diskusi">
-            <h2>Diskusi Studi Kasus</h2>
-            <p>Apa pendapatmu tentang strategi menghadapi ATHG?</p>
-            <input type="text" id="name" placeholder="Masukkan Nama"><br>
-            <textarea id="comment" rows="4" placeholder="Tulis komentar..."></textarea><br>
-            <button onclick="addComment()">Kirim</button>
-            <p id="message"></p>
-        </div>
-    </div>
+  <!-- Bidang-bidang ATHG -->
+  <div class="card">
+    <h3>1. Bidang Ideologi</h3>
+    <p>Ancaman terhadap Pancasila melalui penyebaran ideologi asing (contoh: radikalisme atau komunisme). Solusinya: memperkuat pendidikan Pancasila, bela negara, dan toleransi.</p>
+  </div>
 
-    <script>
-        function checkAnswer(answer) {
-            if (answer === 'a') {
-                document.getElementById("quiz-feedback").innerText = "Benar! ATHG adalah Ancaman, Tantangan, Hambatan, dan Gangguan.";
-                document.getElementById("diskusi").classList.remove("hidden");
-            } else {
-                document.getElementById("quiz-feedback").innerText = "Salah, coba lagi.";
-            }
-        }
+  <div class="card">
+    <h3>2. Bidang Politik</h3>
+    <p>Ancaman dari dalam seperti konflik elit politik atau dari luar seperti tekanan diplomatik. Solusinya: meningkatkan demokrasi, keterlibatan masyarakat, dan diplomasi aktif.</p>
+  </div>
 
-        function addComment() {
-            let name = document.getElementById("name").value.trim();
-            let comment = document.getElementById("comment").value.trim();
-            let message = document.getElementById("message");
+  <div class="card">
+    <h3>3. Bidang Ekonomi</h3>
+    <p>Masalah seperti inflasi, pengangguran, dan ketergantungan asing. Solusinya: kemandirian ekonomi, kewirausahaan, dan pemerataan pembangunan.</p>
+  </div>
 
-            if (name === "" || comment === "") {
-                message.style.color = "red";
-                message.innerText = "Harap isi nama dan komentar.";
-                return;
-            }
+  <div class="card">
+    <h3>4. Bidang Sosial Budaya</h3>
+    <p>Masuknya budaya asing yang mengikis jati diri bangsa. Solusinya: mencintai budaya lokal, menggunakan bahasa Indonesia, dan memperkuat karakter kebangsaan.</p>
+  </div>
 
-            fetch('https://script.google.com/macros/s/AKfycbx8lIkdi9anrg03FGxLr9w84m5sdPcoAhW_UdoALY3Ek3AHkxGpcXMWMZ0HBqw4zRnVgw/exec', { // Ganti dengan URL Web App dari Apps Script
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: name, comment: comment })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    message.style.color = "green";
-                    message.innerText = "Komentar berhasil dikirim!";
-                    document.getElementById("name").value = "";
-                    document.getElementById("comment").value = "";
-                } else {
-                    message.style.color = "red";
-                    message.innerText = "Terjadi kesalahan, coba lagi.";
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                message.style.color = "red";
-                message.innerText = "Gagal menghubungi server.";
-            });
-        }
-    </script>
+  <div class="card">
+    <h3>5. Bidang Pertahanan dan Keamanan</h3>
+    <p>Ancaman berupa konflik perbatasan dan pelanggaran wilayah. Solusinya: penguatan TNI/Polri, Wawasan Nusantara, dan bela negara.</p>
+  </div>
+
+  <!-- LKPD Interaktif -->
+  <!-- LKPD Interaktif (Tampilan Menarik) -->
+<div class="card" style="background: #ffffff; color: #333;">
+    <h2 style="text-align: center; color: #00796b;">LKPD Interaktif - Tugas Refleksi ATHG</h2>
+    <form action="https://script.google.com/macros/s/AKfycbx-x8q2OZoIOe9deCJ1nBhqwTGP-4en36MSBq361FPjDiLx6xiysRh9hvHYe9EzNRlugQ/exec" method="POST" style="padding: 20px;">
+      <label for="nama"><strong>Nama Lengkap:</strong></label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+  
+      <label for="kelas"><strong>Kelas:</strong></label>
+      <input type="text" id="kelas" name="kelas" placeholder="Contoh: X PPLG 1" required>
+  
+      <label for="bidang"><strong>Bidang yang Dipilih:</strong></label>
+      <select id="bidang" name="bidang" required style="width: 100%; padding: 10px; border-radius: 8px; margin-bottom: 15px;">
+        <option value="">-- Pilih Bidang --</option>
+        <option value="Ideologi">Ideologi</option>
+        <option value="Politik">Politik</option>
+        <option value="Ekonomi">Ekonomi</option>
+        <option value="Sosial Budaya">Sosial Budaya</option>
+        <option value="Pertahanan dan Keamanan">Pertahanan dan Keamanan</option>
+      </select>
+  
+      <label for="athg"><strong>Contoh ATHG yang Diamati:</strong></label>
+      <textarea id="athg" name="athg" rows="4" placeholder="Contoh: Masuknya ideologi asing melalui media sosial..." required></textarea>
+  
+      <label for="solusi"><strong>Solusi Berdasarkan Identitas Nasional:</strong></label>
+      <textarea id="solusi" name="solusi" rows="4" placeholder="Contoh: Memperkuat pendidikan Pancasila dan kesadaran nasional..." required></textarea>
+  
+      <input type="submit" value="Kirim Jawaban" style="background-color: #ff5722; color: white; padding: 12px; font-size: 16px; border-radius: 8px; border: none; cursor: pointer;">
+    </form>
+  </div>
+  
+
 </body>
 </html>
