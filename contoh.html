@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyboard Multimedia Pendidikan Pancasila</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 360px; /* Simulasi layar smartphone */
+            max-width: 1080px;
+            height: 640px; /* Rasio disesuaikan */
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        .screen {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .screen.active {
+            display: flex;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #003087; /* Biru nasional */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #c8102e; /* Merah nasional */
+        }
+        /* Layar 1: Pembukaan */
+        #screen1 {
+            background: linear-gradient(to bottom, #c8102e, #fff); /* Gradasi merah-putih */
+        }
+        #screen1 img {
+            width: 150px; /* Placeholder Garuda */
+            margin-bottom: 20px;
+        }
+        #screen1 h1 {
+            color: white;
+            text-shadow: 2px 2px 4px #003087;
+            font-size: 24px;
+            margin: 0;
+        }
+        /* Layar 2: Infografik */
+        #screen2 {
+            background: #e6f0fa;
+        }
+        .infographic {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .info-box {
+            width: 150px;
+            height: 200px;
+            background: white;
+            border: 2px solid #c8102e;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .popup {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #003087;
+            padding: 10px;
+            width: 120px;
+            top: 10px;
+            left: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .info-box:hover .popup {
+            display: block;
+        }
+        /* Layar 3: Simulasi */
+        #screen3 {
+            background: white;
+        }
+        .option {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #e6f0fa;
+            border: 2px solid #003087;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .option:hover {
+            background: #c8102e;
+            color: white;
+        }
+        #feedback {
+            display: none;
+            color: green;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        /* Layar 4: Video */
+        #screen4 {
+            background: white;
+        }
+        #screen4 .video-placeholder {
+            width: 300px;
+            height: 169px; /* Rasio 16:9 */
+            background: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #c8102e;
+            margin: 20px 0;
+        }
+        /* Layar 5: Kuis */
+        #screen5 {
+            background: #e6f0fa;
+        }
+        .quiz-option {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid #003087;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .quiz-option.correct {
+            background: green;
+            color: white;
+        }
+        .quiz-option.wrong {
+            background: red;
+            color: white;
+        }
+        #score {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #c8102e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Layar 1: Pembukaan -->
+        <div id="screen1" class="screen active">
+            <img src="https://via.placeholder.com/150?text=Garuda" alt="Garuda Pancasila">
+            <h1>Sila Keempat: Musyawarah</h1>
+            <p>Selamat datang! Yuk, pelajari pentingnya musyawarah!</p>
+            <button class="btn" onclick="showScreen(2)">Mulai</button>
+        </div>
+        <!-- Layar 2: Infografik -->
+        <div id="screen2" class="screen">
+            <h2>Apa Itu Musyawarah?</h2>
+            <div class="infographic">
+                <div class="info-box">
+                    Musyawarah
+                    <div class="popup">Pengambilan keputusan bersama dengan menghormati setiap pendapat.</div>
+                </div>
+                <div class="info-box">
+                    Keputusan Sepihak
+                    <div class="popup">Keputusan yang diambil tanpa melibatkan pendapat orang lain.</div>
+                </div>
+            </div>
+            <button class="btn" onclick="showScreen(3)">Lanjut</button>
+        </div>
+        <!-- Layar 3: Simulasi -->
+        <div id="screen3" class="screen">
+            <h2>Pilih Cara Terbaik!</h2>
+            <p>Kamu ketua kelas. Bagaimana memilih kegiatan ekstrakurikuler?</p>
+            <div class="option" onclick="showFeedback(true)">Musyawarah untuk memilih</div>
+            <div class="option" onclick="showFeedback(false)">Ketua kelas memutuskan sendiri</div>
+            <div class="option" onclick="showFeedback(false)">Voting tanpa diskusi</div>
+            <p id="feedback">Tepat! Musyawarah memastikan semua pendapat dihargai.</p>
+            <button class="btn" onclick="showScreen(4)">Lanjut</button>
+        </div>
+        <!-- Layar 4: Video -->
+        <div id="screen4" class="screen">
+            <h2>Musyawarah di Masyarakat</h2>
+            <div class="video-placeholder">Placeholder Video: Musyawarah Desa</div>
+            <p>Lihat bagaimana musyawarah diterapkan di kehidupan nyata!</p>
+            <button class="btn" onclick="showScreen(5)">Lanjut</button>
+        </div>
+        <!-- Layar 5: Kuis -->
+        <div id="screen5" class="screen">
+            <h2>Apa Prinsip Musyawarah?</h2>
+            <div class="quiz-option" onclick="answerQuiz(true, this)">Menghormati semua pendapat</div>
+            <div class="quiz-option" onclick="answerQuiz(false, this)">Memaksakan pendapat pribadi</div>
+            <div class="quiz-option" onclick="answerQuiz(false, this)">Mengabaikan pendapat minoritas</div>
+            <div id="score">Skor: 0</div>
+            <button class="btn" onclick="endSession()">Selesai</button>
+        </div>
+    </div>
+    <script>
+        function showScreen(screenNumber) {
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+            document.getElementById(`screen${screenNumber}`).classList.add('active');
+        }
+        function showFeedback(isCorrect) {
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = isCorrect ? 'block' : 'none';
+        }
+        let score = 0;
+        function answerQuiz(isCorrect, element) {
+            if (isCorrect) {
+                element.classList.add('correct');
+                score += 10;
+            } else {
+                element.classList.add('wrong');
+            }
+            document.getElementById('score').textContent = `Skor: ${score}`;
+        }
+        function endSession() {
+            alert('Terima kasih telah belajar! Terapkan musyawarah dalam hidupmu!');
+            showScreen(1); // Kembali ke layar awal
+        }
+    </script>
+</body>
+</html>
