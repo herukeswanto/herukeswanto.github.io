@@ -1,253 +1,198 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storyboard Multimedia Pendidikan Pancasila</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            width: 360px; /* Simulasi layar smartphone */
-            max-width: 1080px;
-            height: 640px; /* Rasio disesuaikan */
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            overflow: hidden;
-            position: relative;
-        }
-        .screen {
-            display: none;
-            width: 100%;
-            height: 100%;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .screen.active {
-            display: flex;
-        }
-        .btn {
-            padding: 10px 20px;
-            background: #003087; /* Biru nasional */
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background: #c8102e; /* Merah nasional */
-        }
-        /* Layar 1: Pembukaan */
-        #screen1 {
-            background: linear-gradient(to bottom, #c8102e, #fff); /* Gradasi merah-putih */
-        }
-        #screen1 img {
-            width: 150px; /* Placeholder Garuda */
-            margin-bottom: 20px;
-        }
-        #screen1 h1 {
-            color: white;
-            text-shadow: 2px 2px 4px #003087;
-            font-size: 24px;
-            margin: 0;
-        }
-        /* Layar 2: Infografik */
-        #screen2 {
-            background: #e6f0fa;
-        }
-        .infographic {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            margin: 20px 0;
-        }
-        .info-box {
-            width: 150px;
-            height: 200px;
-            background: white;
-            border: 2px solid #c8102e;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            position: relative;
-        }
-        .popup {
-            display: none;
-            position: absolute;
-            background: white;
-            border: 1px solid #003087;
-            padding: 10px;
-            width: 120px;
-            top: 10px;
-            left: 10px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-        .info-box:hover .popup {
-            display: block;
-        }
-        /* Layar 3: Simulasi */
-        #screen3 {
-            background: white;
-        }
-        .option {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            background: #e6f0fa;
-            border: 2px solid #003087;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .option:hover {
-            background: #c8102e;
-            color: white;
-        }
-        #feedback {
-            display: none;
-            color: green;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        /* Layar 4: Video */
-        #screen4 {
-            background: white;
-        }
-        #screen4 .video-placeholder {
-            width: 300px;
-            height: 169px; /* Rasio 16:9 */
-            background: #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #c8102e;
-            margin: 20px 0;
-        }
-        /* Layar 5: Kuis */
-        #screen5 {
-            background: #e6f0fa;
-        }
-        .quiz-option {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            background: white;
-            border: 2px solid #003087;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        .quiz-option.correct {
-            background: green;
-            color: white;
-        }
-        .quiz-option.wrong {
-            background: red;
-            color: white;
-        }
-        #score {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #c8102e;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 50%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sila Keempat: Musyawarah</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: white;
+    }
+    .screen {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .active {
+      display: block;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .centered {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+    }
+    .popup {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 20px;
+      display: none;
+      z-index: 100;
+    }
+    .card {
+      width: 80%;
+      margin: 10px auto;
+      padding: 15px;
+      border: 2px solid red;
+      background: #e0f0ff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .card.selected {
+      border-color: green;
+      background: #d4fdd4;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .video-box {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .quiz-option {
+      padding: 10px;
+      margin: 10px auto;
+      width: 80%;
+      background: white;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .quiz-option.correct {
+      background: #d4fdd4;
+    }
+    .quiz-option.wrong {
+      background: #fdd4d4;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Layar 1: Pembukaan -->
-        <div id="screen1" class="screen active">
-            <img src="https://via.placeholder.com/150?text=Garuda" alt="Garuda Pancasila">
-            <h1>Sila Keempat: Musyawarah</h1>
-            <p>Selamat datang! Yuk, pelajari pentingnya musyawarah!</p>
-            <button class="btn" onclick="showScreen(2)">Mulai</button>
-        </div>
-        <!-- Layar 2: Infografik -->
-        <div id="screen2" class="screen">
-            <h2>Apa Itu Musyawarah?</h2>
-            <div class="infographic">
-                <div class="info-box">
-                    Musyawarah
-                    <div class="popup">Pengambilan keputusan bersama dengan menghormati setiap pendapat.</div>
-                </div>
-                <div class="info-box">
-                    Keputusan Sepihak
-                    <div class="popup">Keputusan yang diambil tanpa melibatkan pendapat orang lain.</div>
-                </div>
-            </div>
-            <button class="btn" onclick="showScreen(3)">Lanjut</button>
-        </div>
-        <!-- Layar 3: Simulasi -->
-        <div id="screen3" class="screen">
-            <h2>Pilih Cara Terbaik!</h2>
-            <p>Kamu ketua kelas. Bagaimana memilih kegiatan ekstrakurikuler?</p>
-            <div class="option" onclick="showFeedback(true)">Musyawarah untuk memilih</div>
-            <div class="option" onclick="showFeedback(false)">Ketua kelas memutuskan sendiri</div>
-            <div class="option" onclick="showFeedback(false)">Voting tanpa diskusi</div>
-            <p id="feedback">Tepat! Musyawarah memastikan semua pendapat dihargai.</p>
-            <button class="btn" onclick="showScreen(4)">Lanjut</button>
-        </div>
-        <!-- Layar 4: Video -->
-        <div id="screen4" class="screen">
-            <h2>Musyawarah di Masyarakat</h2>
-            <div class="video-placeholder">Placeholder Video: Musyawarah Desa</div>
-            <p>Lihat bagaimana musyawarah diterapkan di kehidupan nyata!</p>
-            <button class="btn" onclick="showScreen(5)">Lanjut</button>
-        </div>
-        <!-- Layar 5: Kuis -->
-        <div id="screen5" class="screen">
-            <h2>Apa Prinsip Musyawarah?</h2>
-            <div class="quiz-option" onclick="answerQuiz(true, this)">Menghormati semua pendapat</div>
-            <div class="quiz-option" onclick="answerQuiz(false, this)">Memaksakan pendapat pribadi</div>
-            <div class="quiz-option" onclick="answerQuiz(false, this)">Mengabaikan pendapat minoritas</div>
-            <div id="score">Skor: 0</div>
-            <button class="btn" onclick="endSession()">Selesai</button>
-        </div>
+
+<!-- Screen 1 -->
+<div class="screen active" id="screen1" style="background: linear-gradient(to bottom, red, white);">
+  <div class="centered">
+    <img src="contohpancasila.gif" id="garuda" width="300" alt="Garuda Pancasila">
+    <h1 style="color:white; text-shadow: 1px 1px 2px blue;">Sila Keempat: Musyawarah</h1>
+    <p>“Halo, Anak-anak! Yuk, kita pelajari sila keempat Pancasila dan pentingnya musyawarah!”</p>
+    <button class="btn" style="background:blue; color:white;" onclick="nextScreen(2)">Mulai ▶️</button>
+  </div>
+</div>
+
+<!-- Screen 2 -->
+<div class="screen" id="screen2" style="background:#d0e9ff;">
+  <h2 style="color:red;">Apa Itu Musyawarah?</h2>
+  <div style="display:flex; justify-content:space-around; margin-top:20px;">
+    <div onclick="showPopup('Musyawarah adalah pengambilan keputusan bersama dengan menghormati setiap pendapat.')" style="width:45%; background:white; box-shadow:0 2px 6px rgba(0,0,0,0.2); padding:10px;">
+      <h3>Musyawarah</h3>
+      <img src="contohmusyawarah.png" width="100">
     </div>
-    <script>
-        function showScreen(screenNumber) {
-            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
-            document.getElementById(`screen${screenNumber}`).classList.add('active');
-        }
-        function showFeedback(isCorrect) {
-            const feedback = document.getElementById('feedback');
-            feedback.style.display = isCorrect ? 'block' : 'none';
-        }
-        let score = 0;
-        function answerQuiz(isCorrect, element) {
-            if (isCorrect) {
-                element.classList.add('correct');
-                score += 10;
-            } else {
-                element.classList.add('wrong');
-            }
-            document.getElementById('score').textContent = `Skor: ${score}`;
-        }
-        function endSession() {
-            alert('Terima kasih telah belajar! Terapkan musyawarah dalam hidupmu!');
-            showScreen(1); // Kembali ke layar awal
-        }
-    </script>
+    <div onclick="showPopup('Keputusan sepihak tidak melibatkan pendapat orang lain.')" style="width:45%; background:white; box-shadow:0 2px 6px rgba(0,0,0,0.2); padding:10px;">
+      <h3>Keputusan Sepihak</h3>
+      <img src="contoh keputusan sepihak.png" width="100">
+    </div>
+  </div>
+  <div class="popup" id="popup"></div>
+  <button class="btn" style="position:absolute; bottom:20px; right:20px;" onclick="nextScreen(3)">Lanjut</button>
+</div>
+
+<!-- Screen 3 -->
+<div class="screen" id="screen3" style="background:white;">
+  <h2 style="color:#003366;">Pilih Cara Terbaik!</h2>
+  <div class="card" onclick="selectOption(this, true)">Musyawarah untuk memilih kegiatan ekstrakurikuler</div>
+  <div class="card" onclick="selectOption(this, false)">Ketua kelas memutuskan sendiri</div>
+  <div class="card" onclick="selectOption(this, false)">Voting tanpa diskusi</div>
+  <div class="feedback" id="feedback3"></div>
+  <button class="btn" style="display:none;" id="nextBtn3" onclick="nextScreen(4)">Lanjut</button>
+</div>
+
+<!-- Screen 4 -->
+<div class="screen" id="screen4">
+  <h2 style="color:red;">Musyawarah di Masyarakat</h2>
+  <div class="video-box">
+    <video id="musyawarahVideo" width="100%" controls>
+      <source src="contoh musyawarah desaa.mp4" type="video/mp4">
+      Video tidak didukung.
+    </video>
+    <p style="background:black; color:white; padding:5px;">Lihat bagaimana musyawarah diterapkan di kehidupan nyata!</p>
+  </div>
+  <button class="btn" style="position:absolute; bottom:20px; right:20px; display:none;" id="nextBtn4" onclick="nextScreen(5)">Lanjut</button>
+</div>
+
+<!-- Screen 5 -->
+<div class="screen" id="screen5" style="background:#d0e9ff;">
+  <h2 style="color:#003366;">Apa prinsip musyawarah?</h2>
+  <div class="quiz-option" onclick="answerQuiz(this, true)">Menghormati semua pendapat</div>
+  <div class="quiz-option" onclick="answerQuiz(this, false)">Memaksakan pendapat pribadi</div>
+  <div class="quiz-option" onclick="answerQuiz(this, false)">Mengabaikan pendapat minoritas</div>
+  <div class="feedback" id="feedback5"></div>
+  <button class="btn" style="display:none;" id="doneBtn" onclick="alert('Terima kasih telah belajar!')">Selesai</button>
+</div>
+
+<script>
+  function nextScreen(n) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen' + n).classList.add('active');
+    if (n === 4) {
+      document.getElementById('nextBtn4').style.display = 'inline-block';
+    }
+  }
+
+  function showPopup(text) {
+    const popup = document.getElementById('popup');
+    popup.innerText = text;
+    popup.style.display = 'block';
+    setTimeout(() => { popup.style.display = 'none'; }, 4000);
+  }
+
+  function selectOption(elem, correct) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+    elem.classList.add('selected');
+    const feedback = document.getElementById('feedback3');
+    feedback.innerText = correct ? "Tepat! Musyawarah memastikan semua pendapat dihargai." : "Coba lagi! Pilih cara yang tepat.";
+    if (correct) document.getElementById('nextBtn3').style.display = 'inline-block';
+  }
+
+  function answerQuiz(elem, correct) {
+    document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('correct', 'wrong'));
+    elem.classList.add(correct ? 'correct' : 'wrong');
+    document.getElementById('feedback5').innerText = correct
+      ? "Benar! Musyawarah berfokus pada penghormatan terhadap semua pendapat."
+      : "Kurang tepat. Coba pikirkan kembali.";
+    if (correct) document.getElementById('doneBtn').style.display = 'inline-block';
+  }
+</script>
 </body>
 </html>
