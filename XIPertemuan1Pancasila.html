@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diskusi Interaktif - Ideologi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f5f9;
+      padding: 20px;
+      color: #1f2937;
+    }
+    h1 {
+      text-align: center;
+      color: #2563eb;
+    }
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    textarea, input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #cbd5e1;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .info {
+      background: #e0f2fe;
+      padding: 10px;
+      border-left: 5px solid #0ea5e9;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Diskusi Interaktif</h1>
+  <section>
+    <h2>Materi Singkat: Makna dan Hakikat Ideologi</h2>
+    <p>Ideologi berasal dari kata <i>idea</i> (gagasan) dan <i>logos</i> (ilmu). Artinya: ilmu mengenai ide-ide atau gagasan. Ideologi merupakan landasan dalam berpikir, bertindak, dan menentukan arah perjuangan bangsa.</p>
+    <div class="info"><strong>Unsur ideologi:</strong> Keyakinan, Mitos, Loyalitas.</div>
+    <div class="info"><strong>Fungsi ideologi:</strong> Sebagai pedoman berpikir, motivasi perjuangan, dan cara menghadapi tantangan bangsa.</div>
+  </section>
+
+  <section>
+    <h2>Pertanyaan Diskusi</h2>
+    <ol>
+      <li>Menurut pendapatmu, mengapa suatu bangsa memerlukan ideologi?</li>
+      <li>Bagaimana peran ideologi dalam membentuk sikap masyarakat di Indonesia?</li>
+      <li>Sebutkan contoh sikap atau perilaku yang mencerminkan ideologi Pancasila dalam kehidupan sehari-hari!</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Formulir Jawaban Diskusi</h2>
+    <form name="diskusi-form" method="POST" action="https://script.google.com/macros/s/AKfycbyM-5huGhljB5SIE87tHwy8UV8heBij0oH7XTHKq5mMdrI2oZWyG44-eFaw9a40Id1n/exec">
+      <label>Nama:</label>
+      <input type="text" name="nama" required />
+
+      <label>Kelas:</label>
+      <input type="text" name="kelas" required />
+
+      <label>Jawaban Diskusi (Gabungkan jawaban 1, 2, dan 3):</label>
+      <textarea name="jawaban" rows="6" placeholder="Tulis pendapatmu di sini..." required></textarea>
+
+      <button type="submit">Kirim Jawaban</button>
+    </form>
+  </section>
+
+  <script>
+    // Optional: alert setelah kirim
+    const form = document.forms['diskusi-form'];
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        alert('Jawaban berhasil dikirim. Terima kasih!');
+        form.reset();
+      })
+      .catch(error => alert('Terjadi kesalahan. Coba lagi nanti.'));
+    });
+  </script>
+
+</body>
+</html>

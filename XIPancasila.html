@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elemen NKRI</title>
+    <title>Elemen Pancasila</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
@@ -62,7 +62,7 @@
 <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center">
     <h3 class="text-center bg-success text-white py-3 rounded w-100">ELEMEN PEMBELAJARAN</h3>
     <div class="text-center mb-4">
-       <img src="UUD.png" class="img-fluid rounded shadow" style="max-width: 250px;">
+       <img src="PANCASILA.png" class="img-fluid rounded shadow" style="max-width: 250px;">
     </div>
     
     <!-- Menu Tambahan -->
@@ -78,25 +78,25 @@
                 <strong style="color: white;">📚 Materi:</strong>
                 <select class="form-select mt-2" onchange="bukaMateri(this.value);">
                     <option selected disabled>Pilih Materi</option>
-                    <option value="ppt1">📂 PPT 1 - Produk Peraturan Perundang-undangan</option>
-                    <option value="ppt2">📂 PPT 2 - Pembentukan Peraturan Perundang-Undangan di Indonesia</option>
-                    <option value="ppt3">📂 PPT 3 - Hubungan Antarperaturan Perundang-Undangan</option>
-                    <option value="ppt4">📂 PPT 4 - Perilaku yang Sesuai Peraturan</option>
+                    <option value="ppt1">📂 PPT 1 - Makna dan Hakikat Ideologi</option>
+                    <option value="ppt2">📂 PPT 2 - Ideologi Terbuka dan Ideologi Tertutup</option>
+                    <option value="ppt3">📂 PPT 3 - Kedudukan Pancasila sebagai Ideologi Terbuka</option>
+                    
                 </select>
             </li>
-            <li class="list-group-item"><a href="XIpreetestUUD1945.html">📝 Preetest</a></li>
-            <li class="list-group-item"><a href="XITPUUD1945.html">🎯 Tujuan Pembelajaran</a></li>
+            <li class="list-group-item"><a href="XIpreetestPancasila.html">📝 Preetest</a></li>
+            <li class="list-group-item"><a href="XITPPancasila.html">🎯 Tujuan Pembelajaran</a></li>
             <li class="list-group-item">
                 <strong style="color: white;">📚 Kegiatan Pembelajaran:</strong>
                 <select class="form-select mt-2" onchange="location = this.value;">
                     <option selected disabled>Pilih Pertemuan</option>
-                    <option value="XIpertemuan1UUD1945.html">📝 Pertemuan Pertama</option>
-                    <option value="XIpertemuan2UUD1945.html">📑 Pertemuan Kedua</option>
-                    <option value="XIpertemuan3UUD1945.html">📖 Pertemuan Ketiga</option>
-                    <option value="XIpertemuan4UUD1945.html">📖 Pertemuan Keempat</option>
+                    <option value="XIPertemuan1Pancasila.html">📝 Pertemuan Pertama</option>
+                    <option value="XIpertemuan2pancasila.html">📑 Pertemuan Kedua</option>
+                    <option value="XIpertemuan3Pancasila.html">📖 Pertemuan Ketiga</option>
+                    <option value="XIpertemuan4pancasila.html">📑 Pertemuan Keempat</option>
                 </select>
             </li>
-            <li class="list-group-item"><a href="XIujianformatifUUD1945.html" onclick="cekKataSandi(event)">✅ Evaluasi</a></li>
+            <li class="list-group-item"><a href="XIPostestPancasila.html" onclick="cekKataSandi(event)">✅ Evaluasi</a></li>
         </ul>
     </div>
 </div>
@@ -107,7 +107,7 @@
         event.preventDefault(); // Mencegah tautan terbuka langsung
         let password = prompt("Masukkan kata sandi untuk mengakses evaluasi:");
         if (password === "1234") { // Ganti "1234" dengan kata sandi yang diinginkan
-            window.location.href = "XIujianformatifUUD1945.html";
+            window.location.href = "XIPostestPancasila.html";
         } else {
             alert("Kata sandi salah! Akses ditolak.");
         }
@@ -121,10 +121,10 @@
     
     function bukaMateri(value) {
         let pptLinks = {
-            "ppt1": "https://docs.google.com/presentation/d/1_KTs-YCS4Ur5HCr2_ocHw2f6psID2IdK/preview",
-            "ppt2": "https://docs.google.com/presentation/d/1GMAvuNFTLoPzcakhtmc0OM7TJVIW8h-g/preview",
-            "ppt3": "https://docs.google.com/presentation/d/1SeRG8FtYwyY7wckGqTMxrJfZEmg7LdOQ/preview",
-            "ppt4": "https://docs.google.com/presentation/d/1YQS4N30JVXj8UuMdTGxKLSO2LbN56j5t/preview"
+            "ppt1": "https://docs.google.com/presentation/d/1cvnFqnX0nobKJP4YIhNgUz-VXZ4M5_Jh/preview",
+            "ppt2": "https://docs.google.com/presentation/d/1ZHitQTvI1z8BeYGkFR0RXmA5XkB1qxSu/preview",
+            "ppt3": "https://docs.google.com/presentation/d/1EP3GPk8S9x-LuAelx0VsG6fwwv9KLJvV/preview",
+            
         };
 
         if (pptLinks[value]) {

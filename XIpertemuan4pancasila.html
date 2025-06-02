@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan Keempat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9f0ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid #ffffff;
+        }
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #007bff;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #0056b3;
+        }
+        .container {
+            max-width: 1100px;
+            margin-top: 2rem;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .progress-container {
+            margin: 1rem 0;
+        }
+        .modal-content {
+            border-radius: 10px;
+        }
+        .submission {
+            display: none;
+            background-color: #d4edda;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LKPD</h1>
+        <p>Penerapan Pancasila dalam Kehidupan Berbangsa dan Bernegara</p>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#pemanasan">Pemanasan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pengamatan">Pengamatan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#diskusi">Diskusi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#simulasi">Simulasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#evaluasi">Kuis & Refleksi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress">
+                <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+
+        <!-- Pemanasan -->
+        <section id="pemanasan">
+            <div class="card">
+                <div class="card-header" data-bs-toggle="collapse" data-bs-target="#pemanasanCollapse">
+                    1. Pemanasan: Refleksi Awal
+                </div>
+                <div class="collapse" id="pemanasanCollapse">
+                    <div class="card-body">
+                        <p>1. Tulis jawaban singkat (maksimal 3 kalimat):</p>
+                        <ul>
+                            <li>Apa contoh penerapan Pancasila dalam kehidupan bernegara?</li>
+                            <li>Bagaimana Pancasila membantu menyelesaikan masalah sosial?</li>
+                        </ul>
+                        <p>2. Diskusikan dan masukkan jawaban terbaik kelompok.</p>
+                        <form id="pemanasanForm">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Kelompok:</label>
+                                <input type="text" class="form-control" name="namaKelompok" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jawaban Kelompok:</label>
+                                <textarea class="form-control" name="answer" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Simpan Jawaban</button>
+                            <div id="pemanasanSubmission" class="submission">Jawaban telah disimpan!</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pengamatan Video -->
+        <section id="pengamatan">
+            <div class="card">
+                <div class="card-header" data-bs-toggle="collapse" data-bs-target="#pengamatanCollapse">
+                    2. Pengamatan Video
+                </div>
+                <div class="collapse" id="pengamatanCollapse">
+                    <div class="card-body">
+                        <p>Tonton video berikut dan catat pengamatanmu.</p>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/v4AxA4qOh9s" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <form id="pengamatanForm">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Kelompok:</label>
+                                <input type="text" class="form-control" name="namaKelompok" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Sila Pancasila:</label>
+                                <textarea class="form-control" name="silaPancasila" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Contoh Perwujudan:</label>
+                                <textarea class="form-control" name="contohPerwujudan" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Relevansi dengan Kehidupan Bernegara:</label>
+                                <textarea class="form-control" name="relevansiBernegara" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Simpan Pengamatan</button>
+                            <div id="pengamatanSubmission" class="submission">Pengamatan telah disimpan!</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diskusi Kelompok -->
+        <section id="diskusi">
+            <div class="card">
+                <div class="card-header" data-bs-toggle="collapse" data-bs-target="#diskusiCollapse">
+                    3. Diskusi Kelompok
+                </div>
+                <div class="collapse" id="diskusiCollapse">
+                    <div class="card-body">
+                        <p>Diskusikan pertanyaan berikut:</p>
+                        <ul>
+                            <li>Bagaimana sila ke-1 diwujudkan dalam kebijakan keagamaan?</li>
+                            <li>Bagaimana sila ke-5 diterapkan dalam kebijakan ekonomi?</li>
+                            <li>Apa tantangan penerapan Pancasila di era globalisasi?</li>
+                        </ul>
+                        <form id="diskusiForm">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Kelompok:</label>
+                                <input type="text" class="form-control" name="namaKelompok" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Sila yang Dipilih:</label>
+                                <textarea class="form-control" name="silaDipilih" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Contoh Kebijakan:</label>
+                                <textarea class="form-control" name="contohKebijakan" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tantangan Penerapan:</label>
+                                <textarea class="form-control" name="tantangan" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Simpan Diskusi</button>
+                            <div id="diskusiSubmission" class="submission">Diskusi telah disimpan!</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulasi Musyawarah -->
+        <section id="simulasi">
+            <div class="card">
+                <div class="card-header" data-bs-toggle="collapse" data-bs-target="#simulasiCollapse">
+                    4. Simulasi Musyawarah
+                </div>
+                <div class="collapse" id="simulasiCollapse">
+                    <div class="card-body">
+                        <p>Skenario: Pemerintah daerah memilih antara pusat kesehatan atau taman kota. Lakukan musyawarah berdasarkan sila ke-4 dan ke-5.</p>
+                        <form id="simulasiForm">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Kelompok:</label>
+                                <input type="text" class="form-control" name="namaKelompok" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Masalah:</label>
+                                <textarea class="form-control" name="masalah" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Solusi:</label>
+                                <textarea class="form-control" name="solusi" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nilai Pancasila:</label>
+                                <textarea class="form-control" name="nilaiPancasila" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Simpan Musyawarah</button>
+                            <div id="simulasiSubmission" class="submission">Musyawarah telah disimpan!</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluasi dan Kuis -->
+        <section id="evaluasi">
+            <div class="card">
+                <div class="card-header" data-bs-toggle="collapse" data-bs-target="#evaluasiCollapse">
+                    5. Kuis dan Refleksi
+                </div>
+                <div class="collapse" id="evaluasiCollapse">
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quizModal">Mulai Kuis</button>
+                        <form id="refleksiForm">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Siswa:</label>
+                                <input type="text" class="form-control" name="namaSiswa" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Refleksi Pribadi:</label>
+                                <textarea class="form-control" name="refleksi" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Simpan Refleksi</button>
+                            <div id="refleksiSubmission" class="submission">Refleksi telah disimpan!</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quizModalLabel">Kuis: Perwujudan Pancasila</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quizForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Siswa:</label>
+                            <input type="text" class="form-control" name="namaSiswa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">1. Jelaskan perwujudan sila ke-3 dalam persatuan bangsa.</label>
+                            <textarea class="form-control" name="quiz1" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">2. Berikan contoh kebijakan negara yang mencerminkan sila ke-2.</label>
+                            <textarea class="form-control" name="quiz2" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">3. Bagaimana Pancasila mengatasi tantangan globalisasi?</label>
+                            <textarea class="form-control" name="quiz3" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Jawaban</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ganti dengan Web App URL dari Google Apps Script
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydwg81-nnWnccK9goZ0n8cO4iaz7OGx3rOjvR5BXyM8couj5U_-5kkywRaz-ceAKQj/exec"; // Contoh: https://script.google.com/macros/s/xxx/exec
+
+        // Progress Bar
+        let completedSections = 0;
+        const totalSections = 5;
+        function updateProgress() {
+            completedSections++;
+            const progress = (completedSections / totalSections) * 100;
+            document.getElementById("progressBar").style.width = progress + "%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", progress);
+        }
+
+        // Form Submission
+        function submitForm(formId, section, submissionId) {
+            const form = document.getElementById(formId);
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                formData.append("section", section);
+
+                fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === "success") {
+                        document.getElementById(submissionId).style.display = "block";
+                        form.reset();
+                        updateProgress();
+                    } else {
+                        alert("Terjadi kesalahan: " + data.error);
+                    }
+                })
+                .catch(error => alert("Error: " + error));
+            });
+        }
+
+        submitForm("pemanasanForm", "pemanasan", "pemanasanSubmission");
+        submitForm("pengamatanForm", "pengamatan", "pengamatanSubmission");
+        submitForm("diskusiForm", "diskusi", "diskusiSubmission");
+        submitForm("simulasiForm", "simulasi", "simulasiSubmission");
+        submitForm("refleksiForm", "refleksi", "refleksiSubmission");
+
+        // Quiz Submission
+        document.getElementById("quizForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(document.getElementById("quizForm"));
+            formData.append("section", "kuis");
+
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === "success") {
+                    alert("Jawaban kuis telah disimpan!");
+                    document.getElementById("quizForm").reset();
+                    updateProgress();
+                    bootstrap.Modal.getInstance(document.getElementById("quizModal")).hide();
+                } else {
+                    alert("Terjadi kesalahan: " + data.error);
+                }
+            })
+            .catch(error => alert("Error: " + error));
+        });
+    </script>
+</body>
+</html>

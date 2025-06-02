@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD Interaktif: Pancasila sebagai Ideologi Terbuka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .accordion {
+            background-color: #e0e0e0;
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .accordion:hover {
+            background-color: #ccc;
+        }
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+            border-left: 4px solid #b22222;
+            margin-bottom: 10px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group textarea, .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .quiz-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        button {
+            background-color: #b22222;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #8b0000;
+        }
+        .submission {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e0ffe0;
+            border-radius: 5px;
+            display: none;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+            .quiz-content {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LKPD Interaktif: Pancasila sebagai Ideologi Terbuka</h1>
+        <p>Belajar dan Berdiskusi tentang Kedudukan Pancasila sebagai Ideologi Terbuka</p>
+    </header>
+    <nav>
+        <a href="#pemanasan">Pemanasan</a>
+        <a href="#pengamatan">Pengamatan Video</a>
+        <a href="#diskusi">Diskusi Kelompok</a>
+        <a href="#simulasi">Simulasi Musyawarah</a>
+        <a href="#evaluasi">Kuis & Refleksi</a>
+    </nav>
+    <div class="container">
+        <!-- Pemanasan -->
+        <section id="pemanasan">
+            <h2>1. Pemanasan: Pemahaman Awal</h2>
+            <button class="accordion">Instruksi Pemanasan</button>
+            <div class="panel">
+                <p>1. Tulis jawaban singkat (maksimal 3 kalimat) untuk pertanyaan berikut:</p>
+                <ul>
+                    <li>Apa yang kamu ketahui tentang Pancasila sebagai ideologi terbuka?</li>
+                    <li>Berikan satu contoh penerapan Pancasila dalam kehidupan sehari-hari.</li>
+                </ul>
+                <p>2. Diskusikan jawabanmu dengan kelompok, lalu masukkan jawaban terbaik kelompok di bawah ini.</p>
+                <form id="pemanasanForm">
+                    <div class="form-group">
+                        <label>Nama Kelompok:</label>
+                        <input type="text" name="namaKelompok" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Jawaban Kelompok:</label>
+                        <textarea name="answer" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Simpan Jawaban</button>
+                    <div id="pemanasanSubmission" class="submission">Jawaban telah disimpan ke Google Sheets!</div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Pengamatan Video -->
+        <section id="pengamatan">
+            <h2>2. Pengamatan Video</h2>
+            <button class="accordion">Instruksi Pengamatan</button>
+            <div class="panel">
+                <p>Tonton video berikut dan catat pengamatanmu berdasarkan tabel di bawah.</p>
+                <div class="video-container">
+                    <!-- Ganti VIDEO_ID dengan ID video YouTube yang relevan -->
+                    <iframe src="https://www.youtube.com/embed/xqiQwZSP6_Q" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <form id="pengamatanForm">
+                    <div class="form-group">
+                        <label>Nama Kelompok:</label>
+                        <input type="text" name="namaKelompok" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Pancasila yang Muncul:</label>
+                        <textarea name="nilaiPancasila" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Contoh Penerapan Ideologi Terbuka:</label>
+                        <textarea name="penerapanIdeologi" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Relevansi dengan Kehidupan Saat Ini:</label>
+                        <textarea name="relevansi" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">Simpan Pengamatan</button>
+                    <div id="pengamatanSubmission" class="submission">Pengamatan telah disimpan ke Google Sheets!</div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Diskusi Kelompok -->
+        <section id="diskusi">
+            <h2>3. Diskusi Kelompok</h2>
+            <button class="accordion">Pertanyaan Diskusi</button>
+            <div class="panel">
+                <p>Diskusikan pertanyaan berikut dalam kelompok:</p>
+                <ul>
+                    <li>Mengapa Pancasila disebut ideologi terbuka? Berikan 3 ciri utama dan contohnya berdasarkan video.</li>
+                    <li>Bagaimana Pancasila dapat diterapkan dalam menyelesaikan masalah di era digital?</li>
+                    <li>Apa peran musyawarah (sila ke-4) dalam menjaga sifat terbuka Pancasila?</li>
+                </ul>
+                <form id="diskusiForm">
+                    <div class="form-group">
+                        <label>Nama Kelompok:</label>
+                        <input type="text" name="namaKelompok" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hasil Diskusi (Ciri Ideologi Terbuka):</label>
+                        <textarea name="ciriIdeologi" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Hasil Diskusi (Relevansi Era Digital):</label>
+                        <textarea name="relevansiDigital" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Hasil Diskusi (Peran Musyawarah):</label>
+                        <textarea name="peranMusyawarah" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">Simpan Hasil Diskusi</button>
+                    <div id="diskusiSubmission" class="submission">Hasil diskusi telah disimpan ke Google Sheets!</div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Simulasi Musyawarah -->
+        <section id="simulasi">
+            <h2>4. Simulasi Musyawarah</h2>
+            <button class="accordion">Instruksi Simulasi</button>
+            <div class="panel">
+                <p>Skenario: Di sekolah kalian, ada konflik antara dua kelompok siswa terkait pembagian dana kegiatan ekstrakurikuler. Lakukan musyawarah untuk menyelesaikannya berdasarkan sila ke-4.</p>
+                <form id="simulasiForm">
+                    <div class="form-group">
+                        <label>Nama Kelompok:</label>
+                        <input type="text" name="namaKelompok" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Masalah:</label>
+                        <textarea name="masalah" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Solusi:</label>
+                        <textarea name="solusi" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Nilai Pancasila yang Diterapkan:</label>
+                        <textarea name="nilaiPancasila" rows="3" required></textarea>
+                    </div>
+                    <button type="submit">Simpan Hasil Musyawarah</button>
+                    <div id="simulasiSubmission" class="submission">Hasil musyawarah telah disimpan ke Google Sheets!</div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Evaluasi dan Kuis -->
+        <section id="evaluasi">
+            <h2>5. Kuis dan Refleksi</h2>
+            <button onclick="openQuiz()">Mulai Kuis</button>
+            <form id="refleksiForm">
+                <div class="form-group">
+                    <label>Nama Siswa:</label>
+                    <input type="text" name="namaSiswa" required>
+                </div>
+                <div class="form-group">
+                    <label>Refleksi Pribadi:</label>
+                    <textarea name="refleksi" rows="5" required></textarea>
+                </div>
+                <button type="submit">Simpan Refleksi</button>
+                <div id="refleksiSubmission" class="submission">Refleksi telah disimpan ke Google Sheets!</div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="quiz-modal">
+        <div class="quiz-content">
+            <h2>Kuis: Pancasila sebagai Ideologi Terbuka</h2>
+            <form id="quizForm">
+                <div class="form-group">
+                    <label>Nama Siswa:</label>
+                    <input type="text" name="namaSiswa" required>
+                </div>
+                <div class="form-group">
+                    <label>1. Jelaskan 3 ciri Pancasila sebagai ideologi terbuka.</label>
+                    <textarea name="quiz1" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>2. Berikan contoh penerapan sila ke-5 Pancasila di era digital.</label>
+                    <textarea name="quiz2" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>3. Mengapa musyawarah penting dalam menjaga sifat terbuka Pancasila?</label>
+                    <textarea name="quiz3" rows="4" required></textarea>
+                </div>
+                <button type="submit">Kirim Jawaban</button>
+                <button type="button" onclick="closeQuiz()">Tutup</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Ganti dengan Web App URL dari Google Apps Script
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwAMUITitdC9WKR8w_gCcTqaYan6gl1eigjgI9Ane8uvetmhkzXfsBA3uAeFjkFESKyMQ/exec"; // Contoh: https://script.google.com/macros/s/xxx/exec
+
+        // Accordion Functionality
+        const accordions = document.getElementsByClassName("accordion");
+        for (let i = 0; i < accordions.length; i++) {
+            accordions[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+        // Form Submission Functions
+        function submitForm(formId, section, submissionId) {
+            const form = document.getElementById(formId);
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                formData.append("section", section);
+
+                fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === "success") {
+                        document.getElementById(submissionId).style.display = "block";
+                        form.reset();
+                    } else {
+                        alert("Terjadi kesalahan: " + data.error);
+                    }
+                })
+                .catch(error => alert("Error: " + error));
+            });
+        }
+
+        submitForm("pemanasanForm", "pemanasan", "pemanasanSubmission");
+        submitForm("pengamatanForm", "pengamatan", "pengamatanSubmission");
+        submitForm("diskusiForm", "diskusi", "diskusiSubmission");
+        submitForm("simulasiForm", "simulasi", "simulasiSubmission");
+        submitForm("refleksiForm", "refleksi", "refleksiSubmission");
+
+        // Quiz Modal
+        function openQuiz() {
+            document.getElementById("quizModal").style.display = "flex";
+        }
+
+        function closeQuiz() {
+            document.getElementById("quizModal").style.display = "none";
+        }
+
+        document.getElementById("quizForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(document.getElementById("quizForm"));
+            formData.append("section", "kuis");
+
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === "success") {
+                    alert("Jawaban kuis telah disimpan ke Google Sheets!");
+                    closeQuiz();
+                    document.getElementById("quizForm").reset();
+                } else {
+                    alert("Terjadi kesalahan: " + data.error);
+                }
+            })
+            .catch(error => alert("Error: " + error));
+        });
+    </script>
+</body>
+</html>
