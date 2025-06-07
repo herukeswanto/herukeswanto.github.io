@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fungsi & Kedudukan Pancasila</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f4f8;
+    }
+    .header {
+      background-color: #004d40;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .section-title {
+      background-color: #00695c;
+      color: white;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+    }
+    .btn-kirim {
+      background-color: #00695c;
+      color: white;
+    }
+    .btn-kirim:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-4">
+    <div class="header text-center">
+      <h2>Pembelajaran Interaktif</h2>
+      <h4>Pertemuan 2 - Fungsi dan Kedudukan Pancasila</h4>
+    </div>
+
+    <div class="card my-4">
+      <div class="card-body">
+        <h5>Pendahuluan</h5>
+        <p>Pancasila tidak hanya sebagai dasar negara, tetapi juga memiliki fungsi dan kedudukan penting dalam kehidupan berbangsa dan bernegara. Pada pembelajaran ini, siswa akan menganalisis berbagai fungsi Pancasila melalui kegiatan diskusi kelompok.</p>
+      </div>
+    </div>
+
+    <!-- === KELOMPOK DISKUSI === -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title">Kelompok 1 – Pancasila sebagai Dasar Negara</div>
+          <div class="card-body">
+            <p><strong>Tugas:</strong> Amati dan jelaskan mengapa Pancasila disebut sebagai dasar negara. Apa akibatnya jika tidak ada dasar negara?</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title bg-primary">Kelompok 2 – Pancasila sebagai Pandangan Hidup</div>
+          <div class="card-body">
+            <p><strong>Tugas:</strong> Bahas bagaimana Pancasila membimbing cara pandang warga negara dalam menghadapi persoalan kehidupan sosial, budaya, dan politik.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title bg-success">Kelompok 3 – Pancasila sebagai Jiwa Bangsa</div>
+          <div class="card-body">
+            <p><strong>Tugas:</strong> Diskusikan bagaimana Pancasila menjadi jiwa bangsa Indonesia sejak kemerdekaan hingga kini. Berikan contoh dalam kehidupan masyarakat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title bg-danger">Kelompok 4 – Pancasila sebagai Kepribadian Bangsa</div>
+          <div class="card-body">
+            <p><strong>Tugas:</strong> Bahas mengapa Pancasila mencerminkan jati diri dan ciri khas bangsa Indonesia dibandingkan bangsa lain.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- === FORM DISKUSI === -->
+    <form id="formDiskusi" action="https://script.google.com/macros/s/AKfycbwu8j0iuuA7FRuP2BGnDuGm9q00DPVKYnJlawT2gDzA8TZfAXNutCTMaBspWUz7IwGB/exec" method="POST" class="card my-4">
+      <div class="section-title">📝 Kirim Hasil Diskusi Kelompok</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="kelompok" class="form-label">Kelompok</label>
+          <select name="kelompok" id="kelompok" class="form-select" required>
+            <option value="">Pilih Kelompok</option>
+            <option value="Kelompok 1">Kelompok 1 - Dasar Negara</option>
+            <option value="Kelompok 2">Kelompok 2 - Pandangan Hidup</option>
+            <option value="Kelompok 3">Kelompok 3 - Jiwa Bangsa</option>
+            <option value="Kelompok 4">Kelompok 4 - Kepribadian Bangsa</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="hasil_diskusi" class="form-label">Hasil Diskusi</label>
+          <textarea name="hasil_diskusi" id="hasil_diskusi" rows="4" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-kirim">Kirim Diskusi</button>
+      </div>
+    </form>
+
+    <!-- === FORM REFLEKSI INDIVIDU === -->
+    <form id="formRefleksi" action="https://script.google.com/macros/s/AKfycbwu8j0iuuA7FRuP2BGnDuGm9q00DPVKYnJlawT2gDzA8TZfAXNutCTMaBspWUz7IwGB/exec" method="POST" class="card mb-4">
+      <div class="section-title bg-secondary">🤔 Refleksi Individu</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama Siswa</label>
+          <input type="text" name="nama" id="nama" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="refleksi" class="form-label">Apa yang kamu pelajari hari ini tentang Pancasila?</label>
+          <textarea name="refleksi" id="refleksi" rows="4" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary">Kirim Refleksi</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

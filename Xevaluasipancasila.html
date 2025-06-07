@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Formatif</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9f0ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid #ffffff;
+        }
+        .container {
+            max-width: 900px;
+            margin-top: 2rem;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+        .form-check {
+            margin-bottom: 0.5rem;
+        }
+        .progress-container {
+            margin: 1rem 0;
+        }
+        .result {
+            display: none;
+            background-color: #d4edda;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        @media (max-width: 576px) {
+            .container {
+                margin: 1rem;
+            }
+            .card-body {
+                padding: 1rem;
+            }
+            .btn-primary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ujian Formatif</h1>
+        <p>ELEMEN PANCASILA</p>
+    </header>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress">
+                <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <form id="quizForm">
+            <div class="card">
+                <div class="card-header">Informasi Siswa</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Nama Siswa:</label>
+                        <input type="text" class="form-control" name="namaSiswa" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kelas:</label>
+                        <input type="text" class="form-control" name="Kelas" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 1 -->
+            <div class="card">
+                <div class="card-header">Soal 1</div>
+                <div class="card-body">
+                    <p>Perhatikan pernyataan berikut ini:</p>
+                    <ol>
+                        <li>Disampaikan dalam rapat BPUPK tanggal 1 Juni 1945</li>
+                        <li>Memuat istilah philosophische grondslag</li>
+                        <li>Mengandung rumusan dasar negara yang dikenal sebagai Pancasila</li>
+                        <li>Diberi nama “Gentlemen’s Agreement”</li>
+                        <li>Disusun oleh Panitia Sembilan</li>
+                    </ol>
+                    <p>Manakah pernyataan yang bukan termasuk dalam rumusan dasar negara versi Soekarno?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" value="a" required>
+                        <label class="form-check-label">1 dan 2</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" value="b">
+                        <label class="form-check-label">4 dan 5</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" value="c">
+                        <label class="form-check-label">2 dan 3</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" value="d">
+                        <label class="form-check-label">3 dan 4</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q1" value="e">
+                        <label class="form-check-label">1 dan 5</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 2 -->
+            <div class="card">
+                <div class="card-header">Soal 2</div>
+                <div class="card-body">
+                    <p> Terdapat satu perubahan pada kalimat dalam Piagam Jakarta yang diusulkan Mohammad Hatta. Apa alasan utama yang mendorong perubahan kalimat “Ketuhanan dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya” menjadi “Ketuhanan Yang Maha Esa”?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" value="a" required>
+                        <label class="form-check-label">Agar tidak bertentangan dengan ideologi sekuler yang berkembang</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" value="b">
+                        <label class="form-check-label">Menentukan batas wilayah negaraUntuk menghormati usulan Panitia Delapan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" value="c">
+                        <label class="form-check-label">Sebagai bentuk kompromi demi persatuan bangsa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" value="d">
+                        <label class="form-check-label">Karena tekanan dari Jepang menjelang kemerdekaan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q2" value="e">
+                        <label class="form-check-label">Untuk mengakomodasi semua usulan dari tokoh Islam</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 3 -->
+            <div class="card">
+                <div class="card-header">Soal 3</div>
+                <div class="card-body">
+                    <p>Cermati peran Panitia Sembilan dalam perumusan dasar negara. Apa implikasi strategis dari keberhasilan Panitia Sembilan dalam menyusun Piagam Jakarta?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" value="a" required>
+                        <label class="form-check-label">Memperkuat posisi Jepang dalam kemerdekaan Indonesia</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" value="b">
+                        <label class="form-check-label">Menjamin pelaksanaan hukum Islam di seluruh Indonesia</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" value="c">
+                        <label class="form-check-label">Mewakili dominasi kelompok nasionalis terhadap kelompok agama</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" value="d">
+                        <label class="form-check-label">Mewujudkan konsensus nasional antar golongan dalam waktu singkat</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q3" value="e">
+                        <label class="form-check-label">Menghindari keterlibatan Soekarno dalam penyusunan naskah</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 4 -->
+            <div class="card">
+                <div class="card-header">Soal 4</div>
+                <div class="card-body">
+                    <p>Perhatikan fakta sejarah berikut:</p>
+                    <li>BPUPK menyetujui UUD pada 16 Juli 1945</li>
+                    <li>PPKI mengesahkan UUD pada 18 Agustus 1945</li>
+                    <li>Piagam Jakarta menjadi bagian Pembukaan UUD dengan perubahan</li>
+                    <p>Apa hubungan antara hasil sidang BPUPK dan PPKI dalam konteks legalitas dasar negara?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" value="a" required>
+                        <label class="form-check-label">BPUPK menyusun konstitusi sementara, sedangkan PPKI membatalkannya</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" value="b">
+                        <label class="form-check-label">BPUPK bertanggung jawab atas amandemen dasar negara</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" value="c">
+                        <label class="form-check-label">Keduanya tidak berhubungan karena beda fungsi dan waktu</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" value="d">
+                        <label class="form-check-label">PPKI hanya menyetujui bagian batang tubuh UUD</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q4" value="e">
+                        <label class="form-check-label">BPUPK merancang ide dasar, dan PPKI mengesahkan secara konstitusional</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 5 -->
+            <div class="card">
+                <div class="card-header">Soal 5</div>
+                <div class="card-body">
+                    <p>Mengapa ketokohan Mohammad Hatta sangat penting dalam proses perubahan rumusan Piagam Jakarta?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" value="a" required>
+                        <label class="form-check-label">Ia menjadi pemimpin Panitia Delapan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" value="b">
+                        <label class="form-check-label">Ia menjembatani kompromi antara kelompok Islam dan Kristen</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" value="c">
+                        <label class="form-check-label">Ia menjadi notulen resmi sidang PPKI</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" value="d">
+                        <label class="form-check-label">Ia mengusulkan pembentukan BPUPK</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q5" value="e">
+                        <label class="form-check-label">Ia berperan menolak Pancasila sebagai dasar negara</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 6 -->
+            <div class="card">
+                <div class="card-header">Soal 6</div>
+                <div class="card-body">
+                    <p>Mengapa Pancasila dikatakan sebagai pedoman dalam pengaturan kehidupan ketatanegaraan?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" value="a" required>
+                        <label class="form-check-label">Karena memuat peraturan-peraturan teknis pemerintahan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" value="b">
+                        <label class="form-check-label">Karena menjadi sumber utama hukum pidana</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" value="c">
+                        <label class="form-check-label">Karena dijadikan dasar pengambilan keputusan politik dan kebijakan negara</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" value="d">
+                        <label class="form-check-label">Karena menjadi ide dari tokoh luar negeri</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q6" value="e">
+                        <label class="form-check-label">Karena bersumber dari agama resmi negara</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 7 -->
+            <div class="card">
+                <div class="card-header">Soal 7</div>
+                <div class="card-body">
+                    <p>Perhatikan pernyataan berikut: </p>
+                    <p>“Pancasila mampu memecahkan segala persoalan sehingga tidak terombang-ambing dalam menghadapi persoalan.”</p>
+                    <p>Pernyataan tersebut menunjukkan fungsi Pancasila sebagai...</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" value="a" required>
+                        <label class="form-check-label">Falsafah negara</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" value="b">
+                        <label class="form-check-label">Ideologi pragmatis</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" value="c">
+                        <label class="form-check-label">Pandangan hidup bangsa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" value="d">
+                        <label class="form-check-label">Budaya nasional</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q7" value="e">
+                        <label class="form-check-label">Norma hukum tertulis</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 8 -->
+            <div class="card">
+                <div class="card-header">Soal 8</div>
+                <div class="card-body">
+                    <p>Fungsi Pancasila sebagai jati diri bangsa menunjukkan bahwa...</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" value="a" required>
+                        <label class="form-check-label">Pancasila hanya berlaku di tingkat pemerintahan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" value="b">
+                        <label class="form-check-label">Bangsa Indonesia mengimpor nilai-nilai dari luar</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" value="c">
+                        <label class="form-check-label">Pancasila tidak bisa diubah dalam UUD</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" value="d">
+                        <label class="form-check-label">Pancasila merupakan karakter dan ciri khas bangsa yang membedakan dari bangsa lain</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q8" value="e">
+                        <label class="form-check-label">Nilai-nilai Pancasila berasal dari budaya asing</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 9 -->
+            <div class="card">
+                <div class="card-header">Soal 9</div>
+                <div class="card-body">
+                    <p>Menurut Kaelan (2020), salah satu fungsi Pancasila adalah memperkuat kepribadian bangsa. Apa makna analitis dari fungsi ini?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" value="a" required>
+                        <label class="form-check-label">Pancasila menolak seluruh pengaruh luar</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" value="b">
+                        <label class="form-check-label">Pancasila mendorong bangsa Indonesia agar mampu menjaga jati dirinya di tengah pengaruh globalisasi</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" value="c">
+                        <label class="form-check-label">Pancasila menjamin keunggulan teknologi</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" value="d">
+                        <label class="form-check-label">Pancasila adalah sumber undang-undang</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q9" value="e">
+                        <label class="form-check-label">Pancasila mendukung sistem otoriter</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 10 -->
+            <div class="card">
+                <div class="card-header">Soal 10</div>
+                <div class="card-body">
+                    <p>Pancasila sebagai ideologi bangsa berfungsi untuk...</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" value="a" required>
+                        <label class="form-check-label">Menyamaratakan semua budaya di Indonesia</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" value="b">
+                        <label class="form-check-label">Mendorong kemajuan ekonomi secara sektoral</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" value="c">
+                        <label class="form-check-label">Memberikan arah, landasan, dan tujuan dalam kehidupan berbangsa dan bernegara</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" value="d">
+                        <label class="form-check-label">Mengganti hukum adat yang berlaku</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q10" value="e">
+                        <label class="form-check-label">Memisahkan agama dari kehidupan negara</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 11 -->
+            <div class="card">
+                <div class="card-header">Soal 11</div>
+                <div class="card-body">
+                    <p>Ketika ada perbedaan pendapat dalam forum OSIS, seluruh anggota memilih untuk melakukan musyawarah. Ini mencerminkan nilai utama dari sila...</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q11" value="a" required>
+                        <label class="form-check-label">Persatuan Indonesia</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q11" value="b">
+                        <label class="form-check-label">Ketuhanan Yang Maha Esa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q11" value="c">
+                        <label class="form-check-label">Kemanusiaan yang adil dan beradab</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q11" value="d">
+                        <label class="form-check-label">Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q11" value="e">
+                        <label class="form-check-label">Keadilan sosial bagi seluruh rakyat Indonesia</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 12 -->
+            <div class="card">
+                <div class="card-header">Soal 12</div>
+                <div class="card-body">
+                    <p>Apa makna sikap "mengutamakan keselamatan bangsa di atas kepentingan pribadi dan golongan"?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q12" value="a" required>
+                        <label class="form-check-label">Mengedepankan kepentingan nasional dalam segala tindakan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q12" value="b">
+                        <label class="form-check-label">Mengutamakan kepentingan pribadi jika negara tidak membantu</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q12" value="c">
+                        <label class="form-check-label">Rela mengorbankan diri hanya dalam keadaan perang</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q12" value="d">
+                        <label class="form-check-label">Menyampingkan urusan keluarga demi negara</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q12" value="e">
+                        <label class="form-check-label">Melibatkan kepentingan kelompok saat mengambil keputusan</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 13 -->
+            <div class="card">
+                <div class="card-header">Soal 13</div>
+                <div class="card-body">
+                    <p>Mengapa menjaga keseimbangan antara hak dan kewajiban penting dalam kehidupan sosial?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q13" value="a" required>
+                        <label class="form-check-label">Supaya kita bisa meminta lebih banyak hak dari orang lain</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q13" value="b">
+                        <label class="form-check-label">Agar kewajiban tidak memberatkan pemerintah</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q13" value="c">
+                        <label class="form-check-label">Supaya terjadi keadilan dan ketertiban sosial</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q13" value="d">
+                        <label class="form-check-label">Karena kewajiban selalu lebih utama dari hak</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q13" value="e">
+                        <label class="form-check-label">Agar tidak terkena hukuman</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 14 -->
+            <div class="card">
+                <div class="card-header">Soal 14</div>
+                <div class="card-body">
+                    <p>Seseorang tidak ikut kerja bakti karena merasa sudah membayar pajak. Sikap tersebut bertentangan dengan nilai Pancasila terutama sila...</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q14" value="a" required>
+                        <label class="form-check-label">Ketiga</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q14" value="b">
+                        <label class="form-check-label">Kedua</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q14" value="c">
+                        <label class="form-check-label">Keempat</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q14" value="d">
+                        <label class="form-check-label">Pertama</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q14" value="e">
+                        <label class="form-check-label">Kelima</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 15 -->
+            <div class="card">
+                <div class="card-header">Soal 15</div>
+                <div class="card-body">
+                    <p>Mengapa nilai Pancasila harus dijadikan pedoman dalam bersikap?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q15" value="a" required>
+                        <label class="form-check-label">Agar semua tindakan dapat dibenarkan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q15" value="b">
+                        <label class="form-check-label">Agar kita bisa bertindak bebas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q15" value="c">
+                        <label class="form-check-label">Karena nilai Pancasila mencerminkan kearifan lokal dan jati diri bangsa Indonesia</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q15" value="d">
+                        <label class="form-check-label">Karena nilai tersebut hanya aturan sekolah</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q15" value="e">
+                        <label class="form-check-label">Agar kita tidak melanggar hukum</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 16 -->
+            <div class="card">
+                <div class="card-header">Soal 16</div>
+                <div class="card-body">
+                    <p>Apa dampak negatif apabila masyarakat lebih memilih produk luar negeri daripada produk dalam negeri?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q16" value="a" required>
+                        <label class="form-check-label">Harga barang menjadi lebih murah</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q16" value="b">
+                        <label class="form-check-label">Ketergantungan terhadap produk asing akan meningkat dan industri lokal melemah</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q16" value="c">
+                        <label class="form-check-label">Industri asing akan berkembang di Indonesia</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q16" value="d">
+                        <label class="form-check-label">Tenaga kerja lokal menjadi lebih kompetitif</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q16" value="e">
+                        <label class="form-check-label">Ekspor Indonesia akan meningkat</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 17 -->
+            <div class="card">
+                <div class="card-header">Soal 17</div>
+                <div class="card-body">
+                    <p>Bagaimana strategi terbaik untuk meningkatkan penggunaan produk dalam negeri di kalangan generasi muda?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q17" value="a" required>
+                        <label class="form-check-label">Menyebarkan kampanye dengan paksaan hukum</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q17" value="b">
+                        <label class="form-check-label">Meningkatkan pajak produk luar negeri</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q17" value="c">
+                        <label class="form-check-label">Membangun kebanggaan nasional melalui pendidikan dan promosi kreatif</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q17" value="d">
+                        <label class="form-check-label">Mengurangi kualitas produk impor</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q17" value="e">
+                        <label class="form-check-label">Melarang toko menjual produk luar negeri</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 18 -->
+            <div class="card">
+                <div class="card-header">Soal 18</div>
+                <div class="card-body">
+                    <p>Mengapa Indonesia memiliki potensi besar di bidang kemaritiman?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q18" value="a" required>
+                        <label class="form-check-label">Karena seluruh wilayahnya tertutup lahan</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q18" value="b">
+                        <label class="form-check-label">Karena Indonesia negara tropis</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q18" value="c">
+                        <label class="form-check-label">Karena memiliki wilayah laut yang luas, kaya akan ikan, terumbu karang, dan hutan mangrove</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q18" value="d">
+                        <label class="form-check-label">Karena seluruh nelayan bermukim di kota</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q18" value="e">
+                        <label class="form-check-label">Karena laut Indonesia bebas dari pencemaran</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 19 -->
+            <div class="card">
+                <div class="card-header">Soal 19</div>
+                <div class="card-body">
+                    <p>Apa hubungan antara kekayaan sumber daya alam dan rasa bangga sebagai bangsa Indonesia?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q19" value="a" required>
+                        <label class="form-check-label">Sumber daya alam menunjukkan kemunduran bangsa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q19" value="b">
+                        <label class="form-check-label">Banyaknya kekayaan menunjukkan bangsa tidak butuh inovasi</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q19" value="c">
+                        <label class="form-check-label">Kekayaan alam adalah warisan yang harus diekspor sebanyak mungkin</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q19" value="d">
+                        <label class="form-check-label">Kekayaan alam merupakan potensi yang harus dikelola dan dijaga oleh generasi penerus </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q19" value="e">
+                        <label class="form-check-label">Kekayaan alam dapat digunakan tanpa batas</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 20 -->
+            <div class="card">
+                <div class="card-header">Soal 20</div>
+                <div class="card-body">
+                    <p>Mengapa penting bagi generasi muda untuk mengenal dan menggunakan produk dalam negeri?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q20" value="a" required>
+                        <label class="form-check-label">Untuk menumbuhkan nasionalisme dan mendukung ekonomi lokal</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q20" value="b">
+                        <label class="form-check-label">Agar tidak tertinggal zaman</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q20" value="c">
+                        <label class="form-check-label">Untuk menghindari pajak tinggi produk impor</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q20" value="d">
+                        <label class="form-check-label">Karena produk luar negeri sering rusak</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="q20" value="e">
+                        <label class="form-check-label">Karena produk lokal selalu lebih murah</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Kirim Jawaban</button>
+            <div id="result" class="result"></div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ganti dengan Web App URL dari Google Apps Script
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxYXBhKtIi_j5GgicnLkIzRWKn1Vu7Pi5XrhlB6EQIWAK55DgVU9vhSv7MpRy1PXFa6/exec"; // Contoh: https://script.google.com/macros/s/xxx/exec
+
+        // Jawaban benar
+        const correctAnswers = {
+            q1: "b", q2: "c", q3: "d", q4: "e", q5: "b",
+            q6: "c", q7: "c", q8: "d", q9: "b", q10: "c",
+            q11: "d", q12: "a", q13: "c", q14: "a", q15: "c",
+            q16: "b", q17: "c", q18: "c", q19: "d", q20: "a"
+        };
+
+        // Progress Bar
+        let answeredQuestions = 0;
+        const totalQuestions = 20;
+        function updateProgress() {
+            answeredQuestions++;
+            const progress = (answeredQuestions / totalQuestions) * 100;
+            document.getElementById("progressBar").style.width = progress + "%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", progress);
+        }
+
+        // Form Submission
+        document.getElementById("quizForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(document.getElementById("quizForm"));
+            formData.append("section", "kuis");
+
+            // Hitung skor
+            let score = 0;
+            for (let i = 1; i <= 20; i++) {
+                const answer = formData.get(`q${i}`);
+                if (answer === correctAnswers[`q${i}`]) {
+                    score += 5; // Setiap soal bernilai 5 poin (total 100)
+                }
+            }
+
+            // Tampilkan hasil
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `Skor Anda: ${score}/100`;
+            resultDiv.style.display = "block";
+
+            // Kirim ke Google Sheets
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result !== "success") {
+                    alert("Terjadi kesalahan saat menyimpan: " + data.error);
+                }
+            })
+            .catch(error => alert("Error: " + error));
+
+            // Update progress
+            updateProgress();
+        });
+
+        // Update progress saat memilih jawaban
+        for (let i = 1; i <= 20; i++) {
+            document.getElementsByName(`q${i}`).forEach(input => {
+                input.addEventListener("change", updateProgress);
+            });
+        }
+    </script>
+</body>
+</html>

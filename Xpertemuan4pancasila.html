@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pertemuan 4 - Bangga sebagai Bangsa Indonesia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f9f9;
+    }
+    .header {
+      background-color: #1a73e8;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .section-title {
+      background-color: #0b5394;
+      color: white;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+    }
+    .btn-kirim {
+      background-color: #1a73e8;
+      color: white;
+    }
+    .btn-kirim:hover {
+      background-color: #0b5394;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container my-4">
+    <div class="header">
+      <h2>Pembelajaran Interaktif</h2>
+      <h4>Pertemuan 4 – Bangga sebagai Bangsa Indonesia</h4>
+      <p><em>Indikator: Mencintai Produk Dalam Negeri</em></p>
+    </div>
+
+    <!-- Pendahuluan -->
+    <div class="card my-4">
+      <div class="card-body">
+        <h5>Pendahuluan</h5>
+        <p>Bangga terhadap produk dalam negeri mencerminkan sikap cinta tanah air dan upaya membangun kemandirian bangsa. Dalam kegiatan ini, siswa akan berdiskusi untuk menganalisis berbagai aspek penting terkait produk lokal.</p>
+      </div>
+    </div>
+    <div class="card-body">
+        <h5>Amatilah Vedeo berikut</h5>
+    </div>
+      <div class="ratio ratio-16x9 mb-2">
+      <iframe src="https://www.youtube.com/embed/FILM_ID_4" title="Video Kelompok 4" allowfullscreen></iframe>
+    </div>
+
+    <!-- Pertanyaan Diskusi Kelompok -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title">Kelompok 1</div>
+          <div class="card-body">
+            <p><strong>Topik:</strong> Keunggulan Produk Lokal</p>
+            <p><strong>Pertanyaan:</strong> Apa saja keunggulan produk lokal Indonesia dibanding produk asing? Berikan contoh nyata dari lingkungan sekitar!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title bg-success">Kelompok 2</div>
+          <div class="card-body">
+            <p><strong>Topik:</strong> Dampak Ekonomi Produk Lokal</p>
+            <p><strong>Pertanyaan:</strong> Jelaskan dampak membeli produk dalam negeri terhadap ekonomi keluarga, masyarakat, dan negara!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title bg-warning">Kelompok 3</div>
+          <div class="card-body">
+            <p><strong>Topik:</strong> Tantangan Produk Dalam Negeri</p>
+            <p><strong>Pertanyaan:</strong> Apa saja tantangan yang dihadapi produk lokal dalam bersaing dengan produk asing? Bagaimana solusinya?</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="section-title bg-danger">Kelompok 4</div>
+          <div class="card-body">
+            <p><strong>Topik:</strong> Kampanye Kreatif Produk Lokal</p>
+            <p><strong>Pertanyaan:</strong> Bagaimana strategi atau kampanye kreatif yang dapat dilakukan oleh pelajar untuk mempromosikan produk dalam negeri?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Diskusi Kelompok -->
+    <form id="formDiskusi" action="https://script.google.com/macros/s/AKfycbw-Px8wEWUPqN5Z3-ZlRHmea58mOypWyebnxf5ZZ5Fqutpps16movgg64jUkwdPMIRxmQ/exec" method="POST" class="card my-4">
+      <div class="section-title">📝 Kirim Hasil Diskusi Kelompok</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="kelompok" class="form-label">Nama Kelompok</label>
+          <select name="kelompok" id="kelompok" class="form-select" required>
+            <option value="">Pilih Kelompok</option>
+            <option value="Kelompok 1">Kelompok 1</option>
+            <option value="Kelompok 2">Kelompok 2</option>
+            <option value="Kelompok 3">Kelompok 3</option>
+            <option value="Kelompok 4">Kelompok 4</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="hasil_diskusi" class="form-label">Hasil Diskusi</label>
+          <textarea name="hasil_diskusi" id="hasil_diskusi" rows="4" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-kirim">Kirim Diskusi</button>
+      </div>
+    </form>
+
+    <!-- Form Refleksi Individu -->
+    <form id="formRefleksi" action="https://script.google.com/macros/s/AKfycbw-Px8wEWUPqN5Z3-ZlRHmea58mOypWyebnxf5ZZ5Fqutpps16movgg64jUkwdPMIRxmQ/exec" method="POST" class="card mb-4">
+      <div class="section-title bg-secondary">🤔 Refleksi Individu</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama Siswa</label>
+          <input type="text" name="nama" id="nama" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="refleksi" class="form-label">Apa yang kamu pelajari hari ini tentang cinta produk dalam negeri?</label>
+          <textarea name="refleksi" id="refleksi" rows="4" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary">Kirim Refleksi</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

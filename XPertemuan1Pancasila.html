@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pembelajaran Pancasila - Diskusi & Refleksi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #e3f2fd, #e8f5e9);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .judul-section {
+      background-color: #1e88e5;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px 10px 0 0;
+    }
+    .card-custom {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .form-label {
+      font-weight: 500;
+    }
+    .pertanyaan {
+      display: none;
+      background-color: #f1f8e9;
+      padding: 10px;
+      border-left: 5px solid #81c784;
+      border-radius: 4px;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .header-logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .header-logo h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #1e88e5;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <!-- Header dengan logo -->
+    <div class="header-logo">
+      <img src="LogoSMK.png" alt="Logo SMK" />
+      <h2>Pendidikan Pancasila</h2>
+    </div>
+
+    <h4 class="mb-4 text-secondary">Pertemuan 1: Perumusan Pancasila sebagai Dasar Negara</h4>
+
+    <!-- FORM DISKUSI -->
+    <div class="card mb-4 card-custom">
+      <div class="judul-section">📘 Form Diskusi Kelompok</div>
+      <div class="card-body">
+        <form id="formDiskusi">
+          <div class="mb-3">
+            <label class="form-label">Pilih Kelompok</label>
+            <select class="form-select" name="kelompok" id="kelompokSelect" required onchange="tampilkanPertanyaan()">
+              <option value="">-- Pilih --</option>
+              <option value="Kelompok 1">Kelompok 1</option>
+              <option value="Kelompok 2">Kelompok 2</option>
+              <option value="Kelompok 3">Kelompok 3</option>
+              <option value="Kelompok 4">Kelompok 4</option>
+            </select>
+          </div>
+
+          <div class="mb-3 pertanyaan" id="pertanyaan1">
+            <strong>Kelompok 1:</strong> Jelaskan peran BPUPKI dan PPKI dalam merumuskan dasar negara Indonesia!
+          </div>
+          <div class="mb-3 pertanyaan" id="pertanyaan2">
+            <strong>Kelompok 2:</strong> Jelaskan rumusan Pancasila versi Mohammad Yamin dan latar belakangnya!
+          </div>
+          <div class="mb-3 pertanyaan" id="pertanyaan3">
+            <strong>Kelompok 3:</strong> Jelaskan rumusan Pancasila versi Soepomo dan konsep negara integralistik!
+          </div>
+          <div class="mb-3 pertanyaan" id="pertanyaan4">
+            <strong>Kelompok 4:</strong> Jelaskan isi pidato Soekarno 1 Juni 1945 & proses lahirnya Piagam Jakarta!
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nama Anggota Kelompok</label>
+            <textarea class="form-control" name="anggota" rows="2" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Hasil Diskusi</label>
+            <textarea class="form-control" name="hasil_diskusi" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">💬 Kirim Diskusi Kelompok</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FORM REFLEKSI -->
+    <div class="card card-custom">
+      <div class="judul-section bg-success">🧠 Form Refleksi Individu</div>
+      <div class="card-body">
+        <form id="formRefleksi">
+          <div class="mb-3">
+            <label class="form-label">Nama Siswa</label>
+            <input type="text" class="form-control" name="nama_refleksi" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Refleksi (apa yang kamu pelajari hari ini?)</label>
+            <textarea class="form-control" name="refleksi" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">📩 Kirim Refleksi Individu</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function tampilkanPertanyaan() {
+      document.querySelectorAll(".pertanyaan").forEach(p => p.style.display = "none");
+      const val = document.getElementById("kelompokSelect").value;
+      if (val === "Kelompok 1") document.getElementById("pertanyaan1").style.display = "block";
+      if (val === "Kelompok 2") document.getElementById("pertanyaan2").style.display = "block";
+      if (val === "Kelompok 3") document.getElementById("pertanyaan3").style.display = "block";
+      if (val === "Kelompok 4") document.getElementById("pertanyaan4").style.display = "block";
+    }
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzYo_lr9_aNMFNhbkTtKJIe51TThLPPylmlz3WDZzS7efy5Dqok4PstgWfldQoNylyd/exec"; // Ganti dengan script ID Anda
+
+    document.getElementById("formDiskusi").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      fetch(scriptURL, { method: "POST", body: form })
+        .then(() => alert("✅ Diskusi kelompok berhasil dikirim!"))
+        .catch(() => alert("❌ Gagal mengirim diskusi."));
+      this.reset();
+    });
+
+    document.getElementById("formRefleksi").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      fetch(scriptURL, { method: "POST", body: form })
+        .then(() => alert("✅ Refleksi berhasil dikirim!"))
+        .catch(() => alert("❌ Gagal mengirim refleksi."));
+      this.reset();
+    });
+  </script>
+</body>
+</html>

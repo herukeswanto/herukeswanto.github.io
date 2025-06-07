@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nilai-nilai pancasila dalam kehidupan sehari-hari</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0fdf4;
+    }
+    .section-title {
+      background-color: #388e3c;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+    }
+    .card {
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .btn-kirim {
+      background-color: #388e3c;
+      color: white;
+    }
+    .btn-kirim:hover {
+      background-color: #2e7d32;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container py-4">
+
+  <h2 class="text-success mb-4">Pembelajaran Interaktif Nilai Pancasila</h2>
+  <h4 class="text-muted mb-4 text-center">Diskusi Kelompok & Refleksi Individu</h4>
+
+  <!-- === VIDEO DAN PERTANYAAN UNTUK 5 KELOMPOK === -->
+  <!-- Ganti YOUTUBE_ID_X dengan ID video YouTube Anda -->
+
+  <!-- Kelompok 1 -->
+  <div class="card">
+    <div class="section-title">Kelompok 1 – Sila Pertama (Ketuhanan Yang Maha Esa)</div>
+    <div class="card-body">
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://www.youtube.com/embed/v6Suv5EHvGw" allowfullscreen></iframe>
+      </div>
+      <strong>Pertanyaan:</strong>
+      <ul>
+        <li>Nilai-nilai religius apa yang tercermin dalam video?</li>
+        <li>Adakah sikap toleransi beragama yang terlihat?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Kelompok 2 -->
+  <div class="card">
+    <div class="section-title bg-primary">Kelompok 2 – Sila Kedua (Kemanusiaan yang Adil dan Beradab)</div>
+    <div class="card-body">
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://www.youtube.com/embed/TWonmEzrqkA" allowfullscreen></iframe>
+      </div>
+      <strong>Pertanyaan:</strong>
+      <ul>
+        <li>Bagaimana wujud sikap adil dan beradab terhadap sesama?</li>
+        <li>Apa bentuk empati dan gotong royong yang terlihat dalam tayangan?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Kelompok 3 -->
+  <div class="card">
+    <div class="section-title bg-warning text-dark">Kelompok 3 – Sila Ketiga (Persatuan Indonesia)</div>
+    <div class="card-body">
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://www.youtube.com/embed/ZE7VUoG53P8" allowfullscreen></iframe>
+      </div>
+      <strong>Pertanyaan:</strong>
+      <ul>
+        <li>Bagaimana persatuan dan kerja sama ditunjukkan dalam video?</li>
+        <li>Apakah ada upaya menjaga keberagaman dan persaudaraan?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Kelompok 4 -->
+  <div class="card">
+    <div class="section-title bg-info">Kelompok 4 – Sila Keempat (Kerakyatan dan Musyawarah)</div>
+    <div class="card-body">
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://www.youtube.com/embed/viJb0rUdpwI" allowfullscreen></iframe>
+      </div>
+      <strong>Pertanyaan:</strong>
+      <ul>
+        <li>Adakah proses musyawarah atau pengambilan keputusan bersama?</li>
+        <li>Bagaimana sikap demokratis ditunjukkan dalam video?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Kelompok 5 -->
+  <div class="card">
+    <div class="section-title bg-danger">Kelompok 5 – Sila Kelima (Keadilan Sosial)</div>
+    <div class="card-body">
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://www.youtube.com/embed/VeKZJbHftlw" allowfullscreen></iframe>
+      </div>
+      <strong>Pertanyaan:</strong>
+      <ul>
+        <li>Apa contoh keadilan sosial dalam video tersebut?</li>
+        <li>Bagaimana perlakuan yang adil bagi semua ditampilkan?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- === FORM DISKUSI KELOMPOK === -->
+  <form id="formDiskusi" action="https://script.google.com/macros/s/AKfycbxBn7Pq1Azr4haTz9GuUjuBag2xGM2OkUGS5tQFiKQ1qcQpfxooobwL-UvWfTvnvAHKsg/exec" method="POST" class="card">
+    <div class="section-title">📝 Kirim Hasil Diskusi Kelompok</div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="kelompok" class="form-label">Kelompok</label>
+        <select name="kelompok" id="kelompok" class="form-select" required>
+          <option value="">Pilih Kelompok</option>
+          <option value="Kelompok 1 - Ketuhanan">Kelompok 1 - Ketuhanan</option>
+          <option value="Kelompok 2 - Kemanusiaan">Kelompok 2 - Kemanusiaan</option>
+          <option value="Kelompok 3 - Persatuan">Kelompok 3 - Persatuan</option>
+          <option value="Kelompok 4 - Kerakyatan">Kelompok 4 - Kerakyatan</option>
+          <option value="Kelompok 5 - Keadilan Sosial">Kelompok 5 - Keadilan Sosial</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="hasil_diskusi" class="form-label">Hasil Diskusi Kelompok</label>
+        <textarea name="hasil_diskusi" id="hasil_diskusi" rows="4" class="form-control" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-kirim">Kirim Hasil Diskusi</button>
+    </div>
+  </form>
+
+  <!-- === FORM REFLEKSI INDIVIDU === -->
+  <form id="formRefleksi" action="https://script.google.com/macros/s/AKfycbxBn7Pq1Azr4haTz9GuUjuBag2xGM2OkUGS5tQFiKQ1qcQpfxooobwL-UvWfTvnvAHKsg/exec" method="POST" class="card">
+    <div class="section-title bg-secondary">🤔 Refleksi Individu Siswa</div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama Siswa</label>
+        <input type="text" name="nama" id="nama" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="refleksi" class="form-label">Tuliskan refleksi Anda setelah mengikuti pembelajaran hari ini</label>
+        <textarea name="refleksi" id="refleksi" rows="4" class="form-control" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-secondary">Kirim Refleksi</button>
+    </div>
+  </form>
+
+</div>
+</body>
+</html>
